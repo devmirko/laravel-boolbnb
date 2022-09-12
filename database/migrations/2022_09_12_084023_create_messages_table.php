@@ -15,11 +15,11 @@ class CreateMessagesTable extends Migration
     {
         Schema::create('messages', function (Blueprint $table) {
             $table->id()->unique();
-            $table->foreignId('houses_id')->constrained();
+            $table->foreignId('house_id')->constrained();
 
             $table->string('contact_name', 20);
             $table->string('lastname', 20);
-            $table->string('email',256);
+            $table->string('email', 256);
             $table->text('request_text');
 
             $table->timestamps();
