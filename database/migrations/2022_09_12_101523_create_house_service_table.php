@@ -14,8 +14,8 @@ class CreateHouseServiceTable extends Migration
     public function up()
     {
         Schema::create('house_service', function (Blueprint $table) {
-            $table->foreignId('houses_id')->constrained();
-            $table->foreignId('services_id')->constrained();
+            $table->foreignId('house_id')->constrained();
+            $table->foreignId('service_id')->constrained();
         });
     }
 
@@ -29,4 +29,3 @@ class CreateHouseServiceTable extends Migration
         Schema::dropIfExists('house_service');
     }
 }
-
