@@ -17,7 +17,20 @@ class CreateHousesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
 
-            $table->string('name_house');
+            $table->string('name_house')->default('appartamento')->index('house');
+            $table->tinyInteger('rooms');
+            $table->tinyInteger('bads');
+            $table->tinyInteger('bathrooms');
+            $table->smallInteger('mq');
+            $table->integer('lat');
+            $table->integer('long');
+            $table->string('address');
+            $table->boolean('visible')->default(true);
+            $table->string('cover_photo')->nullable();
+            $table->string('type');
+
+            $table->timestamps();
+
 
 
 
