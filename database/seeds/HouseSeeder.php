@@ -18,6 +18,7 @@ class HouseSeeder extends Seeder
         $users_ids = User::all()->pluck('id');
 
 
+
         for ($i=0; $i < 50; $i++ ) {
 
             $house = new House;
