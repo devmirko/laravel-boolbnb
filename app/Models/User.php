@@ -36,4 +36,8 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    // colleghiamo la tabella user a house
+    public function posts() {
+        return $this->hasMany('App\Models\House');
+    }
 }
