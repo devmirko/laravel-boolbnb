@@ -22,3 +22,4 @@ class DatabaseSeeder extends Seeder
 >>>>>>> 2d860188765e063a99b583f68c0ca1f7247715e6
     }
 }
+
