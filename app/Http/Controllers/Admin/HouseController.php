@@ -27,7 +27,7 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
-        //
+        return view('admin.houses.show', compact('house'));
     }
 
     public function edit(House $house)
