@@ -14,26 +14,170 @@ class HouseSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        $types = ['Villetta', 'Appartamento', 'Casa a schiera'];
+
         $users_ids = User::all()->pluck('id');
 
+        $houses = [
+            [
+                'name_house' => 'Casetta Blu',
+                'rooms' => '6',
+                'beds' => '4',
+                'bathrooms' => '2',
+                'mq' => '73',
+                'lat' => '44.042486',
+                'lang' => '11.045285',
+                'address' => 'Via Roma 15',
+                'cover_photo' => 'https://i.imgur.com/xbAssQa.jpg',
+                'type' => 'Villetta a schiera',
+            ],
+            [
+                'name_house' => 'Casa dei Monti',
+                'rooms' => '4',
+                'beds' => '3',
+                'bathrooms' => '1',
+                'mq' => '45',
+                'lat' => '46.404476',
+                'lang' => '9.478560',
+                'address' => 'Via Piave 1/C',
+                'cover_photo' => 'https://i.imgur.com/2pFZMfR.jpg',
+                'type' => 'Villa',
+            ],
+            [
+                'name_house' => 'Casa Colonica',
+                'rooms' => '8',
+                'beds' => '5',
+                'bathrooms' => '3',
+                'mq' => '98',
+                'lat' => '46.425306',
+                'lang' => '10.854597',
+                'address' => 'Via Papa Giovanni',
+                'cover_photo' => 'https://i.imgur.com/zsugY8Z.jpg',
+                'type' => 'Villetta',
+            ],
+            [
+                'name_house' => 'Appartamento dei Cieli',
+                'rooms' => '2',
+                'beds' => '1',
+                'bathrooms' => '1',
+                'mq' => '35',
+                'lat' => '46.030094',
+                'lang' => '8.989688',
+                'address' => 'Via Salvagente 78',
+                'cover_photo' => 'https://i.imgur.com/tcZGxPe.jpg',
+                'type' => 'Appartamento',
+            ],
+            [
+                'name_house' => 'Casa dei Lavoratori',
+                'rooms' => '7',
+                'beds' => '3',
+                'bathrooms' => '2',
+                'mq' => '81',
+                'lat' => '45.739485',
+                'lang' => '8.423872',
+                'address' => 'Via Milano 67',
+                'cover_photo' => 'https://i.imgur.com/8N4XGlg.jpg',
+                'type' => 'Villetta a schiera',
+            ],
+            [
+                'name_house' => 'Casetta degli gnomi',
+                'rooms' => '5',
+                'beds' => '4',
+                'bathrooms' => '2',
+                'mq' => '73',
+                'lat' => '45.4877845',
+                'lang' => '11.370955',
+                'address' => 'Via Palo 31',
+                'cover_photo' => 'https://i.imgur.com/1NeM8g2.jpg',
+                'type' => 'Villa',
+            ],
+            [
+                'name_house' => 'Casale Romano',
+                'rooms' => '9',
+                'beds' => '5',
+                'bathrooms' => '3',
+                'mq' => '147',
+                'lat' => '45.487806',
+                'lang' => '0.327498',
+                'address' => 'Via Sali Bianchi 45',
+                'cover_photo' => 'https://i.imgur.com/sOQNBdr.jpg',
+                'type' => 'Villetta a schiera',
+            ],
+            [
+                'name_house' => 'Villa Marrini',
+                'rooms' => '7',
+                'beds' => '4',
+                'bathrooms' => '2',
+                'mq' => '98',
+                'lat' => '45.316666',
+                'lang' => '8.332651',
+                'address' => 'Via Paolo Bianchi 12',
+                'cover_photo' => 'https://i.imgur.com/ZUjPI4u.jpg',
+                'type' => 'Villa',
+            ],
+            [
+                'name_house' => 'Casale dei Pini',
+                'rooms' => '4',
+                'beds' => '3',
+                'bathrooms' => '1',
+                'mq' => '54',
+                'lat' => '45.754813',
+                'lang' => '7.275039',
+                'address' => 'Via Nellini 3',
+                'cover_photo' => 'https://i.imgur.com/XogaolA.jpg',
+                'type' => 'Villetta a schiera',
+            ],
+            [
+                'name_house' => 'Appartamento degli Angeli',
+                'rooms' => '4',
+                'beds' => '2',
+                'bathrooms' => '1',
+                'mq' => '43',
+                'lat' => '45.051538',
+                'lang' => '8.762568',
+                'address' => 'Viale Risorgimento 35',
+                'cover_photo' => 'https://i.imgur.com/jd6v8sF.jpg',
+                'type' => 'Appartamento',
+            ]
+        ];
 
 
-        for ($i=0; $i < 50; $i++ ) {
 
-            $house = new House;
-
-            $house->user_id = $faker->randomElement($users_ids);
-            $house->name_house = $faker->titleMale();
-            $house->rooms = $faker->numberBetween(0, 10);
-            $house->beds = $faker->numberBetween(0, 5);
-            $house->bathrooms = $faker->numberBetween(0, 3);
-            $house->mq = $faker->numberBetween(50, 150);
-            $house->lat = $faker->numberBetween(0, 180);
-            $house->lang = $faker->numberBetween(0, 180);
-            $house->address = $faker->address();
-            $house->type = $faker->randomElement($types);
-            $house->save();
+        foreach ($houses as $house) {
+            House::create($house +[
+                'user_id' => $faker->randomElement($users_ids)
+            ]);
         }
+
+
+
+
+
+
+
+
+
+
+
+        // $types = ['Villetta', 'Appartamento', 'Casa a schiera'];
+        // $users_ids = User::all()->pluck('id');
+
+
+
+        // for ($i=0; $i < 50; $i++ ) {
+
+        //     $house = new House;
+
+        //     $house->user_id = $faker->randomElement($users_ids);
+        //     $house->name_house = $faker->word();
+        //     $house->rooms = $faker->numberBetween(1, 10);
+        //     $house->beds = $faker->numberBetween(1, 5);
+        //     $house->bathrooms = $faker->numberBetween(1, 3);
+        //     $house->mq = $faker->numberBetween(50, 150);
+        //     $house->lat = $faker->numberBetween(0, 180);
+        //     $house->lang = $faker->numberBetween(0, 180);
+        //     $house->address = $faker->address();
+        //     $house->type = $faker->randomElement($types);
+        //     $house->save();
+        // }
     }
 }
