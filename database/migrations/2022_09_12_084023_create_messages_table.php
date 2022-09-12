@@ -13,8 +13,17 @@ class CreateMessagesTable extends Migration
      */
     public function up()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            //
+        Schema::create('messages', function (Blueprint $table) {
+            $table->id()->unique();
+            $table->foreignId('houses_id')->constrained();
+
+            $table->string('contact_name', 20);
+            $table->string('lastname', 20);
+            $table->string('email',256);
+            $table->text('request_text');
+
+            $table->timestamps();
+
         });
     }
 
@@ -25,8 +34,6 @@ class CreateMessagesTable extends Migration
      */
     public function down()
     {
-        Schema::table('messages', function (Blueprint $table) {
-            //
-        });
+        Schema::dropIfExists('messages');
     }
 }
