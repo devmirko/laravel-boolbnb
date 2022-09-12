@@ -18,11 +18,8 @@ class HouseSeeder extends Seeder
         $users_ids = User::all()->pluck('id');
 
 
-<<<<<<< HEAD
-        for ($i = 0; $i < 50; $i++) {
-=======
+
         for ($i=0; $i < 50; $i++ ) {
->>>>>>> fde8d662abf4dc901573f38764f7a38ed39ce43b
 
             $house = new House;
 
