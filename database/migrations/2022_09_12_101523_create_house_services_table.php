@@ -16,7 +16,6 @@ class CreateHouseServicesTable extends Migration
         Schema::create('house_services', function (Blueprint $table) {
             $table->foreignId('houses_id')->constrained();
             $table->foreignId('services_id')->constrained();
-            $table->timestamps();
         });
     }
 
