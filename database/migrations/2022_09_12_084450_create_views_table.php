@@ -15,6 +15,13 @@ class CreateViewsTable extends Migration
     {
         Schema::create('views', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('houses_id')->constrained();
+
+            $table->ipAddress('ip_visitor');
+            $table->date('data');
+            $table->time('time');
+            $table->year('year');
+
             $table->timestamps();
         });
     }
