@@ -17,7 +17,7 @@ class CreateHousesTable extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained();
 
-            $table->string('name_house');
+            $table->string('name_house')->default('appartamento')->index('house');
 
 
 
