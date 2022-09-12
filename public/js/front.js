@@ -40245,8 +40245,13 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+<<<<<<< HEAD
+__webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+=======
+__webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\resources\sass\back.scss */"./resources/sass/back.scss");
+>>>>>>> c108021ae2c7bb0ef7ebe1629ea13bd1e9841eb2
 
 
 /***/ })
