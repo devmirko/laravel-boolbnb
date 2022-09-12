@@ -6,5 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Service extends Model
 {
-    //
+    // creiamo una relazione molti a molti dalla tabella services alla tabella house
+    public function house() {
+        return $this->belongsToMany('App\Models\House');
+    }
 }
