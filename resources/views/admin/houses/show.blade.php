@@ -2,6 +2,10 @@
 
 @section('mainContent')
     <h1>{{ $house->name_house }}</h1>
-    <p>{{ $house->rooms }}</p>
-    <a href="{{ route('admin.houses.index')}}">Houses Home</a>
+    <p class="">Numero di stanze: {{ $house->rooms }}</p>
+    <p>Numero di letti: {{$house->beds}}</p>
+    <p>Numero di bagni: {{$house->bathrooms}}</p>
+    <img src="{{$house->cover_photo}}" alt="">
+    <a class="d-block" href="{{ route('admin.houses.index')}}">Back</a>
+
 @endsection
