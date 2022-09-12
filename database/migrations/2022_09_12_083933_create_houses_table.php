@@ -29,6 +29,8 @@ class CreateHousesTable extends Migration
             $table->string('cover_photo')->nullable();
             $table->string('type');
 
+            $table->timestamps();
+
 
 
 
