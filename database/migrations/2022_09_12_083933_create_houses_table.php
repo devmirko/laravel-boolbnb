@@ -22,7 +22,8 @@ class CreateHousesTable extends Migration
             $table->tinyInteger('beds');
             $table->tinyInteger('bathrooms');
             $table->smallInteger('mq');
-            $table->integer('latLong');
+            $table->integer('lat');
+            $table->integer('lang');
             $table->string('address');
             $table->boolean('visible')->default(true);
             $table->string('cover_photo')->nullable();

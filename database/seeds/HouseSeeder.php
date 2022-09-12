@@ -18,7 +18,8 @@ class HouseSeeder extends Seeder
         $users_ids = User::all()->pluck('id');
 
 
-        for ($i=0; $i < 50; $i++) {
+
+        for ($i=0; $i < 50; $i++ ) {
 
             $house = new House;
 
@@ -28,8 +29,9 @@ class HouseSeeder extends Seeder
             $house->beds = $faker->numberBetween(0, 5);
             $house->bathrooms = $faker->numberBetween(0, 3);
             $house->mq = $faker->numberBetween(50, 150);
-            $house->latLong = $faker->localCoordinates();
-            $house->adress = $faker->address();
+            $house->lat = $faker->numberBetween(0, 180);
+            $house->lang = $faker->numberBetween(0, 180);
+            $house->address = $faker->address();
             $house->type = $faker->randomElement($types);
             $house->save();
         }
