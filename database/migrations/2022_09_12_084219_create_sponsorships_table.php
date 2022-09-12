@@ -30,7 +30,7 @@ class CreateSponsorshipsTable extends Migration
     public function down()
     {
         Schema::table('sponsorships', function (Blueprint $table) {
-            //
+            Schema::dropIfExists('sponsorships');
         });
     }
 }
