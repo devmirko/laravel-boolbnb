@@ -66,22 +66,23 @@
     <body>
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
+            <div class="top-right links">
+                @auth
+                <a href="{{ url('') }}">Home</a>
+                @else
+                <a href="{{ route('login') }}">Login</a>
+                
+                @if (Route::has('register'))
+                <a href="{{ route('register') }}">Register</a>
+                @endif
+                @endauth
+            </div>
             @endif
-
+            
             <div class="content">
+                <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927774037192724/Tavola_disegno_43x.png" alt="LogoBBB">
                 <div class="title m-b-md">
-                    Laravel
+                    Welcome to Bool BnB
                 </div>
             </div>
         </div>
