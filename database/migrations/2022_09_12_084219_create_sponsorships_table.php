@@ -13,7 +13,7 @@ class CreateSponsorshipsTable extends Migration
      */
     public function up()
     {
-        Schema::table('sponsorships', function (Blueprint $table) {
+        Schema::create('sponsorships', function (Blueprint $table) {
             $table->id();
             $table->string('plan');
             $table->mediumInteger('price');
@@ -29,8 +29,6 @@ class CreateSponsorshipsTable extends Migration
      */
     public function down()
     {
-        Schema::table('sponsorships', function (Blueprint $table) {
-            Schema::dropIfExists('sponsorships');
-        });
+        Schema::dropIfExists('sponsorships');
     }
 }
