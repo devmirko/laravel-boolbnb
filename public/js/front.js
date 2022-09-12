@@ -40245,8 +40245,8 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
 
 
 /***/ })

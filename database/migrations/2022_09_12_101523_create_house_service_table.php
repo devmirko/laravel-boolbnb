@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateHouseServicesTable extends Migration
+class CreateHouseServiceTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,9 +13,9 @@ class CreateHouseServicesTable extends Migration
      */
     public function up()
     {
-        Schema::create('house_services', function (Blueprint $table) {
-            $table->foreignId('houses_id')->constrained();
-            $table->foreignId('services_id')->constrained();
+        Schema::create('house_service', function (Blueprint $table) {
+            $table->foreignId('house_id')->constrained();
+            $table->foreignId('service_id')->constrained();
         });
     }
 
@@ -26,6 +26,6 @@ class CreateHouseServicesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('house_services');
+        Schema::dropIfExists('house_service');
     }
 }
