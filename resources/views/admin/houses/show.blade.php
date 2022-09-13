@@ -5,6 +5,8 @@
     <p class="">Numero di stanze: {{ $house->rooms }}</p>
     <p>Numero di letti: {{$house->beds}}</p>
     <p>Numero di bagni: {{$house->bathrooms}}</p>
+    <p>Indirizzo: {{$house->address}}</p>
+    <p>Tipo di Struttura: {{$house->type}}</p>
     <img src="{{$house->cover_photo}}" alt="">
     <a class="d-block" href="{{ route('admin.houses.index')}}">Back</a>
 
