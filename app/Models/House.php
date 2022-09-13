@@ -6,10 +6,25 @@ use Illuminate\Database\Eloquent\Model;
 
 class House extends Model
 {
-
+    protected $fillable = [
+        'user_id',
+        'name_house',
+        'rooms',
+        'beds',
+        'bathrooms',
+        'mq',
+        'lat',
+        'lang',
+        'address',
+        'type'
+    ];
 
     public function user() { // il belongs to sta dalla parte dell'1 della relazione e il nome deve essere singolare
         return $this->belongsTo('App\Models\User');
+    }
+
+    public function messages(){
+        return $this->hasMany('App\Models\Message');
     }
 
     public function photos() {
