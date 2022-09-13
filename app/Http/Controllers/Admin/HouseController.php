@@ -51,6 +51,11 @@ class HouseController extends Controller
         $data['user_id'] = $user_id;
         $house->fill($data);
         $house->save();
+        // colleghiamo i dati nella tabella ponte.
+        $house->services()->sync($data['services']);
+
+
+
 
         return redirect()->route('admin.houses.index')
 
@@ -98,7 +103,7 @@ class HouseController extends Controller
         // $house->messages();
         // // var_dump($house->messages());
         // // dd();
-        // $house->services()->detach();
+        $house->services()->detach();
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
