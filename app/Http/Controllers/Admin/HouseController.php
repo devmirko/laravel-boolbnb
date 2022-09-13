@@ -3,22 +3,31 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\House;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 
 class HouseController extends Controller
 {
-    public function index()
+    public function index( )
     {
-        $perPage = 20;
-        $houses = House::paginate($perPage);
+         //if (Auth::id() != $house->user_id) abort(401);
+        $houses = House::All()->where('user_id', auth()->user()->id);
+
+
+
+        // $perPage = 20;
+        // $houses = House::paginate($perPage);
         return view('admin.houses.index', compact('houses'));
     }
 
     public function create()
     {
-        return view('admin.houses.create');
+        $services = Service::all();
+        return view('admin.houses.create',[
+            'services'    => $services,
+        ]);
     }
 
     public function store(Request $request)

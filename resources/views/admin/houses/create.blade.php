@@ -86,6 +86,33 @@
                 </div>
             @enderror
         </div>
+        {{-- checkbox --}}
+        <fieldset class="mb-3">
+            <legend>Services</legend>
+            @foreach ($services as $service)
+                <div class="form-check">
+
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="services[]"
+                        value="{{ $service->id }}"
+                        id="service-{{ $service->id }}"
+                        @if(in_array($service->id, old('services') ?: [])) checked @endif
+                    >
+                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name_services }}</label>
+                </div>
+            @endforeach
+
+            @foreach ($errors->get('services.*') as $messages)
+                @foreach ($messages as $message)
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @endforeach
+            @endforeach
+        </fieldset>
+
         <button type="submit" class="btn btn-primary">Save</button>
     </form>
 @endsection
