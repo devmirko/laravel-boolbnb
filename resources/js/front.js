@@ -34,3 +34,5 @@ const app = new Vue({
     render: h => h(App),  // significato di render: monta il componente App nell'elemento root
     router,
 });
+
+
