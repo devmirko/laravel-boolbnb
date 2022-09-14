@@ -86,13 +86,12 @@
                 </div>
             @enderror
         </div>
-<<<<<<< HEAD
+
         {{-- immagini --}}
         <div class="mb-3">
             <label class="form-label" for="cover_photo">Image</label>
             <input class="form-control @error('cover_photo') is-invalid @enderror" type="file" name="cover_photo" id="cover_photo" accept="image/*">
             @error('image')
-=======
 
         {{-- visible --}}
         <div class="mb-3">
@@ -112,16 +111,16 @@
                 </label>
             </div>
             @error('visible')
->>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
+
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
-<<<<<<< HEAD
+
 
             <img id="preview" class="img-fluid" src="">
-=======
->>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
+
+
         </div>
 
         {{-- checkbox --}}
