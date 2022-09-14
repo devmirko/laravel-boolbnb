@@ -12,24 +12,8 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/back.js') }}" defer></script>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
-    {{-- script sweet alert --}}
-    {{-- <script>
-        window.addEventListener('show-delete-confimation', event => {
-            swal({
-                title: "Are you sure?",
-                text: "Once deleted, you will not be able to recover this imaginary file!",
-                icon: "warning",
-                buttons: true,
-                dangerMode: true,
-            })
-            .then((willDelete) => {
-                if (willDelete.isConfimed) {
-                        Livewire.emit('deleteConfi')
-                    });
-        }
-    </script> --}}
+
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">

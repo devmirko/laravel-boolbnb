@@ -51,7 +51,7 @@
                 </div>
             @enderror
         </div>
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="lat">Latitudine</label>
             <input class="form-control @error('lat') is-invalid @enderror" type="text" name="lat" id="lat" value="{{ old('lat', $house->lat) }}">
             @error('title')
@@ -68,7 +68,7 @@
                     {{ $message }}
                 </div>
             @enderror
-        </div>
+        </div> --}}
         <div class="mb-3">
             <label class="form-label" for="address">Indirizzo</label>
             <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $house->address) }}">

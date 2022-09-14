@@ -45,8 +45,8 @@ class HouseController extends Controller
             'mq' => 'required|numeric|integer|max:150',
             // 'services'          => 'nullable|array',
             // 'services.*'        => 'integer|exists:services,id',
-            'lat' => 'required|numeric|integer',
-            'lang' => 'required|numeric|integer',
+            'lat' => 'numeric|integer',
+            'lang' => 'numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
             'cover_photo' => 'required|file|image|max:5000'
