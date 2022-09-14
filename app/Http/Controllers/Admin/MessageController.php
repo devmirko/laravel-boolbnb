@@ -10,7 +10,7 @@ class MessageController extends Controller
 {
     public function index()
     {
-         $messages = Message::All();
+        $messages = Message::All();
 
         return view('admin.messages.index', compact('messages'));
 
