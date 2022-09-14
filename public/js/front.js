@@ -5399,7 +5399,12 @@ var staticRenderFns = [function () {
 
   return _c("div", [_c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("Benvenuti in BoolBnB")])]);
+  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: __webpack_require__(/*! ../../../public/img/background/Immagine2.jpeg */ "./public/img/background/Immagine2.jpeg"),
+      alt: ""
+    }
+  })]);
 }];
 render._withStripped = true;
 
@@ -44156,6 +44161,17 @@ module.exports = function(module) {
 	return module;
 };
 
+
+/***/ }),
+
+/***/ "./public/img/background/Immagine2.jpeg":
+/*!**********************************************!*\
+  !*** ./public/img/background/Immagine2.jpeg ***!
+  \**********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "/images/Immagine2.jpeg?fda723489d59bd38f0c004fed3e7240f";
 
 /***/ }),
 
