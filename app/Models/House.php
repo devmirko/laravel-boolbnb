@@ -8,6 +8,10 @@ class House extends Model
 {
     protected $fillable = [
         'user_id',
+        'visible',
+        'service_id',
+        'message_id',
+        'house_id',
         'name_house',
         'rooms',
         'beds',
@@ -36,4 +40,10 @@ class House extends Model
     public function services() {
         return $this->belongsToMany('App\Models\Service');
     }
+
+    public function views() {
+        return $this->hasMany('App\Models\View');
+    }
 }
+
+

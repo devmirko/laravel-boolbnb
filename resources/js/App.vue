@@ -1,7 +1,10 @@
 <template>
     <div>
         <nav-bar></nav-bar>
-        <h1>Work in Progress!!!</h1>
+
+        <div class="container">
+            <router-view></router-view>
+        </div>
     </div>
 </template>
 

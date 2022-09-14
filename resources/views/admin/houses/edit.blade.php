@@ -87,6 +87,58 @@
                 </div>
             @enderror
         </div>
+
+                {{-- visible --}}
+                <div class="mb-3">
+                    <div>
+                        <label for="visible">Visible</label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
+                        <label class="form-check-label" for="flexRadioDefault1">
+                          Yes
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0" checked>
+                        <label class="form-check-label" for="flexRadioDefault2">
+                          No
+                        </label>
+                    </div>
+                    @error('visible')
+                        <div class="invalid-feedback">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                </div>
+
+        {{-- checkbox --}}
+        <fieldset class="mb-3">
+            <legend>Services</legend>
+            @foreach ($services as $service)
+                <div class="form-check">
+                    {{-- <input type="hidden" name="services[]" value="0" /> --}}
+                    <input
+                        class="form-check-input"
+                        type="checkbox"
+                        name="services[]"
+                        value="{{ $service->id }}"
+                        id="service{{ $service->id }}"
+                        @if(in_array($service->id, old('services',  $house->services->pluck('id')->all()) ?: [])) checked @endif
+                    >
+                    <label class="form-check-label" for="service{{ $service->id }}">{{ $service->name_services }}</label>
+                </div>
+            @endforeach
+
+            @foreach ($errors->get('services.*') as $messages)
+                @foreach ($messages as $message)
+                    <div class="invalid-feedback d-block">
+                        {{ $message }}
+                    </div>
+                @endforeach
+            @endforeach
+        </fieldset>
+
         <button type="submit" class="btn btn-primary">Edit</button>
     </form>
 @endsection

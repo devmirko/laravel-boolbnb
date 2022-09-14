@@ -86,17 +86,42 @@
                 </div>
             @enderror
         </div>
+<<<<<<< HEAD
         {{-- immagini --}}
         <div class="mb-3">
             <label class="form-label" for="cover_photo">Image</label>
             <input class="form-control @error('cover_photo') is-invalid @enderror" type="file" name="cover_photo" id="cover_photo" accept="image/*">
             @error('image')
+=======
+
+        {{-- visible --}}
+        <div class="mb-3">
+            <div>
+                <label for="visible">Visible</label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
+                <label class="form-check-label" for="flexRadioDefault1">
+                  Yes
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0" checked>
+                <label class="form-check-label" for="flexRadioDefault2">
+                  No
+                </label>
+            </div>
+            @error('visible')
+>>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
             @enderror
+<<<<<<< HEAD
 
             <img id="preview" class="img-fluid" src="">
+=======
+>>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
         </div>
 
         {{-- checkbox --}}
@@ -104,16 +129,16 @@
             <legend>Services</legend>
             @foreach ($services as $service)
                 <div class="form-check">
-
+                    {{-- <input type="hidden" name="services[]" value="0" /> --}}
                     <input
                         class="form-check-input"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
-                        id="service-{{ $service->id }}"
+                        id="service{{ $service->id }}"
                         @if(in_array($service->id, old('services') ?: [])) checked @endif
                     >
-                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name_services }}</label>
+                    <label class="form-check-label" for="service{{ $service->id }}">{{ $service->name_services }}</label>
                 </div>
             @endforeach
 
