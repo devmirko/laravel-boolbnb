@@ -113,12 +113,10 @@ class HouseController extends Controller
         // // var_dump($house->messages());
         // // dd();
         $house->services()->detach();
-<<<<<<< HEAD
         $house->messages()->delete();
         $house->photos()->delete();
         $house->views()->delete();
-=======
->>>>>>> 462ebbd90e25e44e9cb5f2c64a55a8815589f2ba
+
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
