@@ -86,6 +86,19 @@
                 </div>
             @enderror
         </div>
+        {{-- immagini --}}
+        <div class="mb-3">
+            <label class="form-label" for="cover_photo">Image</label>
+            <input class="form-control @error('cover_photo') is-invalid @enderror" type="file" name="cover_photo" id="cover_photo" accept="image/*">
+            @error('image')
+                <div class="invalid-feedback">
+                    {{ $message }}
+                </div>
+            @enderror
+
+            <img id="preview" class="img-fluid" src="">
+        </div>
+
         {{-- checkbox --}}
         <fieldset class="mb-3">
             <legend>Services</legend>
