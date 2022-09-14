@@ -91,7 +91,6 @@
         <div class="mb-3">
             <label class="form-label" for="cover_photo">Image</label>
             <input class="form-control @error('cover_photo') is-invalid @enderror" type="file" name="cover_photo" id="cover_photo" accept="image/*">
-            @error('image')
 
         {{-- visible --}}
         <div class="mb-3">
