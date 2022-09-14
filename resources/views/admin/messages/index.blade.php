@@ -3,11 +3,12 @@
     <h1>Messages</h1>
     <h1>messaggi ricevuti</h1>
     @foreach ($messages as $message)
-    <div>{{ $message->id}}</div>
-    <div>{{ $message->contact_name}}</div>
-    <div>{{ $message->lastname}}</div>
-    <div>{{ $message->email}}</div>
-    <div>{{ $message->request_text}}</div>
+    <ul>
+    <li>{{ $message->contact_name}}</li>
+    <li>{{ $message->lastname}}</li>
+    <li>{{ $message->email}}</li>
+    <li>{{ $message->request_text}}</li>
+   </ul>
     @endforeach
 
 

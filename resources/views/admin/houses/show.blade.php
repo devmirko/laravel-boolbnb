@@ -10,4 +10,5 @@
     <img src="{{$house->cover_photo}}" alt="">
     <a class="d-block" href="{{ route('admin.houses.index')}}">Back</a>
 
+
 @endsection
