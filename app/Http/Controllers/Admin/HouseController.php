@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\House;
+use App\Models\Message;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -64,6 +65,8 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
+
+
         return view('admin.houses.show', compact('house'));
     }
 
