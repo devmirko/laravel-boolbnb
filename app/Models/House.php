@@ -8,6 +8,7 @@ class House extends Model
 {
     protected $fillable = [
         'user_id',
+        'cover_photo',
         'visible',
         'service_id',
         'message_id',
