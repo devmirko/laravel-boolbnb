@@ -1,5 +1,6 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -11,6 +12,24 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/back.js') }}" defer></script>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {{-- script sweet alert --}}
+    {{-- <script>
+        window.addEventListener('show-delete-confimation', event => {
+            swal({
+                title: "Are you sure?",
+                text: "Once deleted, you will not be able to recover this imaginary file!",
+                icon: "warning",
+                buttons: true,
+                dangerMode: true,
+            })
+            .then((willDelete) => {
+                if (willDelete.isConfimed) {
+                        Livewire.emit('deleteConfi')
+                    });
+        }
+    </script> --}}
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -20,21 +39,23 @@
     <link href="{{ asset('css/back.css') }}" rel="stylesheet">
     <script src="{{ asset('js/back.js') }}" defer></script>
 </head>
+
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container-fluid">
-                <a class="navbar-brand" href="{{route('home')}}">
-                    <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
+                <a class="navbar-brand" href="{{ route('home') }}">
+                    <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png"
+                        alt="" width="100%" height="24">
                 </a>
-              {{-- path: http://127.0.0.1:8000/login --}}
+                {{-- path: http://127.0.0.1:8000/login --}}
             </div>
-         </nav>
+        </nav>
 
         <main class="py-4">
             @yield('content')
         </main>
     </div>
 </body>
-</html>
 
+</html>
