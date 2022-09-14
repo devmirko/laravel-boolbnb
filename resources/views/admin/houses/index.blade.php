@@ -15,26 +15,25 @@
         <tbody>
             @foreach ($houses as $house)
                 <tr data-id="{{ $house->id }}">
-                    <td>{{ $house->id}} </td>
-                    <td>{{ $house->name_house}}</td>
-                    <td>{{ $house->rooms}} </td>
-                    <td>{{ $house->beds}} </td>
-                    <td>{{ $house->bathrooms}} </td>
+                    <td>{{ $house->id }} </td>
+                    <td>{{ $house->name_house }}</td>
+                    <td>{{ $house->rooms }} </td>
+                    <td>{{ $house->beds }} </td>
+                    <td>{{ $house->bathrooms }} </td>
                     <td class="actions">
-                        <a href="{{ route('admin.houses.show', ['house' => $house])}}" class="btn btn-primary">View</a>
+                        <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="btn btn-primary">View</a>
 
-                        <a href="{{ route('admin.houses.edit', ['house' => $house])}}" class="btn btn-warning">Edit</a>
+                        <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="btn btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.houses.destroy', ['house' => $house])}}" method="post">
+                        <form action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger">Delete</button>
+                            <button type="submit" class="btn btn-danger" href="javascript:void(0)">Delete</button>
                         </form>
                     </td>
                 </tr>
             @endforeach
         </tbody>
     </table>
-
-
 @endsection
+

@@ -1,7 +1,9 @@
 <template>
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
-      <img src="../../../public/img/background/Immagine1.jpeg" alt="">
+      <div class="image">
+        <img src="../../../public/img/background/Immagine1.jpeg" alt="">
+      </div>
     </div>
 </template>
 
@@ -12,4 +14,13 @@
 </script>
 
 <style lang="scss" scoped>
+    .image {
+        width: 100%;
+        height: auto;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 </style>
