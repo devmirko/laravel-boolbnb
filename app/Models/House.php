@@ -20,6 +20,7 @@ class House extends Model
         'lat',
         'lang',
         'address',
+        'cover_photo',
         'type'
     ];
 

@@ -8,6 +8,7 @@ use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class HouseController extends Controller
 {
@@ -47,13 +48,38 @@ class HouseController extends Controller
             'lat' => 'required|numeric|integer',
             'lang' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100'
+            'type' => 'required|string|max:100',
+            'cover_photo' => 'required|file|image|max:5000'
         ]);
 
+        // salviamo la richiesta in un variabile
         $data = $request->all();
-        $data['user_id'] = $user_id;
+
+         // aggiungiamo alla richiesta l'id del utente autentificato
+         $data['user_id'] = $user_id;
+
+        if(key_exists('cover_photo', $data)){
+        //salvare l'immagine in public
+         $img_path = Storage::put('uploads', $data['cover_photo']);
+        // aggiornare il valore della chiave image con il nome dell'immagine appena creata
+         $data['cover_photo'] = $img_path;
+
+        }
+
+
+
+        // creiamo e salviamo nella tabella house
         $house->fill($data);
         $house->save();
+<<<<<<< HEAD
+
+
+
+
+
+        // colleghiamo i dati nella tabella ponte.
+=======
+>>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
         $house->services()->sync($data['services']);
 
         return redirect()->route('admin.houses.index')
