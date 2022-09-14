@@ -101,7 +101,7 @@
         {{-- visible --}}
         <div class="mb-3">
             <div>
-                <label for="visible">Visible</label>
+                <label for="visible">Visible *</label>
             </div>
             <div class="form-check">
                 <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1" required @if(old('visible')) checked @endif>
