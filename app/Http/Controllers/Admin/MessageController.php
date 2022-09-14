@@ -2,15 +2,25 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Http\Controllers\Controller;
+use App\Models\House;
 use App\Models\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
 
 class MessageController extends Controller
 {
     public function index()
     {
-        return view('admin.messages.index');
+
+
+
+
+        $messages = Message::all()->where('house_id', auth()->user()->id);
+
+        return view('admin.messages.index', compact('messages'));
+
     }
 
 

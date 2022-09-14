@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Models\House;
+use App\Models\Message;
 use App\Models\Service;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -62,6 +63,8 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
+
+
         return view('admin.houses.show', compact('house'));
     }
 
@@ -110,9 +113,12 @@ class HouseController extends Controller
         // // var_dump($house->messages());
         // // dd();
         $house->services()->detach();
+<<<<<<< HEAD
         $house->messages()->delete();
         $house->photos()->delete();
         $house->views()->delete();
+=======
+>>>>>>> 462ebbd90e25e44e9cb5f2c64a55a8815589f2ba
         $house->delete();
         return redirect()->route('admin.houses.index');
     }
