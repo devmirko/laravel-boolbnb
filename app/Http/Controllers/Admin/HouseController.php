@@ -71,15 +71,7 @@ class HouseController extends Controller
         // creiamo e salviamo nella tabella house
         $house->fill($data);
         $house->save();
-<<<<<<< HEAD
 
-
-
-
-
-        // colleghiamo i dati nella tabella ponte.
-=======
->>>>>>> 77893b8f110cb0379e8dca06ed09cf749d13d14d
         $house->services()->sync($data['services']);
 
         return redirect()->route('admin.houses.index')
