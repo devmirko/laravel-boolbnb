@@ -25,7 +25,7 @@ class CreateHousesTable extends Migration
             $table->integer('lat');
             $table->integer('lang');
             $table->string('address');
-            $table->boolean('visible')->default(true);
+            $table->boolean('visible');
             $table->string('cover_photo')->nullable();
             $table->string('type');
 

@@ -29,6 +29,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Roma 15',
                 'cover_photo' => 'https://www.bautrust.ch/wp-content/uploads/ampliamento-casa-2.png',
                 'type' => 'Villetta a schiera',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casa dei Monti',
@@ -41,6 +42,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Piave 1/C',
                 'cover_photo' => 'https://www.mioassicuratore.it/doc-news/656/400/casa-in-legno-assicurazione-costi-coperture.jpg',
                 'type' => 'Villa',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casa Colonica',
@@ -53,6 +55,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Papa Giovanni',
                 'cover_photo' => 'https://media.vrbo.com/lodging/34000000/34000000/33997900/33997897/7a53f6a8.f6.jpg',
                 'type' => 'Villetta',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Appartamento dei Cieli',
@@ -65,6 +68,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Salvagente 78',
                 'cover_photo' => 'https://imgs.nestimg.com/villetta_a_schiera_in_vendita_san_marcello_piteglio_pt_8530022653040922951.jpg',
                 'type' => 'Appartamento',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casa dei Lavoratori',
@@ -77,6 +81,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Milano 67',
                 'cover_photo' => 'https://www.fontane-bianche.it/wp-content/uploads/2022/06/IM222206_00-400x300.jpg',
                 'type' => 'Villetta a schiera',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casetta degli gnomi',
@@ -89,6 +94,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Palo 31',
                 'cover_photo' => 'https://www.casecerco.it/media/img/400/2022/08/2541910.jpg',
                 'type' => 'Villa',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casale Romano',
@@ -101,6 +107,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Sali Bianchi 45',
                 'cover_photo' => 'http://www.vpimmobiliare.it/wp-content/uploads/2022/01/271718916_266632808892760_7571006168343598235_n-400x300.jpg',
                 'type' => 'Villetta a schiera',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Villa Marrini',
@@ -113,6 +120,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Paolo Bianchi 12',
                 'cover_photo' => 'https://www.immobiliarecittaideale.com/upload/img/immobili/lesa-casa-indipendente-4-camere-giardino-terrazzo-57514s.jpeg',
                 'type' => 'Villa',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Casale dei Pini',
@@ -125,6 +133,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Via Nellini 3',
                 'cover_photo' => 'https://www.monicabrunirealestate.com/site/wp-content/uploads/2021/04/IMG_7691-400x300.jpg',
                 'type' => 'Villetta a schiera',
+                'visible' => '1'
             ],
             [
                 'name_house' => 'Appartamento degli Angeli',
@@ -137,6 +146,7 @@ class HouseSeeder extends Seeder
                 'address' => 'Viale Risorgimento 35',
                 'cover_photo' => 'https://media.vrbo.com/lodging/40000000/39440000/39431900/39431844/d0076d05.f6.jpg',
                 'type' => 'Appartamento',
+                'visible' => '1'
             ]
         ];
 
