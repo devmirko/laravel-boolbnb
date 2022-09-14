@@ -41,6 +41,8 @@ class HouseController extends Controller
             'beds' => 'required|numeric|integer|between:1,10|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
             'mq' => 'required|numeric|integer|max:150',
+            // 'services'          => 'nullable|array',
+            // 'services.*'        => 'integer|exists:services,id',
             'lat' => 'required|numeric|integer',
             'lang' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
@@ -51,6 +53,7 @@ class HouseController extends Controller
         $data['user_id'] = $user_id;
         $house->fill($data);
         $house->save();
+        $house->services()->sync($data['services']);
 
         return redirect()->route('admin.houses.index')
 
@@ -64,12 +67,15 @@ class HouseController extends Controller
 
     public function edit(House $house)
     {
-
-        return view('admin.houses.edit', compact('house'));
+        $services = Service::all();
+        return view('admin.houses.edit', compact('house'), [
+            'services'    => $services,
+        ]);
     }
 
     public function update(Request $request, House $house)
     {
+        $services = Service::all();
 
         $request->validate([
             'name_house' => 'required|string|max:100',
@@ -86,6 +92,11 @@ class HouseController extends Controller
         $data = $request->all();
         $house = House::find($house->id);
         $house->update($data);
+        $house->services()->sync($data['services']);
+
+        // if ('service_id' <= 1) {
+        //     $house->services()->detach();
+        // }
 
         return redirect()->route('admin.houses.index')
 
@@ -98,7 +109,10 @@ class HouseController extends Controller
         // $house->messages();
         // // var_dump($house->messages());
         // // dd();
-        // $house->services()->detach();
+        $house->services()->detach();
+        $house->messages()->delete();
+        $house->photos()->delete();
+        $house->views()->delete();
         $house->delete();
         return redirect()->route('admin.houses.index');
     }

@@ -91,16 +91,16 @@
             <legend>Services</legend>
             @foreach ($services as $service)
                 <div class="form-check">
-
+                    {{-- <input type="hidden" name="services[]" value="0" /> --}}
                     <input
                         class="form-check-input"
                         type="checkbox"
                         name="services[]"
                         value="{{ $service->id }}"
-                        id="service-{{ $service->id }}"
+                        id="service{{ $service->id }}"
                         @if(in_array($service->id, old('services') ?: [])) checked @endif
                     >
-                    <label class="form-check-label" for="service-{{ $service->id }}">{{ $service->name_services }}</label>
+                    <label class="form-check-label" for="service{{ $service->id }}">{{ $service->name_services }}</label>
                 </div>
             @endforeach
 
