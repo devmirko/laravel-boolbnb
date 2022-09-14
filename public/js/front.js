@@ -5168,7 +5168,21 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'NavBar'
+  name: 'NavBar',
+  data: function data() {
+    return {
+      navItems: [{
+        label: 'Home',
+        routeName: 'home'
+      }, {
+        label: 'Login',
+        routeName: 'login'
+      }, {
+        label: 'Register',
+        routeName: 'register'
+      }]
+    };
+  }
 });
 
 /***/ }),
@@ -5295,23 +5309,23 @@ var staticRenderFns = [function () {
     staticClass: "nav-link active",
     attrs: {
       "aria-current": "page",
-      href: "#"
+      href: ""
     }
   }, [_vm._v("Home")])]), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("a", {
     staticClass: "nav-link active",
     attrs: {
-      href: "#"
+      href: "login"
     }
-  }, [_vm._v("login")])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("Login")])]), _vm._v(" "), _c("li", {
     staticClass: "nav-item"
   }, [_c("a", {
     staticClass: "nav-link active",
     attrs: {
-      href: "#"
+      href: "register"
     }
-  }, [_vm._v("register")])])]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Register")])])]), _vm._v(" "), _c("form", {
     staticClass: "d-flex"
   }, [_c("input", {
     staticClass: "form-control me-2",
