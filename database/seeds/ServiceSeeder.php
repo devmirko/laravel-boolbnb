@@ -5,14 +5,11 @@ use App\Models\Service;
 
 class ServiceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
+
     public function run()
     {
         $services = [
+            ['name_services' => 'Nessun servizio'],
             ['name_services' => 'Wi-fi'],
             ['name_services' => 'Cucina'],
             ['name_services' => 'Lavatrice'],

@@ -44669,8 +44669,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
-module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+__webpack_require__("./resources/js/front.js");
+module.exports = __webpack_require__("./resources/sass/back.scss");
 
 
 /***/ })
