@@ -8,6 +8,13 @@
                 <div class="card-header">{{ __('Register') }}</div>
 
                 <div class="card-body">
+                    {{-- in caso di errore del database --}}
+                     @if (session('db-error'))
+                    <div class="alert alert-error">
+                        {{ session('db-error') }}
+                    </div>
+                    @endif
+
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
                         {{-- nome --}}
@@ -15,7 +22,9 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus
+                                 minlength="1"
+                                 maxlength="15">
 
                                 @error('name')
                                     <span class="invalid-feedback" role="alert">
@@ -29,7 +38,9 @@
                             <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('surname') }}</label>
 
                             <div class="col-md-6">
-                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus>
+                                <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ old('surname') }}" required autocomplete="surname" autofocus
+                                minlength="1"
+                                maxlength="15">
 
                                 @error('surname')
                                     <span class="invalid-feedback" role="alert">
@@ -38,12 +49,14 @@
                                 @enderror
                             </div>
                         </div>
+
                         {{-- email --}}
                         <div class="form-group row mb-3">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email">
+                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email"
+                                minlength="8">
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -52,12 +65,15 @@
                                 @enderror
                             </div>
                         </div>
+
                         {{-- number phone --}}
                         <div class="form-group row mb-3">
                             <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('phone') }}</label>
 
                             <div class="col-md-6">
-                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="email">
+                                <input id="phone" type="phone" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ old('phone') }}" required autocomplete="phone"
+                                minlength="10"
+                                maxlength="10">
 
                                 @error('phone')
                                     <span class="invalid-feedback" role="alert">
