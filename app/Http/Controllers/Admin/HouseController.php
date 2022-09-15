@@ -114,10 +114,25 @@ class HouseController extends Controller
             'lat' => 'required|numeric|integer',
             'lang' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100'
+            'type' => 'required|string|max:100',
+            'cover_photo' => 'required|file|image|max:5000'
         ]);
 
         $data = $request->all();
+
+        if ($house->cover_photo) {
+            Storage::delete($house->cover_photo);
+        }
+
+        // caricare il nuovo file
+        $img_path = Storage::put('uploads', $data['cover_photo']);
+
+       // aggiornare l'array $data con il percorso del file appena creato
+       $data['cover_photo'] = $img_path;
+
+
+
+
         $house = House::find($house->id);
         $house->update($data);
         $house->services()->sync($data['services']);
