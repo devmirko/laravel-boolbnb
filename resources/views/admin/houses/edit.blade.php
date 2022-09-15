@@ -100,7 +100,7 @@
                         </label>
                     </div>
                     <div class="form-check">
-                        <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0" checked>
+                        <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0">
                         <label class="form-check-label" for="flexRadioDefault2">
                           No
                         </label>

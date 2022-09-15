@@ -104,13 +104,13 @@
                 <label for="visible">Visible</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1" required @if(old('visible')) checked @endif>
+                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1">
                 <label class="form-check-label" for="flexRadioDefault1">
                   Yes
                 </label>
             </div>
             <div class="form-check">
-                <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0" @if(old('visible')) checked @endif>
+                <input class="form-check-input @error('flexRadioDefault2') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault2" value="0">
                 <label class="form-check-label" for="flexRadioDefault2">
                   No
                 </label>

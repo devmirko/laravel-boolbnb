@@ -28,7 +28,7 @@
                         <form action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                             @csrf
                             @method('DELETE')
-                            <button type="submit" class="btn btn-danger" wire:click.prevent='deleteConfirmation({{$house->id}})'>Delete</button>
+                            <button type="submit" class="btn btn-danger" onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}')">Delete</button>
                         </form>
                     </td>
                 </tr>

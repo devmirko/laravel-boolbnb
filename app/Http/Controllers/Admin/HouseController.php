@@ -10,6 +10,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
+
 class HouseController extends Controller
 {
     public function index( )
@@ -111,8 +112,8 @@ class HouseController extends Controller
             'beds' => 'required|numeric|integer|between:1,10|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
             'mq' => 'required|numeric|integer|max:150',
-            'lat' => 'required|numeric|integer',
-            'lang' => 'required|numeric|integer',
+            // 'lat' => 'required|numeric|integer',
+            // 'lang' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100'
         ]);
