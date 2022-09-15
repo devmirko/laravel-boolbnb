@@ -13,30 +13,35 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($houses as $house)
-                <tr data-id="{{ $house->id }}">
-                    <td>{{ $house->id }} </td>
-                    <td>{{ $house->name_house }}</td>
-                    <td>{{ $house->rooms }} </td>
-                    <td>{{ $house->beds }} </td>
-                    <td>{{ $house->bathrooms }} </td>
-                    <td class="actions">
-                        <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="btn btn-primary">View</a>
+            @if ( count($houses) > 0 )
+                @foreach ($houses as $house)
+                    <tr data-id="{{ $house->id }}">
+                        <td>{{ $house->id }} </td>
+                        <td>{{ $house->name_house }}</td>
+                        <td>{{ $house->rooms }} </td>
+                        <td>{{ $house->beds }} </td>
+                        <td>{{ $house->bathrooms }} </td>
+                        <td class="actions">
+                            <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="btn btn-primary">View</a>
 
-                        <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="btn btn-warning">Edit</a>
+                            <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="btn btn-warning">Edit</a>
 
-                        <form action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button
-                             type="submit"
-                              class="btn btn-danger"
-                              onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')"
-                              >Delete</button>
-                        </form>
-                    </td>
-                </tr>
-            @endforeach
+                            <form action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button
+                                type="submit"
+                                class="btn btn-danger"
+                                onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')"
+                                >Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                @endforeach
+            @else
+                <h1>Non hai case, creane una!</h1>
+            @endif
+               
         </tbody>
     </table>
 @endsection

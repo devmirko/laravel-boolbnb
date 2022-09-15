@@ -9,6 +9,7 @@ class ServiceSeeder extends Seeder
     public function run()
     {
         $services = [
+            ['name_services' => 'Nessun servizio'],
             ['name_services' => 'Wi-fi'],
             ['name_services' => 'Cucina'],
             ['name_services' => 'Lavatrice'],

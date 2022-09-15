@@ -27860,7 +27860,18 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // funzione per la validation della mail
+
+
+var email = document.getElementById("email");
+email.addEventListener("input", function (event) {
+  if (email.validity.typeMismatch) {
+    email.setCustomValidity("I am expecting an e-mail address!");
+    email.reportValidity();
+  } else {
+    email.setCustomValidity("");
+  }
+});
 
 /***/ }),
 
@@ -27915,7 +27926,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
 
 
 /***/ })
