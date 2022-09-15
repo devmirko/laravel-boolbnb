@@ -10,7 +10,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
-
 class HouseController extends Controller
 {
     public function index( )
@@ -18,10 +17,6 @@ class HouseController extends Controller
          //if (Auth::id() != $house->user_id) abort(401);
         $houses = House::All()->where('user_id', auth()->user()->id);
 
-
-
-        // $perPage = 20;
-        // $houses = House::paginate($perPage);
         return view('admin.houses.index', compact('houses'));
     }
 
@@ -67,17 +62,9 @@ class HouseController extends Controller
 
         }
 
-
-
         // creiamo e salviamo nella tabella house
         $house->fill($data);
         $house->save();
-
-
-
-
-
-
 
 
         $house->services()->sync($data['services']);
@@ -89,15 +76,14 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
-
-
         return view('admin.houses.show', compact('house'));
     }
 
     public function edit(House $house)
     {
         $services = Service::all();
-        return view('admin.houses.edit', compact('house'), [
+        return view('admin.houses.edit', [
+            'house' => $house,
             'services'    => $services,
         ]);
     }
@@ -130,9 +116,6 @@ class HouseController extends Controller
 
        // aggiornare l'array $data con il percorso del file appena creato
        $data['cover_photo'] = $img_path;
-
-
-
 
         $house = House::find($house->id);
         $house->update($data);
