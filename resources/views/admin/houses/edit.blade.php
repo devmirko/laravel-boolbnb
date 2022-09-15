@@ -9,10 +9,10 @@
         {{-- nome casa --}}
         <div class="mb-3">
             <label class="form-label" for="name_house">Nome Casa *</label>
-            <input class="form-control @error('name_house') is-invalid @enderror" type="text" name="name_house" id="name_house" value="1"  required
+            <input class="form-control @error('name_house') is-invalid @enderror" type="text" name="name_house" id="name_house" value=""  required  placeholder="inserisci il nome"
             minlength="1"
             maxlength="15">
-            @error('title')
+            @error('name_house')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -25,7 +25,7 @@
             <input class="form-control @error('rooms') is-invalid @enderror" type="number" name="rooms" id="rooms" value="1" required
             min="1"
             max="10" >
-            @error('title')
+            @error('rooms')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -37,7 +37,7 @@
             <input class="form-control @error('beds') is-invalid @enderror" type="number" name="beds" id="beds" value="1" required
             min="1"
             max="10">
-            @error('title')
+            @error('beds')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -49,7 +49,7 @@
             <input class="form-control @error('bathrooms') is-invalid @enderror" type="number" name="bathrooms" id="bathrooms" value="1" required
             min="1"
             max="10">
-            @error('title')
+            @error('bathrooms')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -61,7 +61,7 @@
             <input class="form-control @error('mq') is-invalid @enderror" type="number" name="mq" id="mq" value="1" required
             min="1"
             max="500">
-            @error('title')
+            @error('mq')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
@@ -91,18 +91,18 @@
             <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="" required
             minlength="1"
             maxlength="20">
-            @error('title')
+             @error('address')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
-            @enderror
+             @enderror
         </div>
         {{-- tipo di struttura --}}
         <div class="mb-3">
             <label class="form-label" for="type">Tipo di Struttura: *</label>
             <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="type" value=""
             required pattern="[Aa]ppartamento|[Aa]ttico|[Vv]illa|[Mm]asseria|[Cc]asale" placeholder="Appartamento, Attico, Villa, Masseria, Casale.">
-            @error('title')
+            @error('type')
                 <div class="invalid-feedback">
                     {{ $message }}
                 </div>
