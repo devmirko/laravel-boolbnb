@@ -3,8 +3,8 @@
 @section('mainContent')
     <h1>Create new house</h1>
     <form action="{{ route('admin.houses.update', ['house' => $house]) }}" method="post" novalidate enctype="multipart/form-data">
-        @csrf
         @method('put')
+        @csrf
 
         {{-- nome casa --}}
         <div class="mb-3">

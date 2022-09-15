@@ -7,11 +7,6 @@ use App\Models\Service;
 
 class HouseServiceSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     *
-     * @return void
-     */
     public function run( Faker $faker )
     {
         // prendo tutti i dati della tabella house
