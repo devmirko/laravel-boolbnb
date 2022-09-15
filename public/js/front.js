@@ -44669,8 +44669,13 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 module.exports = __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+=======
+__webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\sass\back.scss */"./resources/sass/back.scss");
+>>>>>>> ccc11913b424f0aa712acfb610f2e6345dcab62c
 
 
 /***/ })
