@@ -9,5 +9,8 @@ require('./bootstrap');
       email.reportValidity();
     } else {
      email.setCustomValidity("");
+
     }
     });
+
+
