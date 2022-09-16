@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('mainContent')
-    <h1>Create new house</h1>
+    <h1>Modifica i dati della struttura</h1>
     <form action="{{ route('admin.houses.update', ['house' => $house]) }}" method="post" novalidate enctype="multipart/form-data">
         @method('put')
         @csrf
@@ -9,7 +9,7 @@
         {{-- nome casa --}}
         <div class="mb-3">
             <label class="form-label" for="name_house">Nome Casa *</label>
-            <input class="form-control @error('name_house') is-invalid @enderror" type="text" name="name_house" id="name_house" value=""  required  placeholder="inserisci il nome"
+            <input class="form-control @error('name_house') is-invalid @enderror" type="text" name="name_house" id="name_house" value="{{ old('name_house', $house->name_house)}}"  required  placeholder="inserisci il nome"
             minlength="1"
             maxlength="15">
             @error('name_house')
@@ -22,7 +22,7 @@
         {{-- numero stanze  --}}
         <div class="mb-3">
             <label class="form-label" for="rooms">Numero Stanze *</label>
-            <input class="form-control @error('rooms') is-invalid @enderror" type="number" name="rooms" id="rooms" value="1" required
+            <input class="form-control @error('rooms') is-invalid @enderror" type="number" name="rooms" id="rooms" value="{{ old('rooms', $house->rooms)}}" required
             min="1"
             max="10" >
             @error('rooms')
@@ -34,7 +34,7 @@
         {{-- numero letti --}}
         <div class="mb-3">
             <label class="form-label" for="beds">Numero Letti *</label>
-            <input class="form-control @error('beds') is-invalid @enderror" type="number" name="beds" id="beds" value="1" required
+            <input class="form-control @error('beds') is-invalid @enderror" type="number" name="beds" id="beds" value="{{ old('beds', $house->beds)}}" required
             min="1"
             max="10">
             @error('beds')
@@ -46,7 +46,7 @@
         {{-- numero bagni --}}
         <div class="mb-3">
             <label class="form-label" for="bathrooms">Numero Bagni *</label>
-            <input class="form-control @error('bathrooms') is-invalid @enderror" type="number" name="bathrooms" id="bathrooms" value="1" required
+            <input class="form-control @error('bathrooms') is-invalid @enderror" type="number" name="bathrooms" id="bathrooms" value="{{ old('bathrooms', $house->bathrooms)}}" required
             min="1"
             max="10">
             @error('bathrooms')
@@ -58,7 +58,7 @@
         {{-- metri quadrati --}}
         <div class="mb-3">
             <label class="form-label" for="mq">Metri Quadrati *</label>
-            <input class="form-control @error('mq') is-invalid @enderror" type="number" name="mq" id="mq" value="1" required
+            <input class="form-control @error('mq') is-invalid @enderror" type="number" name="mq" id="mq" value="{{ old('mq', $house->mq)}}" required
             min="1"
             max="500">
             @error('mq')
@@ -86,9 +86,9 @@
             @enderror
         </div> --}}
         {{-- indirizzo --}}
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="address">Indirizzo *</label>
-            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="" required
+            <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $house->address)}}" required
             minlength="1"
             maxlength="20">
              @error('address')
@@ -96,11 +96,18 @@
                     {{ $message }}
                 </div>
              @enderror
+        </div> --}}
+
+
+        {{-- Indirizzo --}}
+        <div id="root">
+            <find-address></find-address>
         </div>
+
         {{-- tipo di struttura --}}
         <div class="mb-3">
             <label class="form-label" for="type">Tipo di Struttura: *</label>
-            <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="type" value=""
+            <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="type" value="{{ old('type', $house->name_house)}}"
             required pattern="[Aa]ppartamento|[Aa]ttico|[Vv]illa|[Mm]asseria|[Cc]asale" placeholder="Appartamento, Attico, Villa, Masseria, Casale.">
             @error('type')
                 <div class="invalid-feedback">
@@ -159,7 +166,7 @@
                     name="services[]"
                     value="{{ $service->id }}"
                     id="service{{ $service->id }}"
-                    @if(in_array($service->id, old('services') ?: [])) checked @endif
+                    @if(in_array($service->id, old('services', $house->services->pluck('id')->all()) ?: [])) checked @endif
                 >
                 <label class="form-check-label" for="service{{ $service->id }}">{{ $service->name_services }}</label>
             </div>
@@ -174,6 +181,7 @@
         @endforeach
     </fieldset>
 
-        <button type="submit" class="btn btn-primary">Edit</button>
+        <button type="submit" class="btn btn-primary">Modifica dati</button>
     </form>
+    <script src="{{ asset('js/vue.js') }}" defer></script>
 @endsection
