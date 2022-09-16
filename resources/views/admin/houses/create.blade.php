@@ -162,7 +162,8 @@
                         name="services[]"
                         value="{{ $service->id }}"
                         id="service{{ $service->id }}"
-                        @if(in_array($service->id, old('services') ?: [])) checked @endif
+                        @if(in_array($service->id, old('services') ? : [])) checked @endif
+                        @if($service->name_services == 'Nessun servizio') checked @endif
                     >
                     <label class="form-check-label" for="service{{ $service->id }}">{{ $service->name_services }}</label>
                 </div>
