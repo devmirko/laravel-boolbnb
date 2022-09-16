@@ -1,7 +1,7 @@
 @extends('admin.layouts.base')
 
 @section('mainContent')
-    <h1>Create new house</h1>
+    <h1>Inserisci una nuova struttura</h1>
     <form action="{{ route('admin.houses.store') }}" method="post" novalidate enctype="multipart/form-data">
         @csrf
        {{-- nome casa --}}
