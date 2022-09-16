@@ -86,7 +86,7 @@
             @enderror
         </div> --}}
         {{-- indirizzo --}}
-        <div class="mb-3">
+        {{-- <div class="mb-3">
             <label class="form-label" for="address">Indirizzo *</label>
             <input class="form-control @error('address') is-invalid @enderror" type="text" name="address" id="address" value="{{ old('address', $house->address)}}" required
             minlength="1"
@@ -96,7 +96,14 @@
                     {{ $message }}
                 </div>
              @enderror
+        </div> --}}
+
+
+        {{-- Indirizzo --}}
+        <div id="root">
+            <find-address></find-address>
         </div>
+
         {{-- tipo di struttura --}}
         <div class="mb-3">
             <label class="form-label" for="type">Tipo di Struttura: *</label>
@@ -176,4 +183,5 @@
 
         <button type="submit" class="btn btn-primary">Modifica dati</button>
     </form>
+    <script src="{{ asset('js/vue.js') }}" defer></script>
 @endsection
