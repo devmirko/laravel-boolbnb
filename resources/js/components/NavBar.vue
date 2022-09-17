@@ -19,6 +19,7 @@
                         <li class="nav-item">
                             <a class="nav-link active" href="register">Register</a>
                         </li>
+                        
 
                         <!-- menu a tendina (per ora non ci serve) -->
 

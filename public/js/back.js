@@ -37295,7 +37295,107 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // const form_register = document.getElementById("form-register");
+// if (form_register) {
+//     form_register.onsubmit = function () {
+//         return validationRegister()
+//     }
+// };
+
+
+window.validationRegister = function () {
+  var name = document.getElementById('name');
+  var surname = document.getElementById('surname');
+  var email = document.getElementById('email');
+  var phone = document.getElementById('phone');
+  var password = document.getElementById('password');
+  var password_confirm = document.getElementById('password-confirm');
+
+  if (name.value == "") {
+    window.alert("Inserisci un nome");
+    name.focus();
+    return false;
+  }
+
+  if (surname.value == "") {
+    window.alert("Inserisci un cognome");
+    surname.focus();
+    return false;
+  }
+
+  if (!email.value.includes('@') || !email.value.includes('.')) {
+    window.alert("Inserisci un'email valida");
+    email.focus();
+    return false;
+  }
+
+  if (isNaN(phone.value)) {
+    window.alert("Inserisci un numero valido");
+    phone.focus();
+    return false;
+  }
+
+  if (password.value.length < 8) {
+    window.alert("La password è troppo corta");
+    password.focus();
+    return false;
+  }
+
+  if (password_confirm.value !== password.value) {
+    window.alert("Le password non coincidono");
+    password_confirm.focus();
+    return false;
+  }
+
+  return true;
+};
+
+window.validationHouses = function () {
+  var name_house = document.getElementById('name_house');
+  var rooms = document.getElementById('rooms');
+  var beds = document.getElementById('beds');
+  var bathrooms = document.getElementById('bathrooms');
+  var mq = document.getElementById('mq');
+  var type = document.getElementById('type');
+
+  if (name_house.value == "") {
+    window.alert("Inserisci un nome");
+    name_house.focus();
+    return false;
+  }
+
+  if (isNaN(rooms.value)) {
+    window.alert("Inserisci un numero valido");
+    rooms.focus();
+    return false;
+  }
+
+  if (isNaN(beds.value)) {
+    window.alert("Inserisci un numero valido");
+    beds.focus();
+    return false;
+  }
+
+  if (isNaN(bathrooms.value)) {
+    window.alert("Inserisci un numero valido");
+    bathrooms.focus();
+    return false;
+  }
+
+  if (isNaN(mq.value)) {
+    window.alert("Inserisci un numero valido");
+    mq.focus();
+    return false;
+  }
+
+  if (type.value == "") {
+    window.alert("Inserisci un tipo di struttura valido");
+    type.focus();
+    return false;
+  }
+
+  return true;
+};
 
 /***/ }),
 
@@ -37361,8 +37461,12 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
+=======
 __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\resources\js\back.js */"./resources/js/back.js");
 module.exports = __webpack_require__(/*! C:\Users\Melan\Documents\Esercizi Boolean\php\laravel-boolbnb-1\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 8a9d2aa229edc52bb7ab0cc727e3c8b990820eb2
 
 
 /***/ })
