@@ -17,8 +17,8 @@ class House extends Model
         'beds',
         'bathrooms',
         'mq',
-        'lat',
-        'lang',
+        'latitude',
+        'longitude',
         'address',
         'cover_photo',
         'type'

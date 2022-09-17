@@ -41,8 +41,8 @@ class HouseController extends Controller
             'mq' => 'required|numeric|integer|max:150',
             // 'services'          => 'nullable|array',
             // 'services.*'        => 'integer|exists:services,id',
-            'lat' => 'numeric|integer',
-            'lang' => 'numeric|integer',
+            // 'latitude' => 'numeric|integer',
+            // 'longitude' => 'numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
             'cover_photo' => 'required|file|image|max:5000'
@@ -98,8 +98,8 @@ class HouseController extends Controller
             'beds' => 'required|numeric|integer|between:1,10|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
             'mq' => 'required|numeric|integer|max:150',
-            // 'lat' => 'required|numeric|integer',
-            // 'lang' => 'required|numeric|integer',
+            // 'latitude' => 'required|numeric|integer',
+            // 'longitude' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
             'cover_photo' => 'required|file|image|max:5000'

@@ -21,7 +21,6 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/back.css') }}" rel="stylesheet">
-    <script src="{{ asset('js/back.js') }}" defer></script>
 </head>
 
 <body>
