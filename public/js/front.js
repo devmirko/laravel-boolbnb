@@ -5501,7 +5501,7 @@ var render = function render() {
 
   return _c("div", [_c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
@@ -5513,19 +5513,7 @@ var render = function render() {
   }), 1)]);
 };
 
-var staticRenderFns = [function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "image"
-  }, [_c("img", {
-    attrs: {
-      src: __webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg"),
-      alt: ""
-    }
-  })]);
-}];
+var staticRenderFns = [];
 render._withStripped = true;
 
 
@@ -44377,17 +44365,6 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/img/background/Immagine1.jpeg":
-/*!**********************************************!*\
-  !*** ./public/img/background/Immagine1.jpeg ***!
-  \**********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "/images/Immagine1.jpeg?e8ea9a9c35a925b8abc326e367dc2573";
-
-/***/ }),
-
 /***/ "./resources/js/App.vue":
 /*!******************************!*\
   !*** ./resources/js/App.vue ***!
@@ -44964,7 +44941,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
