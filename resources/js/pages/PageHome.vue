@@ -1,13 +1,12 @@
 <template>
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
-      <div class="image">
-      ciao sono un immagine
+      <!-- <div class="image">
+        <img src="../../../public/img/background/Immagine1.jpeg" alt="">
+      </div> -->
+      <div class="d-flex justify-content-center">
+        <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
-       <div class="d-flex justify-content-center" v-for="(house, index) in houses" :key="index" >
-         <div>{{ house.name_house }}</div>
-
-       </div>
     </div>
 </template>
 
