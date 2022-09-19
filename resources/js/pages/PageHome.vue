@@ -2,17 +2,18 @@
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
       <div class="image">
-        <img src="../../../public/img/background/Immagine1.jpeg" alt="">
+      ciao sono un immagine
       </div>
-      <div class="d-flex justify-content-center">
-        <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
-      </div>
+       <div class="d-flex justify-content-center" v-for="(house, index) in houses" :key="index" >
+         <div>{{ house.name_house }}</div>
+
+       </div>
     </div>
 </template>
 
 <script>
 
-import CardHouse from '../components/CardHouse.vue'
+
   export default {
       name: 'PageHome',
       data() {
@@ -21,7 +22,7 @@ import CardHouse from '../components/CardHouse.vue'
       }
     },
     components: {
-        CardHouse,
+
     },
     created() {
       axios.get('/api/houses')
@@ -37,13 +38,13 @@ import CardHouse from '../components/CardHouse.vue'
 </script>
 
 <style lang="scss" scoped>
-    .image {
-        width: 100%;
-        height: auto;
+    // .image {
+    //     width: 100%;
+    //     height: auto;
 
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
+    //     img {
+    //         width: 100%;
+    //         height: auto;
+    //     }
+    // }
 </style>
