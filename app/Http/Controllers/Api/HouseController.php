@@ -9,23 +9,23 @@ use App\Http\Controllers\Controller;
 
 class HouseController extends Controller
 {
-     private function fixImageUrl($imgPath)
-     {
-          return $imgPath ? asset('/storage/' . $imgPath) : null;
-     }
+      private function fixImageUrl($imgPath)
+      {
+       return $imgPath ? asset('/storage/' . $imgPath) : null;
+      }
 
     public function index()
     {
 
-        $houses = House::all();
-        foreach ( $houses as $house ) {
-            $house->cover_photo = $this->fixImageUrl($house->cover_photo);
-        }
+          $houses = House::all();
+          foreach ( $houses as $house ) {
+          $house->cover_photo = $this->fixImageUrl($house->cover_photo);
+           }
 
-        return response()->json([
+          return response()->json([
             'success'   => true,
             'result'    => $houses,
-        ]);
+           ]);
 
     }
 
@@ -56,16 +56,17 @@ class HouseController extends Controller
      * @param  \App\Models\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show()
     {
-        $houses = House::with(['user', 'services'])->where('id', $id)->first();
-        foreach ( $houses as $house ) {
-            $house->cover_photo = $this->fixImageUrl($house->cover_photo);
-            return response()->json([
-                'success'   => true,
-                'result'    => $houses,
-            ]);
-        }
+
+
+
+
+
+
+
+
+
 
 
     }
