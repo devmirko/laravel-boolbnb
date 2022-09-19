@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -5339,9 +5339,9 @@ var render = function render() {
     attrs: {
       src: _vm.house.cover_photo
     }
-  }), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("h3", [_vm._v("\n        Prova titolo\n    ")]), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("h5", {
+  }, [_c("br"), _vm._v(" "), _c("h5", {
     staticClass: "card-title"
   }, [_vm._v(" " + _vm._s(_vm.house.name_house) + " ")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.house.type))])])]);
 };
@@ -44957,26 +44957,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/back.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/back.scss ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************!*\
-  !*** multi ./resources/js/front.js ./resources/sass/back.scss ***!
-  \****************************************************************/
+/***/ 1:
+/*!*************************************!*\
+  !*** multi ./resources/js/front.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__("./resources/js/front.js");
-module.exports = __webpack_require__("./resources/sass/back.scss");
+module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

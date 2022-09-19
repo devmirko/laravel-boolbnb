@@ -1,7 +1,12 @@
 <template>
     <div class="card" style="width: 15rem;">
         <img class="card-img-top" :src="house.cover_photo">
+        <h3>
+            Prova titolo
+        </h3>
+
         <div class="card-body">
+            <br>
         <h5 class="card-title"> {{ house.name_house }} </h5>
         <div>{{ house.type }}</div>
         </div>

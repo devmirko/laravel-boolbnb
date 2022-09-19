@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -12727,7 +12727,7 @@ __webpack_require__.r(__webpack_exports__);
 window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 
 var app = new Vue({
-  el: '#root',
+  el: '#back',
   render: function render(h) {
     return h(_components_FindAddress_vue__WEBPACK_IMPORTED_MODULE_0__["default"]);
   }
@@ -12735,14 +12735,14 @@ var app = new Vue({
 
 /***/ }),
 
-/***/ 1:
+/***/ 2:
 /*!***********************************!*\
   !*** multi ./resources/js/vue.js ***!
   \***********************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__("./resources/js/vue.js");
+module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\vue.js */"./resources/js/vue.js");
 
 
 /***/ })
