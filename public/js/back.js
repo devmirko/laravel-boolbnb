@@ -28026,8 +28026,18 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+<<<<<<< HEAD
 __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
 module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+<<<<<<< HEAD
+__webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+=======
+__webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\back.js */"./resources/js/back.js");
+module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\sass\app.scss */"./resources/sass/app.scss");
+>>>>>>> 3861015ebc22c48e2ede4ffd5aa43c1e30a016fc
+>>>>>>> ff7f0059181660e41ea14511af64b0b802734bec
 
 
 /***/ })

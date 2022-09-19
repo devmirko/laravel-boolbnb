@@ -12,7 +12,8 @@
 
 <script>
 
-import CardHouse from '../components/CardHouse.vue'
+  import CardHouse from '../components/CardHouse.vue';
+
   export default {
       name: 'PageHome',
       data() {
@@ -22,6 +23,7 @@ import CardHouse from '../components/CardHouse.vue'
     },
     components: {
         CardHouse,
+
     },
     created() {
       axios.get('/api/houses')
@@ -37,13 +39,13 @@ import CardHouse from '../components/CardHouse.vue'
 </script>
 
 <style lang="scss" scoped>
-    .image {
-        width: 100%;
-        height: auto;
+    // .image {
+    //     width: 100%;
+    //     height: auto;
 
-        img {
-            width: 100%;
-            height: auto;
-        }
-    }
+    //     img {
+    //         width: 100%;
+    //         height: auto;
+    //     }
+    // }
 </style>

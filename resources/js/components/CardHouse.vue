@@ -1,5 +1,5 @@
 <template>
-    <div class="card" style="width: 15rem;">
+    <div class="card">
         <img class="card-img-top" :src="house.cover_photo">
         <h3>
             Prova titolo

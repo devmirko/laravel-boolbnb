@@ -7,7 +7,7 @@ import App from './App.vue'; // importiamo il componente base App.vue e lo asseg
 // importiamo tutti i componenti delle pagine
 import PageHome from './pages/PageHome.vue';
 import Page404 from './pages/Page404.vue';
-import PageShow from './pages/PageShow.vue';
+
 
 const routes = [
     {
@@ -22,11 +22,11 @@ const routes = [
         component: Page404,
     },
 
-    {
-        path: '/page',
-        name: 'page',
-        component: PageShow,
-    },
+    // {
+        // path: '/page',
+        // name: 'page',
+        // component: PageShow,
+    // },
 ];
 
 const router = new VueRouter({

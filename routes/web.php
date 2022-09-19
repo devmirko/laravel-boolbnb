@@ -30,6 +30,6 @@ Route::middleware('auth')
         Route::resource('messages', 'MessageController');
     });
 
-Route::get("{any?}", function () {
-    return view('guests.home');
-})->where("any", ".*")->name('home');
+     Route::get("{any?}", function () {
+        return view('guests.home');
+     })->where("any", ".*")->name('home');
