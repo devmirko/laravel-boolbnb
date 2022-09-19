@@ -56,17 +56,14 @@ class HouseController extends Controller
      * @param  \App\Models\House  $house
      * @return \Illuminate\Http\Response
      */
-    public function show()
+    public function show($id)
     {
-
-
-
-
-
-
-
-
-
+        $houses = House::with(['user', 'services'])->where('id', $id)->first();
+            $houses->cover_photo = $this->fixImageUrl($houses->cover_photo);
+            return response()->json([
+                'success'   => true,
+                'result'    => $houses,
+            ]);
 
 
     }

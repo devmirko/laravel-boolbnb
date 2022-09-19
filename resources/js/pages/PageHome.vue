@@ -1,9 +1,13 @@
 <template>
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
-      <!-- <div class="image">
+      <form action="">
+        <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search">
+        <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik>
+      </form>
+      <div class="image">
         <img src="../../../public/img/background/Immagine1.jpeg" alt="">
-      </div> -->
+      </div>
       <div class="d-flex justify-content-center">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
@@ -19,6 +23,7 @@
       data() {
       return {
         houses: [],
+        search: "",
       }
     },
     components: {
