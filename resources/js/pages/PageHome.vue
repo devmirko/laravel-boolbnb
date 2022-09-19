@@ -1,9 +1,9 @@
 <template>
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
-      <div class="image">
+      <!-- <div class="image">
         <img src="../../../public/img/background/Immagine1.jpeg" alt="">
-      </div>
+      </div> -->
       <div class="d-flex justify-content-center">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
