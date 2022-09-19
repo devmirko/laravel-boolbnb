@@ -12,6 +12,7 @@
 
 <script>
 
+  import CardHouse from '../components/CardHouse.vue';
 
   export default {
       name: 'PageHome',
@@ -21,6 +22,7 @@
       }
     },
     components: {
+        CardHouse,
 
     },
     created() {
