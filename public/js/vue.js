@@ -12742,11 +12742,7 @@ var app = new Vue({
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-<<<<<<< HEAD
-module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\vue.js */"./resources/js/vue.js");
-=======
 module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\js\vue.js */"./resources/js/vue.js");
->>>>>>> ff7f0059181660e41ea14511af64b0b802734bec
 
 
 /***/ })

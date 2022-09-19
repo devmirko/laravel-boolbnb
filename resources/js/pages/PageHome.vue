@@ -1,14 +1,14 @@
 <template>
-    <div>
+  <div class="container">
+      <div class="row ">
+        <img class="img-fluid rounded" src="../../../public/img/background/Immagine1.jpeg" alt="">
+      </div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
       <form action="">
         <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search">
         <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik>
       </form>
-      <div class="image">
-        <img src="../../../public/img/background/Immagine1.jpeg" alt="">
-      </div>
-      <div class="d-flex justify-content-center">
+      <div class="d-flex row justify-content-center">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>
