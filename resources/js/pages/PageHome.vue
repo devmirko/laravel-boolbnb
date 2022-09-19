@@ -1,10 +1,8 @@
 <template>
     <div>
       <h1 class="text-center">Benvenuti in BoolBnB</h1>
-      <form action="">
-        <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search">
+        <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search"  @keyup.enter="searchInput">
         <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik>
-      </form>
       <div class="image">
         <img src="../../../public/img/background/Immagine1.jpeg" alt="">
       </div>
@@ -23,12 +21,17 @@
       data() {
       return {
         houses: [],
-        search: "",
+        search: '',
       }
     },
     components: {
         CardHouse,
 
+    },
+    watch: {
+        search(after, before) {
+            this.searchInput();
+        }
     },
     created() {
       axios.get('/api/houses')
@@ -38,9 +41,23 @@
               console.log(this.houses);
             }
           })
+    },
+    methods: {
+        searchInput() {
+            if (this.search != ''){
+                axios.get('/api/city', {params:{ search: this.search}})
+            .then(res => {
+            if (res.data.success) {
+              this.houses = res.data.result;
+              console.log(this.houses);
+            }
+          });
+          }
+        }
     }
+}
 
-  }
+
 </script>
 
 <style lang="scss" scoped>
