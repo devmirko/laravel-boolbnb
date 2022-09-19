@@ -12,7 +12,7 @@
                       <b class="fst-italic">Beds: </b> {{ showHouse.email }}
                   </li>
                   <li>
-                      <b class="fst-italic">Bathrooms: </b> {{ showHouse.address }}
+                      <b class="fst-italic">address: </b> {{ showHouse.address }}
                   </li>
                   <li>
                       <b class="fst-italic">MQ: </b> {{ showHouse.phone }}
