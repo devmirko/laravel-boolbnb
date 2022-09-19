@@ -177,7 +177,7 @@
                 @endforeach
             </fieldset>
 
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary" onclick="validationHouses()">Save</button>
     </form>
     <script src="{{ asset('js/vue.js') }}" defer></script>
 @endsection
