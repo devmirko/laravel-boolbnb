@@ -161,9 +161,9 @@
                     <div class="form-check">
                         {{-- <input type="hidden" name="services[]" value="0" /> --}}
                         <input required class="form-check-input" type="checkbox" name="services[]"
-                            value="{{ $service->id }}" id="service{{ $service->id }}"
-                            @if (in_array($service->id, old('services') ?: [])) checked @endif
-                            @if ($service->name_services == 'Nessun servizio') checked @endif>
+                            value="{{ $service->id }}" id="service{{ $service->id }}">
+                            {{-- @if (in_array($service->id, old('services') ?: [])) checked @endif --}}
+                            {{-- @if ($service->name_services == 'Nessun servizio') checked @endif --}}
                         <label class="form-check-label"
                             for="service{{ $service->id }}">{{ $service->name_services }}</label>
                     </div>
@@ -176,6 +176,13 @@
                         </div>
                     @endforeach
                 @endforeach
+                
+                @error('services')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+
             </fieldset>
 
             <button type="submit" class="btn btn-primary" onclick="validationHouses()">Save</button>
