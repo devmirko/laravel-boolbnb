@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Models\House;
+use App\Models\Service;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
@@ -45,21 +46,20 @@ class HouseController extends Controller
 
     public function search(Request $request)
    {
-    $address =  $request->get('address');
-    $houses_ = House::with(['address'])->whereHas('address', function ($q) use ($address) {
-        $q->where('id', 'like', $address);
-        })->get();
+    // chiamata a tutti i dati della tabella services
+    $services = Service::all();
+    // salviamo una variabile con le richieste dei campi del form
+    $radius = $request->get('radius');
+    $lat = $request->get('addres_lat');
+    $lon = $request->get('addres_lon');
+    $rooms_number = $request->get('rooms');
+    $bed_number = $request->get('bed');
+    // validiamo la richiesta dell'array servizi
+    $servicesQuery = $request->validate(["services" => 'nullable|array']);
 
-        if ($houses_) {
-            return response()->json([
-                'success'   => true,
-                'result'    => $houses_
-            ]);
-        } else {
-            return response()->json([
-                'success'   => false,
-            ]);
-        }
+    $toFilterHouses = House::select('houses.*');
+
+
 
 
 
