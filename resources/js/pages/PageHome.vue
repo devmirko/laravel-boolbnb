@@ -5,18 +5,17 @@
             <h1 class="text-center text-white">Benvenuti in BoolBnB</h1>
         </div>
         <div class="margin">
-            <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput">
-            <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3">ricerca</router-lik>
+            <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput" placeholder="Ricerca...">
+            <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-lik>
         </div>
       </div>
-      <div class="d-flex row justify-content-center mt-3">
+      <div class="d-flex justify-content-between flex-wrap mt-3">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>
 </template>
 
 <script>
-
   import CardHouse from '../components/CardHouse.vue';
 
   export default {
