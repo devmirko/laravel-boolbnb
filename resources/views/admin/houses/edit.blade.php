@@ -107,7 +107,7 @@
         {{-- tipo di struttura --}}
         <div class="mb-3">
             <label class="form-label" for="type">Tipo di Struttura: *</label>
-            <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="type" value="{{ old('type', $house->name_house)}}"
+            <input class="form-control @error('type') is-invalid @enderror" type="text" name="type" id="type" value="{{ old('type', $house->type)}}"
             required pattern="[Aa]ppartamento|[Aa]ttico|[Vv]illa|[Mm]asseria|[Cc]asale" placeholder="Appartamento, Attico, Villa, Masseria, Casale.">
             @error('type')
                 <div class="invalid-feedback">
@@ -135,7 +135,7 @@
                 <label for="visible">Visible*</label>
             </div>
             <div class="form-check">
-                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1" required>
+                <input class="form-check-input @error('flexRadioDefault1') is-invalid @enderror" type="radio" name="visible" id="flexRadioDefault1" value="1" required checked>
                 <label class="form-check-label" for="flexRadioDefault1">
                   Yes
                 </label>
