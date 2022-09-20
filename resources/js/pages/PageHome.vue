@@ -1,12 +1,15 @@
 <template>
   <div class="container">
-      <div class="row ">
-        <img class="img-fluid rounded" src="../../../public/img/background/Immagine1.jpeg" alt="">
+      <div class="image">
+        <div class="margin-top">
+            <h1 class="text-center text-white">Benvenuti in BoolBnB</h1>
+        </div>
+        <div class="margin">
+            <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput">
+            <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3">ricerca</router-lik>
+        </div>
       </div>
-      <h1 class="text-center">Benvenuti in BoolBnB</h1>
-        <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search"  @keyup.enter="searchInput">
-        <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik>
-      <div class="d-flex row justify-content-center">
+      <div class="d-flex row justify-content-center mt-3">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>
@@ -61,13 +64,24 @@
 </script>
 
 <style lang="scss" scoped>
-    // .image {
-    //     width: 100%;
-    //     height: auto;
+    .image {
+        height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        background-image: url('../../../public/img/background/Immagine1.jpeg');
 
-    //     img {
-    //         width: 100%;
-    //         height: auto;
-    //     }
-    // }
+        .margin-top {
+            margin-top: 50px;
+        }
+
+        .margin {
+            margin-bottom: 200px;
+        }
+
+        .search {
+            width: 400px;
+        }
+    }
 </style>

@@ -5402,16 +5402,18 @@ var render = function render() {
 
   return _c("div", {
     staticClass: "container"
-  }, [_vm._m(0), _vm._v(" "), _c("h1", {
-    staticClass: "text-center"
-  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("input", {
+  }, [_c("div", {
+    staticClass: "image"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "margin"
+  }, [_c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
       value: _vm.search,
       expression: "search"
     }],
-    staticClass: "form-control mr-sm-2 rounded-start",
+    staticClass: "form-control mr-sm-2 rounded-start search",
     attrs: {
       type: "search",
       "aria-label": "Search"
@@ -5430,13 +5432,14 @@ var render = function render() {
       }
     }
   }), _vm._v(" "), _c("router-lik", {
+    staticClass: "text-white mt-3",
     attrs: {
       to: {
         name: "AdvancedSearch"
       }
     }
-  }, [_vm._v("ricerca")]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex row justify-content-center"
+  }, [_vm._v("ricerca")])], 1)]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex row justify-content-center mt-3"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
       key: index,
@@ -5444,7 +5447,7 @@ var render = function render() {
         house: house
       }
     });
-  }), 1)], 1);
+  }), 1)]);
 };
 
 var staticRenderFns = [function () {
@@ -5452,14 +5455,10 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row"
-  }, [_c("img", {
-    staticClass: "img-fluid rounded",
-    attrs: {
-      src: __webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg"),
-      alt: ""
-    }
-  })]);
+    staticClass: "margin-top"
+  }, [_c("h1", {
+    staticClass: "text-center text-white"
+  }, [_vm._v("Benvenuti in BoolBnB")])]);
 }];
 render._withStripped = true;
 
@@ -10782,12 +10781,13 @@ exports.push([module.i, "@charset \"UTF-8\";\n/*!\n * Bootstrap  v5.2.1 (https:/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+var escape = __webpack_require__(/*! ../../../node_modules/css-loader/lib/url/escape.js */ "./node_modules/css-loader/lib/url/escape.js");
 exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
 // imports
 
 
 // module
-exports.push([module.i, "", ""]);
+exports.push([module.i, ".image[data-v-13e03f97] {\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg")) + ");\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 50px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 200px;\n}\n.image .search[data-v-13e03f97] {\n  width: 400px;\n}", ""]);
 
 // exports
 
@@ -10876,6 +10876,33 @@ function toComment(sourceMap) {
 	var data = 'sourceMappingURL=data:application/json;charset=utf-8;base64,' + base64;
 
 	return '/*# ' + data + ' */';
+}
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/lib/url/escape.js":
+/*!***************************************************!*\
+  !*** ./node_modules/css-loader/lib/url/escape.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = function escape(url) {
+    if (typeof url !== 'string') {
+        return url
+    }
+    // If url is already wrapped in quotes, remove them
+    if (/^['"].*['"]$/.test(url)) {
+        url = url.slice(1, -1);
+    }
+    // Should url be wrapped?
+    // See https://drafts.csswg.org/css-values-3/#urls
+    if (/["'() \t\n]/.test(url)) {
+        return '"' + url.replace(/"/g, '\\"').replace(/\n/g, '\\n') + '"'
+    }
+
+    return url
 }
 
 

@@ -11,49 +11,69 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-secondary">
+        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-dark mb-3">
             <div class="container-fluid p-lr">
-                <a class="navbar-brand" href="#">
+                <a class="navbar-brand bg-white" href="#">
                     <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
                 </a>
-                <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><i class="fas fa-bars"></i></span>
-                </button>
-                <div class="collapse navbar-collapse justify-content-end" id="navbarText">
-                    <ul class="navbar-nav mb-lg-0">
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" href="login">Login</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active text-white" href="register">Register</a>
-                        </li>
-                    </ul>
-                </div>
+
+                @if (Route::has('login'))
+                    <div class="collapse navbar-collapse justify-content-end">
+                        @auth
+                            <li class="nav-item">
+                                <a class="nav-link active text-white" href="{{ route('admin.dashboard') }}">Admin</a>
+                            </li>
+
+                        @else
+                            <li class="nav-item m-1">
+                                <a class="nav-link active text-white" href="{{ route('login') }}">Login</a>
+                            </li>
+
+                            @if (Route::has('register'))
+                            <li class="nav-item m-1">
+                                <a class="nav-link active text-white" href="{{ route('register') }}">Register</a>
+                            </li>
+                        @endif
+                        @endauth
+                    </div>
+                @endif
             </div>
         </nav>
-        {{-- <nav class="navbar navbar-expand">
-            <div class="container justify-content-between">
-                    <div>
-                        <a class="navbar-brand" href="#">
-                            <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
-                        </a>
-                    </div>
 
-                    <div class="collapse navbar-collapse menu" id="navbarSupportedContent">
-                        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                            <li class="nav-item">
-                                <a class="nav-link active" href="login">Login</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="register">Register</a>
-                            </li>
-                        </ul>
-                    </div>
-            </div>
-        </nav> --}}
 
         <div id="root"></div>
+
+        <footer class="mt-3">
+            <div class="container-fluid text-center bg-dark text-white pt-5">
+                <div class="row d-flex justify-content-between">
+                    <div class="col-sx-12 col-sm-4 col-lg-4 mb-4">
+                        <h6>LOCATION</h6>
+                        <p>Indirizzo</p>
+                    </div>
+                    <div class="d-flex flex-column align-items-center col-sx-12 col-sm-4 col-lg-4 mb-5 px-2">
+                        <h4>WEB</h4>
+                        <div class="d-flex">
+                            <div class="icons border border-white rounded-circle px-1 py-1 m-1">
+                                <i class="fab fa-facebook-f"></i>
+                            </div>
+                            <div class="icons border border-white rounded-circle px-1 py-1 m-1">
+                                <i class="fab fa-google-plus-g"></i>
+                            </div>
+                            <div class="icons border border-white rounded-circle px-1 py-1 m-1">
+                                <i class="fab fa-twitter"></i>
+                            </div>
+                            <div class="icons border border-white rounded-circle px-1 py-1 m-1">
+                                <i class="fab fa-linkedin-in"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sx-12 col-sm-4 col-lg-4 mb-5">
+                        <h6>ABOUT</h6>
+                        <p>Text</p>
+                    </div>
+                </div>
+            </div>
+        </footer>
 
         <script src="{{ asset('js/front.js') }}"></script>
     </body>
