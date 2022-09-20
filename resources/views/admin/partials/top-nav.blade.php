@@ -1,15 +1,33 @@
-<nav class="navbar navbar-expand-md navbar-dark bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="{{ route('home') }}">Bool-BnB</a>
-    <ul class="navbar-nav px-3 ml-auto">
-        <li class="nav-item">
-            <a class="nav-link" href="{{ route('logout') }}"
-               onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
-            >
-                Logout
-            </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-        </li>
-    </ul>
+
+<nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-dark mb-3">
+    <div class="container-fluid p-lr">
+        <a class="navbar-brand bg-white" href="{{ route('home') }}">
+            <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
+        </a>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarText">
+            <ul class="navbar-nav px-3 ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link text-white" href="{{ route('logout') }}"
+                       onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                    >
+                        Logout
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
 </nav>
+
+
+
+
+
+
+
+
+
+
+
