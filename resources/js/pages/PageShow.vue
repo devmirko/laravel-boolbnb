@@ -21,8 +21,8 @@
                       <b class="fst-italic">type: </b> {{ showHouse.type }}
                   </li>
                 </ul>
-                <img :src="showHouse.cover_photo" alt="">
-          </div>
+                <img :src="showHouse.cover_photo" alt="Foto della casa">
+            </div>
       </div>
   </template>
 

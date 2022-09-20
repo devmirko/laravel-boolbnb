@@ -1,5 +1,5 @@
 <template>
-    <div class="card" style="width: 15rem;">
+    <div class="card col-3">
         <img class="card-img-top" :src="house.cover_photo">
 
         <div class="card-body">
