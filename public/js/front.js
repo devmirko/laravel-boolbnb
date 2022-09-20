@@ -5236,11 +5236,16 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       houses: [],
-      search: ""
+      search: ''
     };
   },
   components: {
     CardHouse: _components_CardHouse_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  watch: {
+    search: function search(after, before) {
+      this.searchInput();
+    }
   },
   created: function created() {
     var _this = this;
@@ -5251,6 +5256,24 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.houses);
       }
     });
+  },
+  methods: {
+    searchInput: function searchInput() {
+      var _this2 = this;
+
+      if (this.search != '') {
+        axios.get('/api/city', {
+          params: {
+            search: this.search
+          }
+        }).then(function (res) {
+          if (res.data.success) {
+            _this2.houses = res.data.result;
+            console.log(_this2.houses);
+          }
+        });
+      }
+    }
   }
 });
 
@@ -5334,10 +5357,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card",
-    staticStyle: {
-      width: "15rem"
-    }
+    staticClass: "card col-3"
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
@@ -5447,21 +5467,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "register"
     }
-  }, [_vm._v("Register")])])]), _vm._v(" "), _c("form", {
-    staticClass: "d-flex"
-  }, [_c("input", {
-    staticClass: "form-control me-2",
-    attrs: {
-      type: "search",
-      placeholder: "Search",
-      "aria-label": "Search"
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-success",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("Search")])])])])]);
+  }, [_vm._v("Register")])])])])])]);
 }];
 render._withStripped = true;
 
@@ -5512,13 +5518,11 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", {
+  return _c("div", {
+    staticClass: "container"
+  }, [_vm._m(0), _vm._v(" "), _c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("form", {
-    attrs: {
-      action: ""
-    }
-  }, [_c("input", {
+  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -5534,6 +5538,10 @@ var render = function render() {
       value: _vm.search
     },
     on: {
+      keyup: function keyup($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
+        return _vm.searchInput.apply(null, arguments);
+      },
       input: function input($event) {
         if ($event.target.composing) return;
         _vm.search = $event.target.value;
@@ -5545,8 +5553,8 @@ var render = function render() {
         name: "AdvancedSearch"
       }
     }
-  }, [_vm._v("ricerca")])], 1), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center"
+  }, [_vm._v("ricerca")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex row justify-content-center"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
       key: index,
@@ -5554,7 +5562,7 @@ var render = function render() {
         house: house
       }
     });
-  }), 1)]);
+  }), 1)], 1);
 };
 
 var staticRenderFns = [function () {
@@ -5562,8 +5570,9 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "image"
+    staticClass: "row"
   }, [_c("img", {
+    staticClass: "img-fluid rounded",
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg"),
       alt: ""
@@ -5604,14 +5613,14 @@ var render = function render() {
     staticClass: "fst-italic"
   }, [_vm._v("Beds: ")]), _vm._v(" " + _vm._s(_vm.showHouse.email) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Bathrooms: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("address: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
   }, [_vm._v("MQ: ")]), _vm._v(" " + _vm._s(_vm.showHouse.phone) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
   }, [_vm._v("type: ")]), _vm._v(" " + _vm._s(_vm.showHouse.type) + "\n              ")])]), _vm._v(" "), _c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
-      alt: ""
+      alt: "Foto della casa"
     }
   })])]);
 };
