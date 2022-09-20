@@ -9,98 +9,96 @@ use App\Http\Controllers\Controller;
 
 class HouseController extends Controller
 {
-     private function fixImageUrl($imgPath)
-     {
-          return $imgPath ? asset('/storage/' . $imgPath) : null;
-     }
+      private function fixImageUrl($imgPath)
+      {
+       return $imgPath ? asset('/storage/' . $imgPath) : null;
+      }
 
     public function index()
     {
 
-        $houses = House::all();
-        foreach ( $houses as $house ) {
-            $house->cover_photo = $this->fixImageUrl($house->cover_photo);
-        }
+          $houses = House::all();
+          foreach ( $houses as $house ) {
+          $house->cover_photo = $this->fixImageUrl($house->cover_photo);
+           }
 
-        return response()->json([
+          return response()->json([
             'success'   => true,
             'result'    => $houses,
-        ]);
+           ]);
 
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
-     */
     public function show($id)
     {
         $houses = House::with(['user', 'services'])->where('id', $id)->first();
-        foreach ( $houses as $house ) {
-            $house->cover_photo = $this->fixImageUrl($house->cover_photo);
+            $houses->cover_photo = $this->fixImageUrl($houses->cover_photo);
             return response()->json([
                 'success'   => true,
                 'result'    => $houses,
             ]);
+
+
+    }
+
+    public function search(Request $request)
+   {
+    $address =  $request->get('address');
+    $houses_ = House::with(['address'])->whereHas('address', function ($q) use ($address) {
+        $q->where('id', 'like', $address);
+        })->get();
+
+        if ($houses_) {
+            return response()->json([
+                'success'   => true,
+                'result'    => $houses_
+            ]);
+        } else {
+            return response()->json([
+                'success'   => false,
+            ]);
         }
 
 
+
+
+
+
+    }
+    public function city(Request $request)
+    {
+        $address_ = DB::table('houses')
+            ->where('address', 'like', '%' . $request->search . '%')
+            ->get();
+            if ($address_) {
+                return response()->json([
+                    'success'   => true,
+                    'result'    => $address_
+                ]);
+            } else {
+                return response()->json([
+                    'success'   => false,
+                ]);
+            }
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(House $house)
-    {
-        //
-    }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, House $house)
-    {
-        //
-    }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\House  $house
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(House $house)
-    {
-        //
-    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

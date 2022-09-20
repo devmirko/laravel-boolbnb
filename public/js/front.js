@@ -81,7 +81,7 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ({
@@ -5235,11 +5235,17 @@ __webpack_require__.r(__webpack_exports__);
   name: 'PageHome',
   data: function data() {
     return {
-      houses: []
+      houses: [],
+      search: ''
     };
   },
   components: {
     CardHouse: _components_CardHouse_vue__WEBPACK_IMPORTED_MODULE_0__["default"]
+  },
+  watch: {
+    search: function search(after, before) {
+      this.searchInput();
+    }
   },
   created: function created() {
     var _this = this;
@@ -5250,6 +5256,24 @@ __webpack_require__.r(__webpack_exports__);
         console.log(_this.houses);
       }
     });
+  },
+  methods: {
+    searchInput: function searchInput() {
+      var _this2 = this;
+
+      if (this.search != '') {
+        axios.get('/api/city', {
+          params: {
+            search: this.search
+          }
+        }).then(function (res) {
+          if (res.data.success) {
+            _this2.houses = res.data.result;
+            console.log(_this2.houses);
+          }
+        });
+      }
+    }
   }
 });
 
@@ -5274,10 +5298,13 @@ __webpack_require__.r(__webpack_exports__);
       showHouse: []
     };
   },
+  props: {
+    id: String
+  },
   created: function created() {
     var _this = this;
 
-    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/Houses/2').then(function (res) {
+    axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/houses/' + this.id).then(function (res) {
       if (res.data.success) {
         _this.showHouse = res.data.result;
         console.log(_this.showHouse);
@@ -5330,10 +5357,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card",
-    staticStyle: {
-      width: "15rem"
-    }
+    staticClass: "card col-3"
   }, [_c("img", {
     staticClass: "card-img-top",
     attrs: {
@@ -5341,9 +5365,18 @@ var render = function render() {
     }
   }), _vm._v(" "), _c("div", {
     staticClass: "card-body"
-  }, [_c("h5", {
+  }, [_c("br"), _vm._v(" "), _c("h5", {
     staticClass: "card-title"
-  }, [_vm._v(" " + _vm._s(_vm.house.name_house) + " ")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.house.type))])])]);
+  }, [_vm._v(" " + _vm._s(_vm.house.name_house) + " ")]), _vm._v(" "), _c("div", [_vm._v(_vm._s(_vm.house.type))]), _vm._v(" "), _c("router-link", {
+    attrs: {
+      to: {
+        name: "show",
+        params: {
+          id: _vm.house.id
+        }
+      }
+    }
+  }, [_vm._v("\n        Read\n    ")])], 1)]);
 };
 
 var staticRenderFns = [];
@@ -5434,21 +5467,7 @@ var staticRenderFns = [function () {
     attrs: {
       href: "register"
     }
-  }, [_vm._v("Register")])])]), _vm._v(" "), _c("form", {
-    staticClass: "d-flex"
-  }, [_c("input", {
-    staticClass: "form-control me-2",
-    attrs: {
-      type: "search",
-      placeholder: "Search",
-      "aria-label": "Search"
-    }
-  }), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-outline-success",
-    attrs: {
-      type: "submit"
-    }
-  }, [_vm._v("Search")])])])])]);
+  }, [_vm._v("Register")])])])])])]);
 }];
 render._withStripped = true;
 
@@ -5499,10 +5518,43 @@ var render = function render() {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("h1", {
+  return _c("div", {
+    staticClass: "container"
+  }, [_vm._m(0), _vm._v(" "), _c("h1", {
     staticClass: "text-center"
-  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center"
+  }, [_vm._v("Benvenuti in BoolBnB")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.search,
+      expression: "search"
+    }],
+    staticClass: "form-control mr-sm-2 rounded-start",
+    attrs: {
+      type: "search",
+      "aria-label": "Search"
+    },
+    domProps: {
+      value: _vm.search
+    },
+    on: {
+      keyup: function keyup($event) {
+        if (!$event.type.indexOf("key") && _vm._k($event.keyCode, "enter", 13, $event.key, "Enter")) return null;
+        return _vm.searchInput.apply(null, arguments);
+      },
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.search = $event.target.value;
+      }
+    }
+  }), _vm._v(" "), _c("router-lik", {
+    attrs: {
+      to: {
+        name: "AdvancedSearch"
+      }
+    }
+  }, [_vm._v("ricerca")]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex row justify-content-center"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
       key: index,
@@ -5510,7 +5562,7 @@ var render = function render() {
         house: house
       }
     });
-  }), 1)]);
+  }), 1)], 1);
 };
 
 var staticRenderFns = [function () {
@@ -5518,8 +5570,9 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "image"
+    staticClass: "row"
   }, [_c("img", {
+    staticClass: "img-fluid rounded",
     attrs: {
       src: __webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg"),
       alt: ""
@@ -5560,13 +5613,16 @@ var render = function render() {
     staticClass: "fst-italic"
   }, [_vm._v("Beds: ")]), _vm._v(" " + _vm._s(_vm.showHouse.email) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Bathrooms: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("address: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
   }, [_vm._v("MQ: ")]), _vm._v(" " + _vm._s(_vm.showHouse.phone) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("address: ")]), _vm._v(" " + _vm._s(_vm.showHouse.city) + "\n              ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("type: ")]), _vm._v(" " + _vm._s(_vm.showHouse.type) + "\n              ")])])])]);
+  }, [_vm._v("type: ")]), _vm._v(" " + _vm._s(_vm.showHouse.type) + "\n              ")])]), _vm._v(" "), _c("img", {
+    attrs: {
+      src: _vm.showHouse.cover_photo,
+      alt: "Foto della casa"
+    }
+  })])]);
 };
 
 var staticRenderFns = [];
@@ -10868,7 +10924,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-13e03f97] {\n  width: 100%;\n  height: auto;\n}\n.image img[data-v-13e03f97] {\n  width: 100%;\n  height: auto;\n}", ""]);
+exports.push([module.i, "", ""]);
 
 // exports
 
@@ -44691,6 +44747,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _pages_PageHome_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./pages/PageHome.vue */ "./resources/js/pages/PageHome.vue");
 /* harmony import */ var _pages_Page404_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./pages/Page404.vue */ "./resources/js/pages/Page404.vue");
 /* harmony import */ var _pages_PageShow_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./pages/PageShow.vue */ "./resources/js/pages/PageShow.vue");
+/* harmony import */ var _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./pages/AdvancedSearch.vue */ "./resources/js/pages/AdvancedSearch.vue");
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 
@@ -44698,6 +44755,7 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
  // importiamo il componente base App.vue e lo assegniamo alal variabile App+
 // importiamo tutti i componenti delle pagine
+
 
 
 
@@ -44711,9 +44769,15 @@ var routes = [{
   name: 'page404',
   component: _pages_Page404_vue__WEBPACK_IMPORTED_MODULE_4__["default"]
 }, {
-  path: '/page',
-  name: 'page',
-  component: _pages_PageShow_vue__WEBPACK_IMPORTED_MODULE_5__["default"]
+  path: '/page/:id',
+  name: 'show',
+  component: _pages_PageShow_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+  props: true
+}, {
+  path: '/search',
+  name: 'AdvancedSearch',
+  component: _pages_AdvancedSearch_vue__WEBPACK_IMPORTED_MODULE_6__["default"],
+  props: true
 }];
 var router = new vue_router__WEBPACK_IMPORTED_MODULE_1__["default"]({
   routes: routes,
@@ -44729,6 +44793,38 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
   // significato di render: monta il componente App nell'elemento root
   router: router
 });
+
+/***/ }),
+
+/***/ "./resources/js/pages/AdvancedSearch.vue":
+/*!***********************************************!*\
+  !*** ./resources/js/pages/AdvancedSearch.vue ***!
+  \***********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+var render, staticRenderFns
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_0__["default"])(
+  script,
+  render,
+  staticRenderFns,
+  false,
+  null,
+  null,
+  null
+  
+)
+
+component.options.__file = "resources/js/pages/AdvancedSearch.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
 
 /***/ }),
 
@@ -44957,26 +45053,14 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./resources/sass/back.scss":
-/*!**********************************!*\
-  !*** ./resources/sass/back.scss ***!
-  \**********************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-// removed by extract-text-webpack-plugin
-
-/***/ }),
-
-/***/ 0:
-/*!****************************************************************!*\
-  !*** multi ./resources/js/front.js ./resources/sass/back.scss ***!
-  \****************************************************************/
+/***/ 1:
+/*!*************************************!*\
+  !*** multi ./resources/js/front.js ***!
+  \*************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__("./resources/js/front.js");
-module.exports = __webpack_require__("./resources/sass/back.scss");
+module.exports = __webpack_require__(/*! D:\Leppo\Varie Leppo\Corso fullstack con Boleean\Esercizi corso\#Progetto finale\File progetto\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -11,12 +11,9 @@
 
     </head>
     <body>
+        <div id="root">
 
-
-{{-- spazio visibile da front e back end (sia blade che vue) --}}
-
-
-        <div id="root"></div>
+        </div>
 
         <script src="{{ asset('js/front.js') }}"></script>
     </body>
