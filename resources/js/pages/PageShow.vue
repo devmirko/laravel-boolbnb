@@ -22,7 +22,7 @@
                   </li>
                 </ul>
                 <img :src="showHouse.cover_photo" alt="Foto della casa">
-          </div>
+            </div>
       </div>
   </template>
 
