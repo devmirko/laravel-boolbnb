@@ -25,13 +25,11 @@
 
 <body>
     <div id="app">
-        <nav class="navbar navbar-expand-lg bg-light">
-            <div class="container-fluid">
-                <a class="navbar-brand" href="{{ route('home') }}">
-                    <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png"
-                        alt="" width="100%" height="24">
+        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-dark mb-3">
+            <div class="container-fluid p-lr">
+                <a class="navbar-brand bg-white"  href="{{ route('home') }}">
+                    <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
                 </a>
-                {{-- path: http://127.0.0.1:8000/login --}}
             </div>
         </nav>
 

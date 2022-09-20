@@ -1,19 +1,20 @@
 @extends('admin.layouts.base')
 
 @section('mainContent')
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>id</th>
-                <th>Name</th>
-                <th>Rooms</th>
-                <th>Beds</th>
-                <th>Bathrooms</th>
-                <th class="actions">Actions</th>
-            </tr>
-        </thead>
-        <tbody>
+
             @if ( count($houses) > 0 )
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Rooms</th>
+                        <th>Beds</th>
+                        <th>Bathrooms</th>
+                        <th class="actions">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
                 @foreach ($houses as $house)
                     <tr data-id="{{ $house->id }}">
                         <td>{{ $house->id }} </td>
@@ -41,7 +42,7 @@
             @else
                 <h1 class="text-center">Non hai case, creane una!</h1>
             @endif
-               
+
         </tbody>
     </table>
 @endsection
