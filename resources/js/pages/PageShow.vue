@@ -98,10 +98,10 @@
         width: 20%;
     }
     .email {
-        width: 80%;
+        width: 50%;
     }
     .text {
-        width: 80%;
+        width: 50%;
         height: 80px;
     }
   </style>
