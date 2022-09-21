@@ -7,10 +7,6 @@
             <div class="center">
                 <img :src="showHouse.cover_photo" alt="Foto della casa">
             </div>
-            <div class="d-flex justify-content-around">
-                <b>DESCRIZIONE:</b>
-                <div class="percent30">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas laborum veniam quae veritatis quo ipsum corrupti quos, doloremque doloribus facere dicta aliquam reprehenderit quasi, nemo tempore amet eaque quaerat.</div>
-            </div>
             <div class="dati mt-5 d-flex justify-content-around">
                 <b>CARATTERISTICHE:</b>
                 <ul class="col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car">
@@ -18,19 +14,37 @@
                         <b class="fst-italic">Rooms: </b> <div> {{ showHouse.rooms }}</div>
                     </li>
                     <li class="d-flex">
-                        <b class="fst-italic">Beds: </b> <div> {{ showHouse.email }}</div>
+                        <b class="fst-italic">Beds: </b> <div> {{ showHouse.beds }}</div>
                     </li>
                     <li class="d-flex">
                         <b class="fst-italic">address: </b> <div> {{ showHouse.address }}</div>
                     </li>
                     <li class="d-flex">
-                        <b class="fst-italic">MQ: </b> <div> {{ showHouse.phone }}</div>
+                        <b class="fst-italic">MQ: </b> <div> {{ showHouse.mq }}</div>
                     </li>
                     <li class="d-flex">
                         <b class="fst-italic">type: </b> <div> {{ showHouse.type }}</div>
                     </li>
-                    </ul>
+                </ul>
             </div>
+            <div class="center"><b>CONTATTACI</b></div>
+            <form action="">
+                <div class="center">
+                    <div>
+                        Inserisci Email:
+                    </div>
+                    <input class="email" type="text">
+                    </input>
+                </div>
+                <div class="center">
+                    <div>
+                        Inserisci Testo:
+                    </div>
+                    <input class="text" type="text">
+                    </input>
+                </div>
+            </form>
+             
       </div>
   </template>
 
@@ -82,5 +96,12 @@
     }
     .percent30 {
         width: 20%;
+    }
+    .email {
+        width: 80%;
+    }
+    .text {
+        width: 80%;
+        height: 80px;
     }
   </style>
