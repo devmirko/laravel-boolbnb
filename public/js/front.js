@@ -6042,34 +6042,55 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "d-flex justify-content-between"
+    attrs: {
+      id: "container"
+    }
   }, [_c("div", {
-    staticClass: "image"
+    staticClass: "center titolo"
+  }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
+    staticClass: "center"
   }, [_c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
       alt: "Foto della casa"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "dati"
-  }, [_c("ul", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-6 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("b", {
+  })]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "dati mt-5 d-flex justify-content-around"
+  }, [_c("b", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("ul", {
+    staticClass: "col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car"
+  }, [_c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showHouse.name_house) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("Rooms: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Rooms: ")]), _vm._v(" " + _vm._s(_vm.showHouse.rooms) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("Beds: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.email))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Beds: ")]), _vm._v(" " + _vm._s(_vm.showHouse.email) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("address: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("address: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("MQ: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.phone))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("MQ: ")]), _vm._v(" " + _vm._s(_vm.showHouse.phone) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("type: ")]), _vm._v(" " + _vm._s(_vm.showHouse.type) + "\n                ")])])])]);
+  }, [_vm._v("type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])])])])]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "d-flex justify-content-around"
+  }, [_c("b", [_vm._v("DESCRIZIONE:")]), _vm._v(" "), _c("div", {
+    staticClass: "percent30"
+  }, [_vm._v("Lorem, ipsum dolor sit amet consectetur adipisicing elit. Enim voluptas laborum veniam quae veritatis quo ipsum corrupti quos, doloremque doloribus facere dicta aliquam reprehenderit quasi, nemo tempore amet eaque quaerat.")])]);
+}];
 render._withStripped = true;
 
 
@@ -11369,7 +11390,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 40%;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}", ""]);
 
 // exports
 
@@ -45569,7 +45590,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
