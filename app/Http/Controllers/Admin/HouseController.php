@@ -45,7 +45,9 @@ class HouseController extends Controller
             // 'longitude' => 'numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
-            'cover_photo' => 'required|file|image|max:5000'
+            'cover_photo' => 'required|file|image|max:5000',
+            'services' => 'array|nullable|exists:services,id'
+
         ]);
 
         // salviamo la richiesta in un variabile
