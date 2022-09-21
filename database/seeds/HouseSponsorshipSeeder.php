@@ -9,10 +9,12 @@ class HouseSponsorshipSeeder extends Seeder
 {
     public function run( Faker $faker )
     {
-        // prendo tutti i dati della tabella house
-        $houses = House::all();
+        // prendo tutti i campi id della tabella house
+        $houses = House::all()->pluck('id');;
+
         // prendo tutti i campi id della tabella sponsorships
         $sponsorships = Sponsorship::all()->pluck('id');
+
         // creo una variabile in cui conto gli elementi(id) di sponsorships
         $nSponsorships = count($sponsorships);
 
