@@ -70,13 +70,16 @@
         justify-content: space-between;
         align-items: center;
         background-image: url('../../../public/img/background/Immagine1.jpeg');
+        background-position: center center;
+        background-size: cover;
+
 
         .margin-top {
-            margin-top: 50px;
+            margin-top: 80px;
         }
 
         .margin {
-            margin-bottom: 200px;
+            margin-bottom: 70px;
         }
 
         .search {
