@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div>
       <div class="image">
         <div class="margin-top">
             <h1 class="text-center text-white">Benvenuti in BoolBnB</h1>
@@ -9,7 +9,7 @@
             <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-lik>
         </div>
       </div>
-      <div class="d-flex justify-content-between flex-wrap mt-3">
+      <div class="d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>
