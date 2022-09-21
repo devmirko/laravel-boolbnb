@@ -6794,7 +6794,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "margin-top"
   }, [_c("h1", {
-    staticClass: "text-center text-white"
+    staticClass: "text-center text-white bold"
   }, [_vm._v("Benvenuti in BoolBnB")])]);
 }];
 render._withStripped = true;
@@ -12206,7 +12206,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-13e03f97] {\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 70px;\n}\n.image .search[data-v-13e03f97] {\n  width: 400px;\n}", ""]);
+exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -45821,14 +45821,14 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/img/background/Immagine1.jpeg":
-/*!**********************************************!*\
-  !*** ./public/img/background/Immagine1.jpeg ***!
-  \**********************************************/
+/***/ "./public/img/background/Immagine4.jpg":
+/*!*********************************************!*\
+  !*** ./public/img/background/Immagine4.jpg ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Immagine1.jpeg?e8ea9a9c35a925b8abc326e367dc2573";
+module.exports = "/images/Immagine4.jpg?c32ccc36698f7e9ee9d55c08678e3cc7";
 
 /***/ }),
 
