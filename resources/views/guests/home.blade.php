@@ -11,8 +11,8 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light bg-white">
-            <div class="container-fluid p-lr">
+        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light" style="background-color: black">
+            <div class="container-fluid">
                 <a class="navbar-brand bg-white" href="{{ route('home') }}">
                     <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
                 </a>
@@ -20,18 +20,18 @@
                 @if (Route::has('login'))
                     <div class="collapse navbar-collapse justify-content-end">
                         @auth
-                            <li class="nav-item list-unstyled">
-                                <a class="nav-link active text-dark" href="{{ route('admin.dashboard') }}">Admin</a>
+                            <li class="list-unstyled me-4">
+                                <a class="nav-link active text-white" href="{{ route('admin.houses.index') }}">Admin</a>
                             </li>
 
                         @else
-                            <li class="nav-item m-1 list-unstyled">
-                                <a class="nav-link active text-dark" href="{{ route('login') }}">Login</a>
+                            <li class="list-unstyled me-4">
+                                <a class="nav-link active text-white" href="{{ route('login') }}">Login</a>
                             </li>
 
                             @if (Route::has('register'))
-                            <li class="nav-item m-1 list-unstyled">
-                                <a class="nav-link active text-dark" href="{{ route('register') }}">Register</a>
+                            <li class="list-unstyled me-2">
+                                <a class="nav-link active text-white" href="{{ route('register') }}">Register</a>
                             </li>
                         @endif
                         @endauth
@@ -43,7 +43,7 @@
 
         <div id="root"></div>
 
-        <footer class="mt-3">
+        <footer style="background-color: black" class="text-white">
             <div class="container-fluid text-center pt-5">
                 <div class="row d-flex justify-content-between">
                     <div class="col-sx-12 col-sm-4 col-lg-4 mb-4">

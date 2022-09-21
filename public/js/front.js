@@ -5511,20 +5511,19 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "card col-3 m-2"
+    staticClass: "team-card card"
   }, [_c("div", {
-    staticClass: "image"
+    staticClass: "card-image image"
   }, [_c("img", {
-    staticClass: "card-img-top",
     attrs: {
       src: _vm.house.cover_photo
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "card-body bg-gradient text-dark sfondo"
-  }, [_c("h5", {
+    staticClass: "card-text"
+  }, [_c("h3", {
     staticClass: "card-title text-center"
   }, [_vm._v(" " + _vm._s(_vm.house.name_house) + " ")]), _vm._v(" "), _c("div", {
-    staticClass: "read text-center mt-4"
+    staticClass: "mt-2"
   }, [_c("router-link", {
     staticClass: "nav-link active bg-white",
     attrs: {
@@ -5535,7 +5534,9 @@ var render = function render() {
         }
       }
     }
-  }, [_c("p", [_vm._v("Read")])])], 1)])]);
+  }, [_c("p", {
+    staticClass: "read"
+  }, [_vm._v("Read")])])], 1)])]);
 };
 
 var staticRenderFns = [];
@@ -6795,7 +6796,7 @@ var staticRenderFns = [function () {
   return _c("div", {
     staticClass: "margin-top"
   }, [_c("h1", {
-    staticClass: "text-center text-white"
+    staticClass: "text-center text-white bold"
   }, [_vm._v("Benvenuti in BoolBnB")])]);
 }];
 render._withStripped = true;
@@ -6819,7 +6820,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "contenitore"
+    staticClass: "contenitore bg-dark text-white"
   }, [_c("div", {
     staticClass: "center titolo"
   }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
@@ -12168,7 +12169,26 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-77660fd6] {\n  width: 100%;\n  height: 200px;\n}\n.image img[data-v-77660fd6] {\n  width: 100%;\n  height: 100%;\n}\n.sfondo[data-v-77660fd6] {\n  background-color: rgb(192, 178, 175);\n}\n.sfondo h5[data-v-77660fd6] {\n  font-size: 15px;\n}\n.read[data-v-77660fd6] {\n  width: 20%;\n  margin: 0 auto;\n}\n.read p[data-v-77660fd6] {\n  font-size: 12px;\n}", ""]);
+exports.push([module.i, "*[data-v-77660fd6] {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n.team-card[data-v-77660fd6] {\n  flex-basis: 370px;\n  margin-top: 50px;\n  margin-right: 28px;\n}\n.team-container[data-v-77660fd6]::after {\n  flex: auto;\n  content: \"\";\n}\n.card-image[data-v-77660fd6] {\n  overflow: hidden;\n  cursor: pointer;\n}\n.card-image img[data-v-77660fd6] {\n  display: block;\n  max-width: 100%;\n  transition: all 1s;\n}\n.card-image:hover img[data-v-77660fd6] {\n  transform: scale(1.1, 1.1);\n  opacity: 0.9;\n}\n.card-text[data-v-77660fd6] {\n  padding: 10px;\n  text-align: center;\n  background-color: #fff;\n}\n.card-text h3[data-v-77660fd6] {\n  font-family: \"Vidaloka\", serif;\n  font-size: 22px;\n  font-weight: 400;\n}\n.image[data-v-77660fd6] {\n  width: 100%;\n  height: 200px;\n}\n.image img[data-v-77660fd6] {\n  width: 100%;\n  height: 100%;\n}\n.read[data-v-77660fd6] {\n  font-size: 13px;\n  width: 20%;\n  margin: 0 auto;\n  background-color: black;\n  color: white;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/addressTag.vue?vue&type=style&index=0&id=f8dab6de&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/addressTag.vue?vue&type=style&index=0&id=f8dab6de&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "li[data-v-f8dab6de]:hover {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
@@ -12207,7 +12227,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-13e03f97] {\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine1.jpeg */ "./public/img/background/Immagine1.jpeg")) + ");\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 50px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 200px;\n}\n.image .search[data-v-13e03f97] {\n  width: 400px;\n}", ""]);
+exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -12226,7 +12246,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  background-color: black;\n  color: white;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n}", ""]);
 
 // exports
 
@@ -45822,14 +45842,14 @@ module.exports = function(module) {
 
 /***/ }),
 
-/***/ "./public/img/background/Immagine1.jpeg":
-/*!**********************************************!*\
-  !*** ./public/img/background/Immagine1.jpeg ***!
-  \**********************************************/
+/***/ "./public/img/background/Immagine4.jpg":
+/*!*********************************************!*\
+  !*** ./public/img/background/Immagine4.jpg ***!
+  \*********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "/images/Immagine1.jpeg?e8ea9a9c35a925b8abc326e367dc2573";
+module.exports = "/images/Immagine4.jpg?c32ccc36698f7e9ee9d55c08678e3cc7";
 
 /***/ }),
 
@@ -46591,7 +46611,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\boolean\php\Laravel\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
