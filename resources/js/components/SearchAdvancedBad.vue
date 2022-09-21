@@ -13,8 +13,8 @@
             <address-tag :lon="result.position.lon" :lat="result.position.lat" :address="result.address.freeformAddress" v-for="(result, index) in results" :key="index" @click-address="setCoordinates">{{ result.address.freeformAddress }}
             </address-tag>
         </ul>
-        <input type="text" id="lon" v-model="lon" name="address_lon" >
-        <input type="text" id="lat" v-model="lat" name="address_lat" >
+        <input type="text" id="lon" v-model="lon" name="address_lon" hidden >
+        <input type="text" id="lat" v-model="lat" name="address_lat"  hidden >
     </div>
     </template>
 
