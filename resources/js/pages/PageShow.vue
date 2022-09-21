@@ -112,9 +112,10 @@
         padding: 10px;
         margin-left: 20%;
         margin-right: 20%;
+        -bottom: 10%;
     }
     .contenitore {
-        background-color: black;
-        color: white;
+        color: black
+        
     }
   </style>
