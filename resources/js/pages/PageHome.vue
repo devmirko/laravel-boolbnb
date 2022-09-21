@@ -9,7 +9,7 @@
             <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-lik>
         </div>
       </div>
-      <div class="d-flex justify-content-center flex-wrap mt-3 mb-3">
+      <div class="d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>

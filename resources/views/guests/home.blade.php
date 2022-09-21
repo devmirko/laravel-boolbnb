@@ -44,7 +44,7 @@
         <div id="root"></div>
 
         <footer class="mt-3">
-            <div class="container-fluid text-center bg-dark text-white pt-5">
+            <div class="container-fluid text-center pt-5">
                 <div class="row d-flex justify-content-between">
                     <div class="col-sx-12 col-sm-4 col-lg-4 mb-4">
                         <h6>LOCATION</h6>

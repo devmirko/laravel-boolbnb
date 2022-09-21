@@ -6002,7 +6002,7 @@ var render = function render() {
       }
     }
   })], 1)]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-center flex-wrap mt-3 mb-3"
+    staticClass: "d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
       key: index,
@@ -6044,34 +6044,76 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "d-flex justify-content-between"
+    attrs: {
+      id: "container"
+    }
   }, [_c("div", {
-    staticClass: "image"
+    staticClass: "center titolo"
+  }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
+    staticClass: "center"
   }, [_c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
       alt: "Foto della casa"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "dati"
-  }, [_c("ul", {
-    staticClass: "col-12 col-sm-12 col-md-6 col-lg-6 d-flex flex-column justify-content-center gap-2 order-2"
-  }, [_c("li", [_c("b", {
+    staticClass: "dati mt-5 d-flex justify-content-around"
+  }, [_c("b", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("ul", {
+    staticClass: "col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car"
+  }, [_c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Nome: ")]), _vm._v(" " + _vm._s(_vm.showHouse.name_house) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("Rooms: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Rooms: ")]), _vm._v(" " + _vm._s(_vm.showHouse.rooms) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("Beds: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.beds))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Beds: ")]), _vm._v(" " + _vm._s(_vm.showHouse.email) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("address: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("address: ")]), _vm._v(" " + _vm._s(_vm.showHouse.address) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
+  }, [_vm._v("MQ: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.mq))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("MQ: ")]), _vm._v(" " + _vm._s(_vm.showHouse.phone) + "\n                ")]), _vm._v(" "), _c("li", [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("type: ")]), _vm._v(" " + _vm._s(_vm.showHouse.type) + "\n                ")])])])]);
+  }, [_vm._v("type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
 };
 
-var staticRenderFns = [];
+var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "center"
+  }, [_c("b", [_vm._v("CONTATTACI")])]);
+}, function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("form", {
+    attrs: {
+      action: ""
+    }
+  }, [_c("div", {
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                    Inserisci Email:\n                ")]), _vm._v(" "), _c("input", {
+    staticClass: "email",
+    attrs: {
+      type: "text"
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                    Inserisci Testo:\n                ")]), _vm._v(" "), _c("input", {
+    staticClass: "text",
+    attrs: {
+      type: "text"
+    }
+  })])]);
+}];
 render._withStripped = true;
 
 
@@ -11390,7 +11432,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 40%;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}", ""]);
 
 // exports
 
