@@ -5,48 +5,85 @@
             <ul>
                 <!-- ricerca per citta -->
                 <li>
-                    <strong>citta:</strong>
-                    <form action="">
-                       <input type="text" placeholder="Scrivi qui.." name="address">
-                       <button>filtra</button>
-                    </form>
+                    <find-address></find-address>
+                    <!-- <FindAddress/> -->
+                    <p>Distanza max dall'indirizzo indicato:</p>
+                    <input class="" type="text" v-model="radius">
+                    <label class="" for="distance">Km </label><br><br>
+
                 </li>
                 <!-- ricerca per stanze -->
                 <li>
-                    <strong>rooms:</strong>
-                    <form action="">
-                    <input type="text" name="rooms">
-                    <button>filtra</button>
-                    </form>
+                    <span>Seleziona le stanze : {{ rooms }}</span>
+                    <select v-model="rooms">
+                        <option disabled value="0">Seleziona le stanze</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select><br><br>
                 </li>
                 <!-- ricerca per letti -->
                 <li>
-                    <strong>beds:</strong>
-                    <form action="">
-                    <input type="text" name="beds">
-                    <button>filtra</button>
-                    </form>
+                    <span>Seleziona gli ospiti : {{ beds }}</span>
+                    <select v-model="beds">
+                        <option disabled value="0">Seleziona gli ospiti</option>
+                        <option>1</option>
+                        <option>2</option>
+                        <option>3</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                    </select><br><br>
                 </li>
                 <!-- ricerca per servizi -->
                 <li class="list-group-item">
-                    <strong>services:</strong>
-                        <span>
-                            <input class="form-check-input" type="radio" name="services" id="flexRadioDefault1">
-                            <label class="form-check-label" for="services">
-
-                            </label>
-                        </span>
-                </li>
-                <!-- km di distanza dalla ricerca -->
-                <li class="list-group-item">
-                    <strong>distanza:</strong>
-                        <span>
-                            <input class="form-check-input" type="radio" name="radius" id="flexRadioDefault1">
-                            <label class="form-check-label">
+                    <span class="my_select">Servizi inclusi:</span><br>
+                <div id='check'>
+                    <fieldset>
+                        <label class='check-item'>
+                            <input type="checkbox" value="1" v-model="checkedServices">
+                            <span>Wifi</span>
+                            <i class="fas fa-wifi"></i>
                         </label>
-                    </span>
-                 </li>
+                        <label class='check-item'>
+                            <input type="checkbox" value="2" v-model="checkedServices">
+                            <span>Piscina</span>
+                            <i class="fas fa-swimmer"></i>
+                        </label>
+                        <label class='check-item'>
+                            <input type="checkbox" value="3" v-model="checkedServices">
+                            <span>Vista mare</span>
+                            <i class="fas fa-umbrella-beach"></i>
+                        </label>
+                        <label class='check-item'>
+                            <input type="checkbox" value="4" v-model="checkedServices">
+                            <span>Posto auto</span>
+                            <i class="fas fa-parking"></i>
+                        </label>
+                        <label class='check-item'>
+                            <input type="checkbox" value="5" v-model="checkedServices">
+                            <span>Portineria</span>
+                            <i class="fas fa-concierge-bell"></i>
+                        </label>
+                        <label class='check-item'>
+                            <input type="checkbox" value="6" v-model="checkedServices">
+                            <span>Sauna</span>
+                            <i class="fas fa-hot-tub"></i>
+                        </label>
+                    </fieldset>
+                </div>
+                <div id="my_btn">
+                    <button> Cerca </button>
+                </div>
 
+                </li>
             </ul>
 
 
@@ -61,23 +98,28 @@
   <script>
 
     import CardHouse from '../components/CardHouse.vue';
+    import FindAddress from '../components/FindAddress.vue';
 
     export default {
         name: 'AdvancedSearch',
         data() {
         return {
           houses: [],
-          services: [],
+          checkedServices: [],
           search: '',
-          distanza: 0,
-          rooms: '',
-          beds: '',
+          radius: 0,
+          rooms: 0,
+          beds: 0,
+          address_lat: 0,
+          address_lon: 0,
+          noHouses: "",
 
 
         }
       },
       components: {
           CardHouse,
+          FindAddress
 
       },
       created() {
@@ -90,6 +132,10 @@
             })
       },
       methods: {
+
+
+
+
       }
   }
 
