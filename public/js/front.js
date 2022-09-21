@@ -5344,12 +5344,12 @@ __webpack_require__.r(__webpack_exports__);
           longitude: this.address_lon,
           radius: this.radius,
           rooms: this.rooms,
-          beds: this.beds,
-          services: this.checkedServices
+          beds: this.beds // services: this.checkedServices
+
         }
       }).then(function (res) {
         if (res.data.success) {
-          _this.houses = res.data.result;
+          _this.houses = res.data.result[0];
           console.log(_this.houses);
         }
       })["catch"](function (error) {
@@ -5655,7 +5655,8 @@ var render = function render() {
     attrs: {
       type: "text",
       id: "lon",
-      name: "address_lon"
+      name: "address_lon",
+      hidden: ""
     },
     domProps: {
       value: _vm.lon
@@ -5676,7 +5677,8 @@ var render = function render() {
     attrs: {
       type: "text",
       id: "lat",
-      name: "address_lat"
+      name: "address_lat",
+      hidden: ""
     },
     domProps: {
       value: _vm.lat
@@ -12168,6 +12170,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "*[data-v-77660fd6] {\n  box-sizing: border-box;\n  margin: 0;\n  padding: 0;\n}\n.team-card[data-v-77660fd6] {\n  flex-basis: 370px;\n  margin-top: 50px;\n  margin-right: 28px;\n}\n.team-container[data-v-77660fd6]::after {\n  flex: auto;\n  content: \"\";\n}\n.card-image[data-v-77660fd6] {\n  overflow: hidden;\n  cursor: pointer;\n}\n.card-image img[data-v-77660fd6] {\n  display: block;\n  max-width: 100%;\n  transition: all 1s;\n}\n.card-image:hover img[data-v-77660fd6] {\n  transform: scale(1.1, 1.1);\n  opacity: 0.9;\n}\n.card-text[data-v-77660fd6] {\n  padding: 10px;\n  text-align: center;\n  background-color: #fff;\n}\n.card-text h3[data-v-77660fd6] {\n  font-family: \"Vidaloka\", serif;\n  font-size: 22px;\n  font-weight: 400;\n}\n.image[data-v-77660fd6] {\n  width: 100%;\n  height: 200px;\n}\n.image img[data-v-77660fd6] {\n  width: 100%;\n  height: 100%;\n}\n.read[data-v-77660fd6] {\n  font-size: 13px;\n  width: 20%;\n  margin: 0 auto;\n  background-color: black;\n  color: white;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/addressTag.vue?vue&type=style&index=0&id=f8dab6de&lang=scss&scoped=true&":
+/*!********************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/addressTag.vue?vue&type=style&index=0&id=f8dab6de&lang=scss&scoped=true& ***!
+  \********************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "li[data-v-f8dab6de]:hover {\n  cursor: pointer;\n}", ""]);
 
 // exports
 
