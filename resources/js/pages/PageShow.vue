@@ -1,5 +1,5 @@
 <template>
-    <div id="container">
+    <div  class="contenitore">
         <div class="center titolo">
             <b>{{ showHouse.name_house }}</b>
         </div>
@@ -28,22 +28,25 @@
                 </ul>
             </div>
             <div class="center"><b>CONTATTACI</b></div>
-            <form action="">
-                <div class="center">
-                    <div>
-                        Inserisci Email:
+            <div class="bordo">
+                <form action="">
+                    <div class="center">
+                        <div>
+                            Inserisci Email:
+                        </div>
+                        <input class="email" type="text">
+                        <button>invia</button>
                     </div>
-                    <input class="email" type="text">
-                    </input>
-                </div>
-                <div class="center">
-                    <div>
-                        Inserisci Testo:
+                    <div class="center">
+                        <div>
+                            Inserisci Testo:
+                        </div>
+                        <input class="text" type="text">
+                        <button>invia</button>
+                        
                     </div>
-                    <input class="text" type="text">
-                    </input>
-                </div>
-            </form>
+                </form>
+            </div>
              
       </div>
   </template>
@@ -98,10 +101,20 @@
         width: 20%;
     }
     .email {
-        width: 50%;
+        width: 80%;
     }
     .text {
-        width: 50%;
+        width: 80%;
         height: 80px;
+    }
+    .bordo {
+        border: 2px solid aqua;
+        padding: 10px;
+        margin-left: 20%;
+        margin-right: 20%;
+    }
+    .contenitore {
+        background-color: black;
+        color: white;
     }
   </style>

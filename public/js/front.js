@@ -6042,9 +6042,7 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    attrs: {
-      id: "container"
-    }
+    staticClass: "contenitore"
   }, [_c("div", {
     staticClass: "center titolo"
   }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
@@ -6092,25 +6090,27 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("form", {
+  return _c("div", {
+    staticClass: "bordo"
+  }, [_c("form", {
     attrs: {
       action: ""
     }
   }, [_c("div", {
     staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Email:\n                ")]), _vm._v(" "), _c("input", {
+  }, [_c("div", [_vm._v("\n                        Inserisci Email:\n                    ")]), _vm._v(" "), _c("input", {
     staticClass: "email",
     attrs: {
       type: "text"
     }
-  })]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("button", [_vm._v("invia")])]), _vm._v(" "), _c("div", {
     staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Testo:\n                ")]), _vm._v(" "), _c("input", {
+  }, [_c("div", [_vm._v("\n                        Inserisci Testo:\n                    ")]), _vm._v(" "), _c("input", {
     staticClass: "text",
     attrs: {
       type: "text"
     }
-  })])]);
+  }), _vm._v(" "), _c("button", [_vm._v("invia")])])])]);
 }];
 render._withStripped = true;
 
@@ -11411,7 +11411,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 50%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 50%;\n  height: 80px;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  background-color: black;\n  color: white;\n}", ""]);
 
 // exports
 
