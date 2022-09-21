@@ -1,9 +1,9 @@
 <template>
-    <div  class="contenitore">
+    <div  class="contenitore bg-dark text-white" >
         <div class="center titolo">
             <b>{{ showHouse.name_house }}</b>
         </div>
-            
+
             <div class="center">
                 <img :src="showHouse.cover_photo" alt="Foto della casa">
             </div>
@@ -43,11 +43,11 @@
                         </div>
                         <input class="text" type="text">
                         <button>invia</button>
-                        
+
                     </div>
                 </form>
             </div>
-             
+
       </div>
   </template>
 
@@ -114,8 +114,11 @@
         margin-right: 20%;
         -bottom: 10%;
     }
+<<<<<<< HEAD
     .contenitore {
         color: black
         
     }
+=======
+>>>>>>> 434ae7663e0295da3a7ef2c922dd95f2c06fc4d6
   </style>

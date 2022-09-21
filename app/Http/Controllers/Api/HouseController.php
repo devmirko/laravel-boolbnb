@@ -50,21 +50,71 @@ class HouseController extends Controller
     $services = Service::all();
     // salviamo una variabile con le richieste dei campi del form
     $radius = $request->get('radius');
-    $lat = $request->get('addres_lat');
-    $lon = $request->get('addres_lon');
+    $lat = $request->get('latitude');
+    $lon = $request->get('longitude');
     $rooms_number = $request->get('rooms');
     $bed_number = $request->get('bed');
     // validiamo la richiesta dell'array servizi
     $servicesQuery = $request->validate(["services" => 'nullable|array']);
 
-    $toFilterHouses = House::select('houses.*');
+    $toFilterHouses = House::select('houses.*')
+
+    ->selectRaw('( 6371 * acos( cos( radians(?) ) *
+                          cos( radians( latitude) )
+                          * cos( radians( longitude ) - radians(?)
+                          ) + sin( radians(?) ) *
+                          sin( radians( latitude ) ) )
+                        ) AS distance', [$lat, $lon, $lat])
+    ->havingRaw("distance < ?", [$radius])
+    ->orderBy('distance', 'ASC')->get();
+
+    // creo un array vuoto
+    $houses = [];
+
+    // facciamo un for each tra i campi della tabella house
+    foreach ($toFilterHouses as $toFilterHouse) {
+        if (($toFilterHouse->rooms >= $rooms_number) && ($toFilterHouse->beds >= $bed_number) && ($toFilterHouse->visible == 1)) {
 
 
 
+        // se i servizi sono diversi da 0
+        // prendo la request dei servizi
+        if (!$servicesQuery == 0) {
+            $servicesQuery = $request->get('services');
+            // creo un array vuoto
+            $serviceFilter = [];
+            // faccio un foreach della tabella services
+            foreach ($toFilterHouses->services as $x) {
+                // pusho id l'iterazione nell array
+                $serviceFilter[] = $x->id;
+            }
+
+            if (count(array_intersect($servicesQuery, $serviceFilter)) == count($servicesQuery)) {
+                $houses[] = $toFilterHouses;
+                }
+
+            } else {
+                $houses[] = $toFilterHouses;
+            }
+
+        }
 
 
 
+        if ($houses) {
+            return response()->json([
+                'success'   => true,
+                'result'    => $houses,
+                'result_2'    => $services,
+            ]);
+        } else {
+            return response()->json([
+                'success'   => false,
+            ]);
+        }
 
+
+    }
 
     }
     public function city(Request $request)
