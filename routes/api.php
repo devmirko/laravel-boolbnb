@@ -21,5 +21,6 @@ use Illuminate\Support\Facades\Route;
  Route::get('/houses', 'Api\HouseController@index')->name('api.houses.index');
  Route::get('/houses/{house}', 'Api\HouseController@show')->name('api.houses.show');
  Route::get('/city', 'Api\HouseController@city')->name('api.houses.city');
+ Route::get('/search', 'Api\HouseController@search')->name('api.houses.search');
 
 

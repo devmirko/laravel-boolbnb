@@ -14,7 +14,7 @@ import AdvancedSearch from './pages/AdvancedSearch.vue';
 const routes = [
     {
         path: '/',
-        name: 'home',
+        name: 'Home',
         component: PageHome,
     },
 

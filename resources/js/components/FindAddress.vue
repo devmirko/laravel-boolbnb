@@ -4,8 +4,8 @@
         <label class="form-label" for="address">Indirizzo *</label>
         <input required autocomplete="off" @keyup="addressSearch" type="text"
             class="form-control form-create address-form" name="address" id="query" v-model="searchAddess" />
-        <input type="text" hidden name="latitude" v-model="latitude" />
-        <input type="text" hidden name="longitude" v-model="longitude" />
+        <input type="text" hidden name="latitude" v-model="latitude"/>
+        <input type="text" hidden name="longitude" v-model="longitude"/>
         <div class="form-create address-form2" v-show="nameAddress.length > 0">
             <ul class="list-type">
                 <li :key="i" v-for="(name, i) in nameAddress" @click="selectAddress(i)" style="cursor: pointer"
