@@ -14,11 +14,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::middleware('auth:api')->get('/user', function (Request $request) {
-//     return $request->user();
-// });
+  Route::middleware('auth:api')->get('/user', function (Request $request) {
+     return $request->user();
+  });
 
-Route::get('/houses', 'Api\HouseController@index')->name('api.houses.index');
-Route::get('/houses/{house}', 'Api\HouseController@show')->name('api.houses.show');
+ Route::get('/houses', 'Api\HouseController@index')->name('api.houses.index');
+ Route::get('/houses/{house}', 'Api\HouseController@show')->name('api.houses.show');
+ Route::get('/city', 'Api\HouseController@city')->name('api.houses.city');
+ Route::get('/search', 'Api\HouseController@search')->name('api.houses.search');
 
 

@@ -46,8 +46,7 @@ class HouseController extends Controller
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
             'cover_photo' => 'required|file|image|max:5000',
-            'services' => 'array|nullable|exists:services,id'
-
+            'services' => 'required|array|exists:services,id|min:1',
         ]);
 
         // salviamo la richiesta in un variabile
@@ -104,7 +103,9 @@ class HouseController extends Controller
             // 'longitude' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
-            'cover_photo' => 'required|file|image|max:5000'
+            'cover_photo' => 'required|file|image|max:5000',
+            'services' => 'required|exists:services,id',
+
         ]);
 
         $data = $request->all();
