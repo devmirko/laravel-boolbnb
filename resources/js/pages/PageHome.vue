@@ -69,7 +69,7 @@
         font-size: 60px;
     }
     .image {
-        height: 500px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

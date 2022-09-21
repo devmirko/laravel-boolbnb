@@ -12206,7 +12206,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 500px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
