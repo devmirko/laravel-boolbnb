@@ -21,7 +21,8 @@ class House extends Model
         'longitude',
         'address',
         'cover_photo',
-        'type'
+        'type',
+        'sponsorships_id'
     ];
 
     public function user() { // il belongs to sta dalla parte dell'1 della relazione e il nome deve essere singolare
@@ -43,6 +44,10 @@ class House extends Model
 
     public function views() {
         return $this->hasMany('App\Models\View');
+    }
+
+    public function sponsorships() {
+        return $this->belongsToMany('App\Models\Sponsorship');
     }
 }
 
