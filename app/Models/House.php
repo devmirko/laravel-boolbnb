@@ -46,6 +46,7 @@ class House extends Model
         return $this->hasMany('App\Models\View');
     }
 
+    // creiamo una relazione molti a molti dalla tabella house alla tabella sponsorships
     public function sponsorships() {
         return $this->belongsToMany('App\Models\Sponsorship');
     }
