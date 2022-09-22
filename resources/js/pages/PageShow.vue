@@ -114,11 +114,8 @@
         margin-right: 20%;
         -bottom: 10%;
     }
-<<<<<<< HEAD
     .contenitore {
         color: black
         
     }
-=======
->>>>>>> 434ae7663e0295da3a7ef2c922dd95f2c06fc4d6
   </style>
