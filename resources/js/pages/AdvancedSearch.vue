@@ -236,12 +236,13 @@
                         radius: this.radius,
                         rooms: this.rooms,
                         beds: this.beds,
-                        services: this.checkedServices
+                        // services: this.checkedServices
                     }
                 }).then(res => {
               if (res.data.success) {
-                this.houses = res.data.result;
+                this.houses = res.data.result[0];
                 console.log(this.houses);
+
               }
             })
             .catch(function(error) {

@@ -5344,12 +5344,12 @@ __webpack_require__.r(__webpack_exports__);
           longitude: this.address_lon,
           radius: this.radius,
           rooms: this.rooms,
-          beds: this.beds,
-          services: this.checkedServices
+          beds: this.beds // services: this.checkedServices
+
         }
       }).then(function (res) {
         if (res.data.success) {
-          _this.houses = res.data.result;
+          _this.houses = res.data.result[0];
           console.log(_this.houses);
         }
       })["catch"](function (error) {
@@ -5655,7 +5655,8 @@ var render = function render() {
     attrs: {
       type: "text",
       id: "lon",
-      name: "address_lon"
+      name: "address_lon",
+      hidden: ""
     },
     domProps: {
       value: _vm.lon
@@ -5676,7 +5677,8 @@ var render = function render() {
     attrs: {
       type: "text",
       id: "lat",
-      name: "address_lat"
+      name: "address_lat",
+      hidden: ""
     },
     domProps: {
       value: _vm.lat
