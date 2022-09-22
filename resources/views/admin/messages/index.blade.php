@@ -10,6 +10,4 @@
     <li>{{ $message->request_text}}</li>
    </ul>
     @endforeach
-
-
 @endsection

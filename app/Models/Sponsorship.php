@@ -6,5 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Sponsorship extends Model
 {
-    //
+    public function houses() {
+        return $this->belongsToMany('App\Models\House');
+    }
 }

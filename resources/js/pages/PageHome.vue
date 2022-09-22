@@ -1,15 +1,15 @@
 <template>
-  <div class="container">
+  <div>
       <div class="image">
         <div class="margin-top">
-            <h1 class="text-center text-white">Benvenuti in BoolBnB</h1>
+            <h1 class="text-center text-white bold">Benvenuti in BoolBnB</h1>
         </div>
         <div class="margin">
             <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput" placeholder="Ricerca...">
             <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-lik>
         </div>
       </div>
-      <div class="d-flex justify-content-between flex-wrap mt-3">
+      <div class="d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark">
         <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
       </div>
     </div>
@@ -63,24 +63,33 @@
 </script>
 
 <style lang="scss" scoped>
+
+    .bold {
+        font-weight: bold;
+        font-size: 60px;
+    }
     .image {
-        height: 500px;
+        height: 600px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
-        background-image: url('../../../public/img/background/Immagine1.jpeg');
+        background-image: url('../../../public/img/background/Immagine4.jpg');
+        background-position: center center;
+        background-size: cover;
+
 
         .margin-top {
-            margin-top: 50px;
+            margin-top: 80px;
         }
 
         .margin {
-            margin-bottom: 200px;
+            margin-bottom: 120px;
         }
 
         .search {
-            width: 400px;
+            width: 500px;
+            border: 1px solid black;
         }
     }
 </style>

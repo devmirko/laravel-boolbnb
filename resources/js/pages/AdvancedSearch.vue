@@ -5,7 +5,7 @@
             <ul>
                 <!-- ricerca per citta -->
                 <li>
-                    <find-address></find-address>
+                    <SearchAdvancedBad :is-in-edit-mode='true' @coordinates="saveCoordinates" @edit="setEdit"></SearchAdvancedBad>
                     <!-- <FindAddress/> -->
                     <p>Distanza max dall'indirizzo indicato:</p>
                     <input class="" type="text" v-model="radius">
@@ -50,37 +50,120 @@
                         <label class='check-item'>
                             <input type="checkbox" value="1" v-model="checkedServices">
                             <span>Wifi</span>
-                            <i class="fas fa-wifi"></i>
                         </label>
+
                         <label class='check-item'>
                             <input type="checkbox" value="2" v-model="checkedServices">
-                            <span>Piscina</span>
-                            <i class="fas fa-swimmer"></i>
+                            <span>Cucina</span>
                         </label>
+
                         <label class='check-item'>
                             <input type="checkbox" value="3" v-model="checkedServices">
-                            <span>Vista mare</span>
-                            <i class="fas fa-umbrella-beach"></i>
+                            <span>Lavatrice</span>
                         </label>
+
                         <label class='check-item'>
                             <input type="checkbox" value="4" v-model="checkedServices">
-                            <span>Posto auto</span>
-                            <i class="fas fa-parking"></i>
+                            <span>Asciugatrice</span>
                         </label>
+
                         <label class='check-item'>
                             <input type="checkbox" value="5" v-model="checkedServices">
-                            <span>Portineria</span>
-                            <i class="fas fa-concierge-bell"></i>
+                            <span>Aria Condizionata</span>
                         </label>
+
                         <label class='check-item'>
                             <input type="checkbox" value="6" v-model="checkedServices">
-                            <span>Sauna</span>
-                            <i class="fas fa-hot-tub"></i>
+                            <span>Riscaldamento</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="7" v-model="checkedServices">
+                            <span>TV</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="8" v-model="checkedServices">
+                            <span>Spazio di lavoro dedicato</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="9" v-model="checkedServices">
+                            <span>Asciugacapelli</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="10" v-model="checkedServices">
+                            <span>Ferro da stiro</span>
+                        </label>
+                        <label class='check-item'>
+                            <input type="checkbox" value="11" v-model="checkedServices">
+                            <span>Piscina</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="12" v-model="checkedServices">
+                            <span>Idromassaggio</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="13" v-model="checkedServices">
+                            <span>Parcheggio Gratuito</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="14" v-model="checkedServices">
+                            <span>Postazione di ricarica per veicoli elettrici</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="15" v-model="checkedServices">
+                            <span>Culla</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="16" v-model="checkedServices">
+                            <span>Palestra</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="17" v-model="checkedServices">
+                            <span>Griglia per barbecue</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="18" v-model="checkedServices">
+                            <span>Colazione</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="19" v-model="checkedServices">
+                            <span>Camino</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="20" v-model="checkedServices">
+                            <span>Permesso Fumatori</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="21" v-model="checkedServices">
+                            <span>Lungo la spiaggia</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="22" v-model="checkedServices">
+                            <span>Lungo la riva</span>
+                        </label>
+
+                        <label class='check-item'>
+                            <input type="checkbox" value="23" v-model="checkedServices">
+                            <span>Allarme antincendio</span>
                         </label>
                     </fieldset>
                 </div>
                 <div id="my_btn">
-                    <button> Cerca </button>
+                    <button @click="onClick"> Cerca </button>
                 </div>
 
                 </li>
@@ -98,7 +181,7 @@
   <script>
 
     import CardHouse from '../components/CardHouse.vue';
-    import FindAddress from '../components/FindAddress.vue';
+    import SearchAdvancedBad from '../components/SearchAdvancedBad.vue';
 
     export default {
         name: 'AdvancedSearch',
@@ -106,36 +189,66 @@
         return {
           houses: [],
           checkedServices: [],
-          search: '',
-          radius: 0,
+          search: false,
+          radius: 20,
           rooms: 0,
           beds: 0,
           address_lat: 0,
           address_lon: 0,
           noHouses: "",
+          checkboxes: false,
 
 
         }
       },
       components: {
           CardHouse,
-          FindAddress
+          SearchAdvancedBad
 
       },
-      created() {
-        axios.get('/api/houses')
-          .then(res => {
-              if (res.data.success) {
-                this.houses = res.data.result;
-                console.log(this.houses);
-              }
-            })
+      computed: {
+        setCheckboxes() {
+            return !this.checkboxes;
+        }
       },
       methods: {
+        onClick() {
+            this.getData();
+        },
+        saveCoordinates(lat, lon) {
+            this.address_lat = lat;
+            this.address_lon = lon;
+            this.checkboxes = true;
 
+        },
+        setEdit() {
+            this.checkboxes = false;
+            this.search = false;
+            this.checkedServices = [];
+            this.guests = 0;
+            this.rooms = 0;
+        },
+        getData() {
+            axios.get('/api/search', {
+                    params: {
+                        latitude: this.address_lat,
+                        longitude: this.address_lon,
+                        radius: this.radius,
+                        rooms: this.rooms,
+                        beds: this.beds,
+                        // services: this.checkedServices
+                    }
+                }).then(res => {
+              if (res.data.success) {
+                this.houses = res.data.result[0];
+                console.log(this.houses);
 
-
-
+              }
+            })
+            .catch(function(error) {
+                    console.log(error);
+            })
+         }
       }
   }
 
