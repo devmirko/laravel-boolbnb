@@ -6770,14 +6770,23 @@ var render = function render() {
         _vm.search = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("router-lik", {
+  }), _vm._v(" "), _c("router-link", {
     staticClass: "text-white mt-3",
     attrs: {
       to: {
         name: "AdvancedSearch"
       }
     }
-  })], 1)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("router-link", {
+    staticClass: "nav-link active bg-white",
+    attrs: {
+      to: {
+        name: "AdvancedSearch"
+      }
+    }
+  }, [_c("a", {
+    staticClass: "read"
+  }, [_vm._v("Search")])])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
@@ -12208,7 +12217,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n  opacity: 0.6;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -46592,7 +46601,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
