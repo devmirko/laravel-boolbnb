@@ -6,7 +6,7 @@
         </div>
         <div class="margin">
             <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput" placeholder="Ricerca...">
-            <router-lik :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-lik>
+            <router-link :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-link>
         </div>
       </div>
       <div class="d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark">
