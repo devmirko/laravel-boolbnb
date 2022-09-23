@@ -179,10 +179,8 @@
   </template>
 
   <script>
-
     import CardHouse from '../components/CardHouse.vue';
     import SearchAdvancedBad from '../components/SearchAdvancedBad.vue';
-
     export default {
         name: 'AdvancedSearch',
         data() {
@@ -197,14 +195,11 @@
           address_lon: 0,
           noHouses: "",
           checkboxes: false,
-
-
         }
       },
       components: {
           CardHouse,
           SearchAdvancedBad
-
       },
       computed: {
         setCheckboxes() {
@@ -212,14 +207,22 @@
         }
       },
       methods: {
+        onChange() {
+            if (this.search) {
+                this.houses= [];
+                this.search = true;
+                this.getData();
+            }
+        },
         onClick() {
             this.getData();
+            this.houses= [];
+            this.search = true;
         },
         saveCoordinates(lat, lon) {
             this.address_lat = lat;
             this.address_lon = lon;
             this.checkboxes = true;
-
         },
         setEdit() {
             this.checkboxes = false;
@@ -236,13 +239,12 @@
                         radius: this.radius,
                         rooms: this.rooms,
                         beds: this.beds,
-                        // services: this.checkedServices
+                        services: this.checkedServices
                     }
                 }).then(res => {
               if (res.data.success) {
                 this.houses = res.data.result[0];
                 console.log(this.houses);
-
               }
             })
             .catch(function(error) {
@@ -251,18 +253,7 @@
          }
       }
   }
-
-
   </script>
 
   <style lang="scss" scoped>
-
-
-
-
-
-
-
-
-
   </style>

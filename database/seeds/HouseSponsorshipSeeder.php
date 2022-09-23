@@ -9,8 +9,8 @@ class HouseSponsorshipSeeder extends Seeder
 {
     public function run( Faker $faker )
     {
-        // prendo tutti i campi id della tabella house
-        $houses = House::all()->pluck('id');;
+        // prendo tutti i dati della tabella house
+        $houses = House::all();;
 
         // prendo tutti i campi id della tabella sponsorships
         $sponsorships = Sponsorship::all()->pluck('id');
@@ -43,7 +43,8 @@ class HouseSponsorshipSeeder extends Seeder
                     // se la duration è 144 ore
                     $date1 = date("Y-m-d", strtotime($giornoOdierno.'+ 4 days'));
                 }
-                $house->$date1;
+
+                $house->sponsorships()->attach($date1);
             }
         }
 
