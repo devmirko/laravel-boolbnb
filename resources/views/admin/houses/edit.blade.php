@@ -142,38 +142,38 @@
 
         {{-- checkbox Servizi--}}
         <fieldset class="mb-3" id="myservices">
-        {{-- <legend>Services</legend> --}}
-        <label>Servizi *</label>
-        <br>
-        <div class=" mb-3 container row">
-            @foreach ($services as $service)
-                <div class="form-check col-4">
-                    {{-- <input type="hidden" name="services[]" value="0" /> --}}
-                    <input
-                        class="form-check-input"
-                        type="checkbox"
-                        name="services[]"
-                        value="{{ $service->id }}"
-                        id="service-{{ $service->id }}">
-                        @if(in_array($service->id, old('services', $house->services->pluck('id')->all()) ?: [])) checked @endif
-                    <label class="form-check-label"
-                        for="service{{ $service->id }}">{{ $service->name_services }}</label>
-                </div>
-            @endforeach
-
-            @foreach ($errors->get('services.*') as $messages)
-                @foreach ($messages as $message)
-                    <div class="invalid-feedback d-block">
-                        {{ $message }}
+            <label>Servizi *</label>
+            <br>
+            <div class=" mb-3 container row">
+                @foreach ($services as $service)
+                    <div class="form-check col-4">
+                        {{-- <input type="hidden" name="services[]" value="0" /> --}}
+                        <input
+                            class="form-check-input"
+                            type="checkbox"
+                            name="services[]"
+                            value="{{ $service->id }}"
+                            id="service{{ $service->id }}">
+                            @if(in_array($service->id, old('services', $house->services->pluck('id')->all()) ?: [])) checked @endif
+                            {{-- @if(in_array($service->id, old('services') ?: [])) checked @endif --}}
+                        <label class="form-check-label"
+                            for="service{{ $service->id }}">{{ $service->name_services }}</label>
                     </div>
                 @endforeach
-            @endforeach
 
-        </div>
+                @foreach ($errors->get('services.*') as $messages)
+                    @foreach ($messages as $message)
+                        <div class="invalid-feedback d-block">
+                            {{ $message }}
+                        </div>
+                    @endforeach
+                @endforeach
 
-    </fieldset>
+            </div>
 
-        <button type="submit" class="btn btn-primary" onclick="validationHouses()">Modifica dati</button>
+        </fieldset>
+
+        <button type="submit" class="btn btn-primary">Modifica dati</button>
     </form>
 
     <script src="{{ asset('js/vue.js') }}" defer></script>

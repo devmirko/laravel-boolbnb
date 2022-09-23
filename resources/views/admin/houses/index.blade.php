@@ -23,24 +23,33 @@
                     <td class="text-white">{{ $house->beds }} </td>
                     <td class="text-white">{{ $house->bathrooms }} </td>
                     <td class="actions">
-                        <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="btn btn-primary">View</a>
-
-                        <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="btn btn-warning">Edit</a>
-
-                        <form action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button
-                            type="submit"
-                            class="btn btn-danger"
-                            onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')"
-                            >Delete</button>
-                        </form>
+                        <div class="container">
+                            <div class="row">
+                                <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="col">
+                                    <button class="btn btn-primary btn-sm btn-block">View</button>
+                                </a>
+                                <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="col">
+                                    <button class="btn btn-warning btn-sm btn-block">Edit</button>
+                                </a>
+                                <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm btn-block"
+                                    onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')">Delete</button>
+                                </form>
+                            </div>
+                        </div>
                     </td>
                 </tr>
             @endforeach
         @else
-            <h1 class="text-center text-white">Non hai case, creane una!</h1>
+                <div class="row">
+                    <h1 class="mt-3 text-center text-white">Non ci sono strutture registrate</h1>
+                    <br>
+                    <a class="text-center text-white" href="{{ route('admin.houses.create') }}">
+                        <button class="mb-3 btn btn-primary">Inserisci struttura</button>
+                    </a>
+                </div>
         @endif
 
     </tbody>
