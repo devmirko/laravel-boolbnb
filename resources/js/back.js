@@ -2,12 +2,88 @@ require('./bootstrap');
 
 
 
-// const form_register = document.getElementById("form-register");
-// if (form_register) {
-//     form_register.onsubmit = function () {
-//         return validationRegister()
-//     }
-// };
+const form_new_house = document.getElementById("form-new-house");
+if (form_new_house) {
+    form_new_house.onsubmit = function () {
+        return validationHouse()
+    }
+};
+
+const form_edit_house = document.getElementById("form-edit-house");
+if (form_edit_house) {
+    form_edit_house.onsubmit = function () {
+        return validationHouse()
+    }
+};
+
+function validationHouse() {
+    const name_house = document.getElementById('name_house');
+    const rooms = document.getElementById('rooms');
+    const beds = document.getElementById('beds');
+    const bathrooms = document.getElementById('bathrooms');
+    const mq = document.getElementById('mq');
+    const address = document.getElementById('query');
+    const type = document.getElementById('type');
+    const cover_photo = document.getElementById('cover_photo');
+    const myservices = document.getElementById('myservices');
+    const services = myservices.querySelectorAll('input');
+
+    let myservice;
+    services.forEach(service => {
+        if (service.checked) {
+            myservice = true
+        }
+    });
+
+    if (name_house.value == "") {
+        window.alert("Inserisci un nome");
+        name_house.focus();
+        return false;
+    }
+    if ((rooms.value)<1) {
+        window.alert("Inserire il numero di stanze");
+        rooms.focus();
+        return false;
+    }
+    if ((beds.value)<1) {
+        window.alert("Inserire il numero di letti");
+        beds.focus();
+        return false;
+    }
+    if ((bathrooms.value)<1) {
+        window.alert("Inserire il numero dei bagni");
+        bathrooms.focus();
+        return false;
+    }
+    if ((mq.value)<1) {
+        window.alert("Inserire la dimensione della struttura in mq");
+        mq.focus();
+        return false;
+    }
+    if (address.value == "") {
+        window.alert("Inserire un indirizzo");
+        mq.focus();
+        return false;
+    }
+    if (type.value == "") {
+        window.alert("Inserisci un tipo di struttura valido");
+        type.focus();
+        return false;
+    }
+    if (cover_photo.value == "") {
+        window.alert("Inserisci una immagine");
+        type.focus();
+        return false;
+    }
+    if (!myservice) {
+        window.alert("Inserisci almeno un servizio");
+        type.focus();
+        return false;
+    }
+
+    return true;
+
+}
 
 window.validationRegister = function () {
     const name = document.getElementById('name');
@@ -49,47 +125,4 @@ window.validationRegister = function () {
         return false;
     }
     return true
-}
-
-
-window.validationHouses = function () {
-    const name_house = document.getElementById('name_house');
-    const rooms = document.getElementById('rooms');
-    const beds = document.getElementById('beds');
-    const bathrooms = document.getElementById('bathrooms');
-    const mq = document.getElementById('mq');
-    const type = document.getElementById('type');
-
-    if (name_house.value == "") {
-        window.alert("Inserisci un nome");
-        name_house.focus();
-        return false;
-    }
-    if (isNaN(rooms.value)) {
-        window.alert("Inserisci un numero valido");
-        rooms.focus();
-        return false;
-    }
-    if (isNaN(beds.value)) {
-        window.alert("Inserisci un numero valido");
-        beds.focus();
-        return false;
-    }
-    if (isNaN(bathrooms.value)) {
-        window.alert("Inserisci un numero valido");
-        bathrooms.focus();
-        return false;
-    }
-    if (isNaN(mq.value)) {
-        window.alert("Inserisci un numero valido");
-        mq.focus();
-        return false;
-    }
-    if (type.value == "") {
-        window.alert("Inserisci un tipo di struttura valido");
-        type.focus();
-        return false;
-    }
-    return true
-
 }
