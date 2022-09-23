@@ -36,7 +36,7 @@
         <div class="row">
             @include('admin.partials.side-nav')
 
-            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4">
+            <main role="main" class="col-md-9 ml-sm-auto col-lg-10 px-4 py-4 container-fluid">
                 @yield('mainContent')
             </main>
         </div>

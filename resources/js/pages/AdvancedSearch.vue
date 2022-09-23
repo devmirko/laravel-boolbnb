@@ -46,124 +46,124 @@
                 <li class="list-group-item">
                     <span class="my_select">Servizi inclusi:</span><br>
                 <div id='check'>
-                    <fieldset>
-                        <label class='check-item'>
-                            <input type="checkbox" value="1" v-model="checkedServices">
+                    <fieldset :disabled="setCheckboxes">
+                       <label class='check-item'>
+                            <input type="checkbox" value="1" v-model="checkedServices" @change="onChange">
                             <span>Wifi</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="2" v-model="checkedServices">
+                            <input type="checkbox" value="2" v-model="checkedServices" @change="onChange">
                             <span>Cucina</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="3" v-model="checkedServices">
+                            <input type="checkbox" value="3" v-model="checkedServices" @change="onChange">
                             <span>Lavatrice</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="4" v-model="checkedServices">
+                            <input type="checkbox" value="4" v-model="checkedServices" @change="onChange">
                             <span>Asciugatrice</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="5" v-model="checkedServices">
+                            <input type="checkbox" value="5" v-model="checkedServices" @change="onChange">
                             <span>Aria Condizionata</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="6" v-model="checkedServices">
+                            <input type="checkbox" value="6" v-model="checkedServices" @change="onChange">
                             <span>Riscaldamento</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="7" v-model="checkedServices">
+                            <input type="checkbox" value="7" v-model="checkedServices" @change="onChange">
                             <span>TV</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="8" v-model="checkedServices">
+                            <input type="checkbox" value="8" v-model="checkedServices" @change="onChange">
                             <span>Spazio di lavoro dedicato</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="9" v-model="checkedServices">
+                            <input type="checkbox" value="9" v-model="checkedServices" @change="onChange">
                             <span>Asciugacapelli</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="10" v-model="checkedServices">
+                            <input type="checkbox" value="10" v-model="checkedServices" @change="onChange">
                             <span>Ferro da stiro</span>
                         </label>
                         <label class='check-item'>
-                            <input type="checkbox" value="11" v-model="checkedServices">
+                            <input type="checkbox" value="11" v-model="checkedServices" @change="onChange">
                             <span>Piscina</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="12" v-model="checkedServices">
+                            <input type="checkbox" value="12" v-model="checkedServices" @change="onChange">
                             <span>Idromassaggio</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="13" v-model="checkedServices">
+                            <input type="checkbox" value="13" v-model="checkedServices" @change="onChange">
                             <span>Parcheggio Gratuito</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="14" v-model="checkedServices">
+                            <input type="checkbox" value="14" v-model="checkedServices"  @change="onChange">
                             <span>Postazione di ricarica per veicoli elettrici</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="15" v-model="checkedServices">
+                            <input type="checkbox" value="15" v-model="checkedServices" @change="onChange">
                             <span>Culla</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="16" v-model="checkedServices">
+                            <input type="checkbox" value="16" v-model="checkedServices" @change="onChange">
                             <span>Palestra</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="17" v-model="checkedServices">
+                            <input type="checkbox" value="17" v-model="checkedServices" @change="onChange">
                             <span>Griglia per barbecue</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="18" v-model="checkedServices">
+                            <input type="checkbox" value="18" v-model="checkedServices" @change="onChange">
                             <span>Colazione</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="19" v-model="checkedServices">
+                            <input type="checkbox" value="19" v-model="checkedServices" @change="onChange">
                             <span>Camino</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="20" v-model="checkedServices">
+                            <input type="checkbox" value="20" v-model="checkedServices" @change="onChange">
                             <span>Permesso Fumatori</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="21" v-model="checkedServices">
+                            <input type="checkbox" value="21" v-model="checkedServices" @change="onChange">
                             <span>Lungo la spiaggia</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="22" v-model="checkedServices">
+                            <input type="checkbox" value="22" v-model="checkedServices" @change="onChange">
                             <span>Lungo la riva</span>
                         </label>
 
                         <label class='check-item'>
-                            <input type="checkbox" value="23" v-model="checkedServices">
+                            <input type="checkbox" value="23" v-model="checkedServices" @change="onChange">
                             <span>Allarme antincendio</span>
                         </label>
                     </fieldset>
                 </div>
                 <div id="my_btn">
-                    <button @click="onClick"> Cerca </button>
+                    <button @click="onClick" :disabled="setCheckboxes"> Cerca </button>
                 </div>
 
                 </li>
@@ -201,6 +201,7 @@
           CardHouse,
           SearchAdvancedBad
       },
+
       computed: {
         setCheckboxes() {
             return !this.checkboxes;
@@ -243,7 +244,7 @@
                     }
                 }).then(res => {
               if (res.data.success) {
-                this.houses = res.data.result[0];
+                this.houses = res.data.result;
                 console.log(this.houses);
               }
             })

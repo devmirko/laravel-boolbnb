@@ -47,14 +47,16 @@ class HouseController extends Controller
     public function search(Request $request)
    {
 
-    // chiamata a tutti i dati della tabella services
-    $services = Service::all();
     // salviamo una variabile con le richieste dei campi del form
     $radius = $request->get('radius');
     $lat = $request->get('latitude');
     $lon = $request->get('longitude');
     $rooms_number = $request->get('rooms');
     $bed_number = $request->get('beds');
+<<<<<<< HEAD
+=======
+
+>>>>>>> cd1dae44329317692cee9803628601d26c32eff6
 
     // validiamo la richiesta dell'array servizi
     $servicesQuery = $request->validate(["services" => 'nullable|array']);
@@ -68,7 +70,8 @@ class HouseController extends Controller
                           sin( radians( latitude ) ) )
                         ) AS distance', [$lat, $lon, $lat])
     ->havingRaw("distance < ?", [$radius])
-    ->orderBy('distance', 'ASC')->get();
+    ->orderBy('distance', 'ASC')
+    ->get();
     // creo un array vuoto
     $houses = [];
 
@@ -86,19 +89,20 @@ class HouseController extends Controller
                  // creo un array vuoto
                  $serviceFilter = [];
                  // faccio un foreach della tabella services della tabella del database
-                    foreach ($toFilterHouses->services as $x) {
+                    foreach ($toFilterHouse->services as $x) {
                     // pusho id l'iterazione nell array
                      $serviceFilter[] = $x->id;  //abbiamo un array con l'id dei servizi del nostro db
                     }
 
                     // filtro servizi:
                     if (count(array_intersect($servicesQuery, $serviceFilter)) == count($servicesQuery)) {
-                        $houses[] = $toFilterHouses;
+                        $houses[] = $toFilterHouse;
                         }
 
                     }       else {
-                        $houses[] = $toFilterHouses;
+                        $houses[] = $toFilterHouse;
                         }
+
 
             }
     }
@@ -108,7 +112,6 @@ class HouseController extends Controller
         return response()->json([
            'success'   => true,
            'result'    => $houses,
-           'results'    => $services,
         ]);
      } else {
          return response()->json([
@@ -133,6 +136,8 @@ class HouseController extends Controller
                 ]);
             }
     }
+
+
 
 
 
