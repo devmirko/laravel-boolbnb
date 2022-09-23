@@ -5320,8 +5320,17 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   methods: {
+    onChange: function onChange() {
+      if (this.search) {
+        this.houses = [];
+        this.search = true;
+        this.getData();
+      }
+    },
     onClick: function onClick() {
       this.getData();
+      this.houses = [];
+      this.search = true;
     },
     saveCoordinates: function saveCoordinates(lat, lon) {
       this.address_lat = lat;
@@ -5344,8 +5353,8 @@ __webpack_require__.r(__webpack_exports__);
           longitude: this.address_lon,
           radius: this.radius,
           rooms: this.rooms,
-          beds: this.beds // services: this.checkedServices
-
+          beds: this.beds,
+          services: this.checkedServices
         }
       }).then(function (res) {
         if (res.data.success) {
@@ -5451,8 +5460,19 @@ __webpack_require__.r(__webpack_exports__);
   name: 'PageShow',
   data: function data() {
     return {
-      showHouse: []
+      showHouse: [],
+      API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs'
     };
+  },
+  mounted: function mounted() {
+    var tomTomScript = document.createElement('script');
+    tomTomScript.setAttribute('src', 'https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js');
+    document.head.appendChild(tomTomScript);
+    var tomTomCss = document.createElement('link');
+    tomTomCss.setAttribute('rel', 'stylesheet');
+    tomTomCss.setAttribute('type', 'text/css');
+    tomTomCss.setAttribute('href', 'https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps.css');
+    document.head.appendChild(tomTomCss);
   },
   props: {
     id: String
@@ -5463,7 +5483,20 @@ __webpack_require__.r(__webpack_exports__);
     axios__WEBPACK_IMPORTED_MODULE_0___default.a.get('/api/houses/' + this.id).then(function (res) {
       if (res.data.success) {
         _this.showHouse = res.data.result;
-        console.log(_this.showHouse);
+        var map = tt.map({
+          key: _this.API_KEY,
+          container: 'map-div',
+          center: {
+            lng: _this.showHouse.longitude,
+            lat: _this.showHouse.latitude
+          },
+          zoom: 12
+        });
+        var marker = new tt.Marker().setLngLat({
+          lng: _this.showHouse.longitude,
+          lat: _this.showHouse.latitude
+        }).addTo(map);
+        console.log(result);
       }
     });
   }
@@ -6770,14 +6803,23 @@ var render = function render() {
         _vm.search = $event.target.value;
       }
     }
-  }), _vm._v(" "), _c("router-lik", {
+  }), _vm._v(" "), _c("router-link", {
     staticClass: "text-white mt-3",
     attrs: {
       to: {
         name: "AdvancedSearch"
       }
     }
-  })], 1)]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("router-link", {
+    staticClass: "nav-link active bg-white",
+    attrs: {
+      to: {
+        name: "AdvancedSearch"
+      }
+    }
+  }, [_c("a", {
+    staticClass: "read"
+  }, [_vm._v("Search")])])], 1)]), _vm._v(" "), _c("div", {
     staticClass: "d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
@@ -6854,10 +6896,29 @@ var render = function render() {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1)]);
+  }, [_vm._v("Type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Latitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.latitude))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
 };
 
 var staticRenderFns = [function () {
+  var _vm = this,
+      _c = _vm._self._c;
+
+  return _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
+    attrs: {
+      id: "map-div"
+    }
+  })]);
+}, function () {
   var _vm = this,
       _c = _vm._self._c;
 
@@ -6876,14 +6937,14 @@ var staticRenderFns = [function () {
     }
   }, [_c("div", {
     staticClass: "center"
-  }, [_c("div", [_vm._v("\n                        Inserisci Email:\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_c("div", [_vm._v("\n                    Inserisci Email:\n                ")]), _vm._v(" "), _c("input", {
     staticClass: "email",
     attrs: {
       type: "text"
     }
   }), _vm._v(" "), _c("button", [_vm._v("invia")])]), _vm._v(" "), _c("div", {
     staticClass: "center"
-  }, [_c("div", [_vm._v("\n                        Inserisci Testo:\n                    ")]), _vm._v(" "), _c("input", {
+  }, [_c("div", [_vm._v("\n                    Inserisci Testo:\n                ")]), _vm._v(" "), _c("input", {
     staticClass: "text",
     attrs: {
       type: "text"
@@ -12208,7 +12269,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
+exports.push([module.i, ".bold[data-v-13e03f97] {\n  font-weight: bold;\n  font-size: 60px;\n}\n.image[data-v-13e03f97] {\n  height: 600px;\n  display: flex;\n  flex-direction: column;\n  justify-content: space-between;\n  align-items: center;\n  background-image: url(" + escape(__webpack_require__(/*! ../../../public/img/background/Immagine4.jpg */ "./public/img/background/Immagine4.jpg")) + ");\n  background-position: center center;\n  background-size: cover;\n  opacity: 0.6;\n}\n.image .margin-top[data-v-13e03f97] {\n  margin-top: 80px;\n}\n.image .margin[data-v-13e03f97] {\n  margin-bottom: 120px;\n}\n.image .search[data-v-13e03f97] {\n  width: 500px;\n  border: 1px solid black;\n}", ""]);
 
 // exports
 
@@ -12227,7 +12288,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n  -bottom: 10%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  color: black;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n  -bottom: 10%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  color: black;\n}\nbody[data-v-1ca8e6b5] {\n  height: 90vh;\n  width: 100vh;\n}\n.row[data-v-1ca8e6b5] {\n  display: flex;\n  width: 100%;\n  height: 500px;\n  justify-content: center;\n  margin-top: 50px;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}", ""]);
 
 // exports
 
@@ -46592,7 +46653,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })

@@ -6,17 +6,12 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateHousesSponsorshipsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
     public function up()
     {
-        Schema::create('houses_sponsorships', function (Blueprint $table) {
-            $table->foreignId('houses_id')->constrained();
-            $table->foreignId('sponsorships_id')->constrained();
-            $table->dateTime('expire_date');
+        Schema::create('house_sponsorship', function (Blueprint $table) {
+            $table->foreignId('house_id')->constrained();
+            $table->foreignId('sponsorship_id')->constrained();
+            $table->dateTime('expire_date')->default('2022-09-24');
         });
     }
 
@@ -27,6 +22,6 @@ class CreateHousesSponsorshipsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('houses_sponsorships');
+        Schema::dropIfExists('house_sponsorship');
     }
 }

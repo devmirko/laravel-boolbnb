@@ -58,9 +58,9 @@ class HouseController extends Controller
 
     // validiamo la richiesta dell'array servizi
     $servicesQuery = $request->validate(["services" => 'nullable|array']);
-
+    // prendiamo tutti i dati dalla tabella houses
     $toFilterHouses = House::select('houses.*')
-
+    // filtriamo per i km di ditanza richiesti
     ->selectRaw('( 6371 * acos( cos( radians(?) ) *
                           cos( radians( latitude) )
                           * cos( radians( longitude ) - radians(?)
@@ -74,44 +74,47 @@ class HouseController extends Controller
 
     // facciamo un for each tra i campi della tabella house
     foreach ($toFilterHouses as $toFilterHouse) {
+        // filtriamo per stanze, letti e visibilità
         if (($toFilterHouse->rooms >= $rooms_number) && ($toFilterHouse->beds >= $bed_number) && ($toFilterHouse->visible == 1)) {
 
 
 
-        // se i servizi sono diversi da 0
-        // prendo la request dei servizi
-         if (!$servicesQuery == 0) {
-             $servicesQuery = $request->get('services');
-             // creo un array vuoto
-             $serviceFilter = [];
-             // faccio un foreach della tabella services
-             foreach ($toFilterHouses->services as $x) {
-             // pusho id l'iterazione nell array
-                 $serviceFilter[] = $x->id;
-             }
+            // se la richiesta dei servizi passa la validazione
+             if (!$servicesQuery == 0) {
+                //  prendo la richiesta contente i servizi
+                 $servicesQuery = $request->get('services');
+                 // creo un array vuoto
+                 $serviceFilter = [];
+                 // faccio un foreach della tabella services della tabella del database
+                    foreach ($toFilterHouses->services as $x) {
+                    // pusho id l'iterazione nell array
+                     $serviceFilter[] = $x->id;  //abbiamo un array con l'id dei servizi del nostro db
+                    }
 
-             if (count(array_intersect($servicesQuery, $serviceFilter)) == count($servicesQuery)) {
-                 $houses[] = $toFilterHouses;
-                 }
+                    // filtro servizi:
+                    if (count(array_intersect($servicesQuery, $serviceFilter)) == count($servicesQuery)) {
+                        $houses[] = $toFilterHouses;
+                        }
 
-               } else {
-                $houses[] = $toFilterHouses;
-               }
+                    }       else {
+                        $houses[] = $toFilterHouses;
+                        }
 
-        }
+            }
     }
 
 
-    if ($houses) {
+     if ($houses) {
         return response()->json([
-            'success'   => true,
-            'result'    => $houses,
+           'success'   => true,
+           'result'    => $houses,
+           'results'    => $services,
         ]);
-    } else {
-        return response()->json([
+     } else {
+         return response()->json([
             'success'   => false,
-        ]);
-    }
+         ]);
+     }
 
     }
     public function city(Request $request)
@@ -130,6 +133,7 @@ class HouseController extends Controller
                 ]);
             }
     }
+
 
 
 
