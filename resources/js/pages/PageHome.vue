@@ -7,6 +7,11 @@
         <div class="margin">
             <input type="search" class="form-control mr-sm-2 rounded-start search" v-model="search" aria-label="Search"  @keyup.enter="searchInput" placeholder="Ricerca...">
             <router-link :to="{name: 'AdvancedSearch'}" class="text-white mt-3"></router-link>
+
+            <!-- link per andare in http://127.0.0.1:8000/search -->
+            <router-link :to="{name: 'AdvancedSearch'}" class="nav-link active bg-white">
+                <a class="read">Search</a>
+            </router-link>
         </div>
       </div>
       <div class="d-flex justify-content-center flex-wrap pt-3 pb-3 bg-dark">
@@ -77,6 +82,7 @@
         background-image: url('../../../public/img/background/Immagine4.jpg');
         background-position: center center;
         background-size: cover;
+        opacity:0.6;
 
 
         .margin-top {

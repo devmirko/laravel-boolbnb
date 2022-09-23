@@ -38,7 +38,7 @@
 
         {{-- numero letti --}}
         <div class="mb-3">
-            <label class="form-label" for="beds">Numero Letti *</label>
+            <label class="form-label" for="beds">Numero posti Letto *</label>
             <input class="form-control @error('beds') is-invalid
             @enderror" type="number" name="beds" id="beds"
                 value="{{ old('beds')}}" required
@@ -140,7 +140,6 @@
 
         {{-- checkbox Servizi --}}
         <fieldset class="mb-3" id="myservices">
-            {{-- <legend>Services</legend> --}}
             <label>Servizi *</label>
             <br>
             <div class=" mb-3 container row">
@@ -154,7 +153,6 @@
                             value="{{ $service->id }}"
                             id="service{{ $service->id }}">
                             @if (in_array($service->id, old('services') ?: [])) checked @endif
-                            {{-- @if ($service->name_services == 'Nessun servizio') checked @endif --}}
                         <label class="form-check-label"
                             for="service{{ $service->id }}">{{ $service->name_services }}</label>
                     </div>
