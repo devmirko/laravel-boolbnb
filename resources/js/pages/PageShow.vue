@@ -44,7 +44,7 @@
         <div class="row">
             <div id="map-div"></div>
         </div>
-        <div class="center"><b>CONTATTACI</b></div>
+        <!-- <div class="center"><b>CONTATTACI</b></div>
         <div class="bordo">
             <form action="">
                 <div class="center">
@@ -64,7 +64,34 @@
                 </div>
             </form>
 
+        </div> -->
+
+        <div>
+    <h1>Contact us</h1>
+    <form @submit.prevent="submitMessage" novalidate>
+         <div class="mb-3">
+            <label class="form-label" for="name">Name</label>
+            <input class="form-control" type="text" name="name" id="name" v-model="name">
         </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="email">Email</label>
+            <input class="form-control" type="email" name="email" id="email" v-model="email">
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label" for="message">Message</label>
+            <textarea class="form-control" name="message" id="message" cols="30" rows="10" v-model="message"></textarea>
+        </div>
+
+        <div>
+            <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter" checked>
+            <label class="form-check-label" for="newsletter">Iscrivimi alla newsletter</label>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send</button>
+    </form>
+  </div>
     </div>
 </template>
 
@@ -76,9 +103,25 @@ export default {
         return {
             showHouse: [],
             API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs',
-
+            name : '',
+            email : '',
+            message : '',
         }
     },
+
+    methods : {
+        submitMessage(){
+            console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
+
+            axios.post('/api/messages/', {
+                name : this.name,
+                email : this.email,
+                message : this.message,
+            })
+            .then(res => console.log(res.data));
+        }
+    },
+
     mounted() {
         let tomTomScript = document.createElement('script')
         tomTomScript.setAttribute('src', 'https://api.tomtom.com/maps-sdk-for-web/cdn/6.x/6.5.0/maps/maps-web.min.js')

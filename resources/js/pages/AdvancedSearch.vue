@@ -228,7 +228,7 @@
             this.checkboxes = false;
             this.search = false;
             this.checkedServices = [];
-            this.guests = 0;
+            this.beds = 0;
             this.rooms = 0;
         },
         getData() {

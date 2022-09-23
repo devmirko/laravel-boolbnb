@@ -7,9 +7,9 @@
             <li class="list-group-item">
                 <a class="nav-link text-dark" href="{{ route('admin.houses.create') }}">Registra una nuova struttura</a>
             </li>
-            <li class="list-group-item">
+            {{-- <li class="list-group-item">
                 <a class="nav-link text-dark" href="{{ route('admin.messages.index') }}">Messages</a>
-            </li>
+            </li> --}}
           </ul>
     </div>
 </nav>

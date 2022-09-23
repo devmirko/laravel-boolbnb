@@ -41,7 +41,6 @@
             </main>
         </div>
     </div>
-    @include('admin.partials.footer')
 </body>
 
 </html>

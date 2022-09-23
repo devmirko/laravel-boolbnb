@@ -5341,7 +5341,7 @@ __webpack_require__.r(__webpack_exports__);
       this.checkboxes = false;
       this.search = false;
       this.checkedServices = [];
-      this.guests = 0;
+      this.beds = 0;
       this.rooms = 0;
     },
     getData: function getData() {
@@ -5461,8 +5461,24 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showHouse: [],
-      API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs'
+      API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs',
+      name: '',
+      email: '',
+      message: ''
     };
+  },
+  methods: {
+    submitMessage: function submitMessage() {
+      console.log('funziona'); //se clicco Send mi stampa 'funziona' nella console
+
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages/', {
+        name: this.name,
+        email: this.email,
+        message: this.message
+      }).then(function (res) {
+        return console.log(res.data);
+      });
+    }
   },
   mounted: function mounted() {
     var tomTomScript = document.createElement('script');
@@ -6904,7 +6920,110 @@ var render = function render() {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
+  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
+    attrs: {
+      novalidate: ""
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.submitMessage.apply(null, arguments);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("Name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "name",
+      id: "name"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.email,
+      expression: "email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      name: "email",
+      id: "email"
+    },
+    domProps: {
+      value: _vm.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.email = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "message"
+    }
+  }, [_vm._v("Message")]), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.message,
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "message",
+      id: "message",
+      cols: "30",
+      rows: "10"
+    },
+    domProps: {
+      value: _vm.message
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.message = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Send")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -6922,34 +7041,20 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "center"
-  }, [_c("b", [_vm._v("CONTATTACI")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "bordo"
-  }, [_c("form", {
+  return _c("div", [_c("input", {
+    staticClass: "form-check-input",
     attrs: {
-      action: ""
+      type: "checkbox",
+      name: "newsletter",
+      id: "newsletter",
+      checked: ""
     }
-  }, [_c("div", {
-    staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Email:\n                ")]), _vm._v(" "), _c("input", {
-    staticClass: "email",
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
     attrs: {
-      type: "text"
+      "for": "newsletter"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("invia")])]), _vm._v(" "), _c("div", {
-    staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Testo:\n                ")]), _vm._v(" "), _c("input", {
-    staticClass: "text",
-    attrs: {
-      type: "text"
-    }
-  }), _vm._v(" "), _c("button", [_vm._v("invia")])])])]);
+  }, [_vm._v("Iscrivimi alla newsletter")])]);
 }];
 render._withStripped = true;
 

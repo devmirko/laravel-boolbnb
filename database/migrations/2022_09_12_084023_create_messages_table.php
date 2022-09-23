@@ -17,10 +17,14 @@ class CreateMessagesTable extends Migration
             $table->id()->unique();
             $table->foreignId('house_id')->constrained();
 
-            $table->string('contact_name', 20);
-            $table->string('lastname', 20);
+            // $table->string('contact_name', 20);
+            // $table->string('lastname', 20);
+            // $table->string('email', 256);
+            // $table->text('request_text');
+
+            $table->string('name');
             $table->string('email', 256);
-            $table->text('request_text');
+            $table->string('message', 8000);
 
             $table->timestamps();
 

@@ -77,7 +77,11 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
-        return view('admin.houses.show', compact('house'));
+        $messages = Message::all();
+        return view('admin.houses.show', [
+            'house' => $house,
+            'messages' => $messages,
+        ]);
     }
 
     public function edit(House $house)
