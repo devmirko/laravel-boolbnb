@@ -40,7 +40,7 @@
                 </tr>
             @endforeach
         @else
-            <h1 class="text-center">Non hai case, creane una!</h1>
+            <h1 class="text-center text-white">Non hai case, creane una!</h1>
         @endif
 
     </tbody>
