@@ -34,15 +34,15 @@ class HouseController extends Controller
         $user_id = Auth::user()->id;
 
         $request->validate([
-            'name_house' => 'required|string|max:100',
-            'rooms' => 'required|numeric|integer|between:1,10|',
-            'beds' => 'required|numeric|integer|between:1,10|',
+            'name_house' => 'required|string|max:50',
+            'rooms' => 'required|numeric|integer|between:1,30|',
+            'beds' => 'required|numeric|integer|between:1,15|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
-            'mq' => 'required|numeric|integer|max:150',
+            'mq' => 'required|numeric|integer|max:500',
             // 'latitude' => 'numeric|integer',
             // 'longitude' => 'numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100',
+            'type' => 'required|string|max:30',
             'cover_photo' => 'required|file|image|max:5000',
             'services' => 'required|array|exists:services,id|min:1',
         ]);
@@ -94,15 +94,15 @@ class HouseController extends Controller
         $services = Service::all();
 
         $request->validate([
-            'name_house' => 'required|string|max:100',
-            'rooms' => 'required|numeric|integer|between:1,10|',
-            'beds' => 'required|numeric|integer|between:1,10|',
+            'name_house' => 'required|string|max:50',
+            'rooms' => 'required|numeric|integer|between:1,30|',
+            'beds' => 'required|numeric|integer|between:1,15|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
-            'mq' => 'required|numeric|integer|max:150',
+            'mq' => 'required|numeric|integer|max:500',
             // 'latitude' => 'required|numeric|integer',
             // 'longitude' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100',
+            'type' => 'required|string|max:30',
             'cover_photo' => 'file|image|max:5000',
             'services' => 'required|exists:services,id',
 
