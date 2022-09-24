@@ -39,8 +39,6 @@ class HouseController extends Controller
             'beds' => 'required|numeric|integer|between:1,10|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
             'mq' => 'required|numeric|integer|max:150',
-            // 'services'          => 'nullable|array',
-            // 'services.*'        => 'integer|exists:services,id',
             // 'latitude' => 'numeric|integer',
             // 'longitude' => 'numeric|integer',
             'address' => 'required|string|max:100',
@@ -91,6 +89,8 @@ class HouseController extends Controller
 
     public function update(Request $request, House $house)
     {
+        if (Auth::id() != $house->user_id) abort(401);
+
         $services = Service::all();
 
         $request->validate([
@@ -103,22 +103,25 @@ class HouseController extends Controller
             // 'longitude' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
             'type' => 'required|string|max:100',
-            'cover_photo' => 'required|file|image|max:5000',
+            'cover_photo' => 'file|image|max:5000',
             'services' => 'required|exists:services,id',
 
         ]);
 
         $data = $request->all();
 
-        if ($house->cover_photo) {
-            Storage::delete($house->cover_photo);
+        if (key_exists('cover_photo', $data)) {
+            // eliminare il file precedente se esiste
+            if ($house->cover_photo) {
+                Storage::delete($house->cover_photo);
+            }
+
+            // caricare il nuovo file
+            $img_path = Storage::put('uploads', $data['cover_photo']);
+
+            // aggiornare l'array $data con il percorso del file appena creato
+            $data['cover_photo'] = $img_path;
         }
-
-        // caricare il nuovo file
-        $img_path = Storage::put('uploads', $data['cover_photo']);
-
-       // aggiornare l'array $data con il percorso del file appena creato
-       $data['cover_photo'] = $img_path;
 
         $house = House::find($house->id);
         $house->update($data);
@@ -130,7 +133,7 @@ class HouseController extends Controller
 
         return redirect()->route('admin.houses.index')
 
-            ->with('success', 'House created successfully.');
+            ->with('success', 'Struttura aggiornata correttamente.');
     }
 
     public function destroy(House $house)
