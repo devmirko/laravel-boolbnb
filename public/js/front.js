@@ -6880,19 +6880,23 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "contenitore bg-dark text-white"
+    staticClass: "bg-dark"
   }, [_c("div", {
-    staticClass: "center titolo"
-  }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
-    staticClass: "center"
+    staticClass: "container bg-dark bg-gradient pt-3 text-white"
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_c("h2", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", [_c("div", {
+    staticClass: "image"
   }, [_c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
       alt: "Foto della casa"
     }
-  })]), _vm._v(" "), _c("div", {
-    staticClass: "dati mt-5 d-flex justify-content-around"
-  }, [_c("b", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("ul", {
+  })])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-around mt-3"
+  }, [_c("div", {
+    staticClass: "caratteristiche"
+  }, [_c("h5", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("div", {
     staticClass: "col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car"
   }, [_c("li", {
     staticClass: "d-flex"
@@ -6922,7 +6926,9 @@ var render = function render() {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
+  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0)]), _vm._v(" "), _c("div", {
+    staticClass: "center"
+  }, [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
     attrs: {
       novalidate: ""
     },
@@ -7025,7 +7031,7 @@ var render = function render() {
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Send")])])])]);
+  }, [_vm._v("Send")])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -12414,7 +12420,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n  -bottom: 10%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  color: black;\n}\nbody[data-v-1ca8e6b5] {\n  height: 90vh;\n  width: 100vh;\n}\n.row[data-v-1ca8e6b5] {\n  display: flex;\n  width: 100%;\n  height: 500px;\n  justify-content: center;\n  margin-top: 50px;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}", ""]);
+exports.push([module.i, ".row[data-v-1ca8e6b5] {\n  display: flex;\n  width: 100%;\n  height: 500px;\n  justify-content: center;\n  margin-top: 50px;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}", ""]);
 
 // exports
 
