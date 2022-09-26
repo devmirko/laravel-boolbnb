@@ -133,7 +133,7 @@ export default {
     methods: {
         NewMessage($id){
             if(this.email != '' && this.request_text != '' && this.contact_name != '' && this.lastname != ''){
-                axios.post('/api/message', {
+                axios.post('/api/messages', {
                 id: $id,
                 contact_name: this.contact_name,
                 lastname: this.lastname,

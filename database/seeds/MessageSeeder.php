@@ -20,13 +20,10 @@ class MessageSeeder extends Seeder
 
         $message = new Message;
         $message->house_id = $faker->randomElement($houses_ids);
-        // $message->contact_name = $faker->word();
-        // $message->lastname = $faker->word();
-        // $message->email = $faker->email();
-        // $message->request_text = $faker->text();
-        $message->name = $faker->word();
+        $message->contact_name = $faker->word();
+        $message->lastname = $faker->word();
         $message->email = $faker->email();
-        $message->message = $faker->text();
+        $message->request_text = $faker->text();
 
         $message->save();
 
