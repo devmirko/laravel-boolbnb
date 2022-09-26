@@ -1,20 +1,23 @@
 <template>
-    <div class="container">
-        <h1 class="text-center">Benvenuti in BoolBnB</h1>
-        <h4>filtra per:</h4>
-            <ul>
-                <!-- ricerca per citta -->
-                <li>
-                    <SearchAdvancedBad :is-in-edit-mode='true' @coordinates="saveCoordinates" @edit="setEdit"></SearchAdvancedBad>
-                    <!-- <FindAddress/> -->
-                    <p>Distanza max dall'indirizzo indicato:</p>
-                    <input class="" type="text" v-model="radius">
-                    <label class="" for="distance">Km </label><br><br>
+    <div class="bg-dark">
+        <div class="container">
+            <h1 class="text-center">Benvenuti in BoolBnB</h1>
+            <h4>Filtra per:</h4>
+                <ul >
+                    <!-- ricerca per citta -->
+                    <li>
+                        <SearchAdvancedBad :is-in-edit-mode='true' @coordinates="saveCoordinates" @edit="setEdit"></SearchAdvancedBad>
+                    </li>
+                    <li>
+                        <!-- <FindAddress/> -->
+                        <p>Distanza max dall'indirizzo indicato:</p>
+                        <input class="" type="text" v-model="radius">
+                        <label class="" for="distance">Km </label><br><br>
 
-                </li>
+                    </li>
                 <!-- ricerca per stanze -->
                 <li>
-                    <span>Seleziona le stanze : {{ rooms }}</span>
+                    <span>Seleziona le stanze :</span>
                     <select v-model="rooms">
                         <option disabled value="0">Seleziona le stanze</option>
                         <option>1</option>
@@ -29,7 +32,7 @@
                 </li>
                 <!-- ricerca per letti -->
                 <li>
-                    <span>Seleziona gli ospiti : {{ beds }}</span>
+                    <span>Seleziona gli ospiti :</span>
                     <select v-model="beds">
                         <option disabled value="0">Seleziona gli ospiti</option>
                         <option>1</option>
@@ -166,16 +169,17 @@
                     <button @click="onClick" :disabled="setCheckboxes"> Cerca </button>
                 </div>
 
-                </li>
-            </ul>
+                    </li>
+                </ul>
 
 
-          <!-- <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search"  @keyup.enter="searchInput"> -->
-          <!-- <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik> -->
-        <div class="d-flex row justify-content-center">
-          <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
+            <!-- <input type="search" class="form-control mr-sm-2 rounded-start" v-model="search" aria-label="Search"  @keyup.enter="searchInput"> -->
+            <!-- <router-lik :to="{name: 'AdvancedSearch'}">ricerca</router-lik> -->
+            <div class="d-flex row justify-content-center">
+            <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
+            </div>
         </div>
-      </div>
+    </div>
   </template>
 
   <script>
@@ -257,4 +261,32 @@
   </script>
 
   <style lang="scss" scoped>
+
+    .container {
+        color: white;
+    }
+
+    ul {
+        color: white;
+
+    }
+    li {
+        margin: 2%;
+        list-style: none;
+    }
+
+    @media only screen and (min-width: 800px) {
+        ul {
+            // display: flex;
+        }
+
+    }
+    .list-group-item {
+        color: black;
+        margin-bottom: 100px;
+    }
+
+
+
+
   </style>

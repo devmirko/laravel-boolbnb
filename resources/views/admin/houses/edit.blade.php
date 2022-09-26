@@ -2,7 +2,7 @@
 
 @section('mainContent')
     <h1>Modifica i dati della struttura</h1>
-    <form action="{{ route('admin.houses.update', ['house' => $house]) }}" method="post" novalidate enctype="multipart/form-data" id="form-edit-house">
+    <form class="mb-2" action="{{ route('admin.houses.update', ['house' => $house]) }}" method="post" novalidate enctype="multipart/form-data" id="form-edit-house">
         @method('put')
         @csrf
 
@@ -12,7 +12,7 @@
             <input class="form-control @error('name_house') is-invalid @enderror" type="text" name="name_house"
                 id="name_house" value="{{ old('name_house', $house->name_house)}}"  required  placeholder="inserisci il nome"
                 minlength="1"
-                maxlength="15">
+                maxlength="50">
             @error('name_house')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -27,7 +27,7 @@
             @enderror" type="number" name="rooms"
                 id="rooms" value="{{ old('rooms', $house->rooms)}}" required
                 min="1"
-                max="10" >
+                max="30" >
             @error('rooms')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -37,12 +37,12 @@
 
         {{-- numero letti --}}
         <div class="mb-3">
-            <label class="form-label" for="beds">Numero Letti (ospiti max) *</label>
+            <label class="form-label" for="beds">Numero posti letto *</label>
             <input class="form-control @error('beds') is-invalid
             @enderror" type="number" name="beds"
                 id="beds" value="{{ old('beds', $house->beds)}}" required
                 min="1"
-                max="10">
+                max="15">
             @error('beds')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -210,8 +210,11 @@
 
         </fieldset>
 
-        <button type="submit" class="btn btn-primary">Modifica dati</button>
+        <button type="submit" class="btn btn-warning">Invia modifiche</button>
     </form>
+    <a href="{{ route('admin.houses.index', ['house' => $house]) }}" class="">
+        <button class="btn btn-primary btn-block">Indietro</button>
+    </a>
 
     <script src="{{ asset('js/vue.js') }}" defer></script>
 

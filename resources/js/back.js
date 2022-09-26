@@ -34,7 +34,12 @@ function validationCreate() {
     });
 
     if (name_house.value == "") {
-        window.alert("Inserisci un nome");
+        window.alert("Inserisci il nome della struttura");
+        name_house.focus();
+        return false;
+    }
+    if (name_house.value>50) {
+        window.alert("Il nome deve essere al massimo di 50 caratteri");
         name_house.focus();
         return false;
     }
@@ -43,8 +48,18 @@ function validationCreate() {
         rooms.focus();
         return false;
     }
+    if ((rooms.value)>30) {
+        window.alert("Il numero di stanze massimo è 30");
+        rooms.focus();
+        return false;
+    }
     if ((beds.value)<1) {
         window.alert("Inserire il numero di letti");
+        beds.focus();
+        return false;
+    }
+    if ((beds.value)>15) {
+        window.alert("Il numero di posti letto massimo è 15");
         beds.focus();
         return false;
     }
@@ -53,8 +68,18 @@ function validationCreate() {
         bathrooms.focus();
         return false;
     }
+    if ((bathrooms.value)>10) {
+        window.alert("Il numero di bagni massimo è 10");
+        bathrooms.focus();
+        return false;
+    }
     if ((mq.value)<1) {
         window.alert("Inserire la dimensione della struttura in mq");
+        mq.focus();
+        return false;
+    }
+    if ((mq.value)>500) {
+        window.alert("La struttura può essere al massimo 500 mq");
         mq.focus();
         return false;
     }
@@ -63,8 +88,18 @@ function validationCreate() {
         mq.focus();
         return false;
     }
+    if (address.value>100) {
+        window.alert("L'indirizzo può essere al massimo di 100 caratteri");
+        mq.focus();
+        return false;
+    }
     if (type.value == "") {
-        window.alert("Inserisci un tipo di struttura valido");
+        window.alert("Inserisci la tipologia della struttura");
+        type.focus();
+        return false;
+    }
+    if (type.value>30) {
+        window.alert("La tipologia può essere al massimo di 30 caratteri");
         type.focus();
         return false;
     }
@@ -113,7 +148,12 @@ function validationEdit() {
     });
 
     if (name_house.value == "") {
-        window.alert("Inserisci un nome");
+        window.alert("Inserisci il nome della struttura");
+        name_house.focus();
+        return false;
+    }
+    if (name_house.value>50) {
+        window.alert("Il nome deve essere al massimo di 50 caratteri");
         name_house.focus();
         return false;
     }
@@ -122,8 +162,18 @@ function validationEdit() {
         rooms.focus();
         return false;
     }
+    if ((rooms.value)>30) {
+        window.alert("Il numero di stanze massimo è 30");
+        rooms.focus();
+        return false;
+    }
     if ((beds.value)<1) {
         window.alert("Inserire il numero di letti");
+        beds.focus();
+        return false;
+    }
+    if ((beds.value)>15) {
+        window.alert("Il numero di posti letto massimo è 15");
         beds.focus();
         return false;
     }
@@ -132,30 +182,47 @@ function validationEdit() {
         bathrooms.focus();
         return false;
     }
+    if ((bathrooms.value)>10) {
+        window.alert("Il numero di bagni massimo è 10");
+        bathrooms.focus();
+        return false;
+    }
     if ((mq.value)<1) {
         window.alert("Inserire la dimensione della struttura in mq");
         mq.focus();
         return false;
     }
+    if ((mq.value)>500) {
+        window.alert("La struttura può essere al massimo 500 mq");
+        mq.focus();
+        return false;
+    }
     if (address.value == "") {
-        window.alert("Inserire un indirizzo");
+        window.alert("Inserire l'indirizzo");
+        mq.focus();
+        return false;
+    }
+    if (address.value>100) {
+        window.alert("L'indirizzo può avere un massimo di 100 caratteri)");
         mq.focus();
         return false;
     }
     if (type.value == "") {
-        window.alert("Inserisci un tipo di struttura valido");
+        window.alert("Inserisci la tiplogia di struttura");
         type.focus();
         return false;
     }
-
+    if (type.value>30) {
+        window.alert("La tipologia può essere al massimo di 30 caratteri");
+        type.focus();
+        return false;
+    }
     if (!myservice) {
         window.alert("Inserisci almeno un servizio");
         type.focus();
         return false;
     }
-
     return true;
-
 }
 
 window.validationRegister = function () {

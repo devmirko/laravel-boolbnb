@@ -1,8 +1,8 @@
 <template>
     <div class="team-card card">
-        <div class="card-image image">
+        <!-- <div class="card-image image">
             <img :src="house.cover_photo">
-        </div>
+        </div> -->
 
         <div class="card-text">
             <h3 class="card-title text-center"> {{ house.name_house }} </h3>
@@ -11,6 +11,7 @@
                 <li>{{ house.address }}</li>
             </ul> -->
             <div class=" mt-2">
+                <img :src="`/storage/${house.cover_photo}`" class="card-img-top" :alt="house.title">
                 <router-link :to="{name: 'show', params: {id: house.id} }" class="nav-link active bg-white">
                 <p class="read">Read</p>
                 </router-link>
