@@ -10,9 +10,7 @@
                         <!-- <FindAddress/> -->
                         <p>Distanza max dall'indirizzo indicato:</p>
                         <input class="" type="text" v-model="radius">
-                        <label class="" for="distance">Km </label><br><br>
-
-<<<<<<< HEAD
+                        <label class="" for="distance">Km </label><br>
                     </li>
                     <!-- ricerca per stanze -->
                     <li>
@@ -167,7 +165,7 @@
                     <div id="my_btn">
                         <button @click="onClick"> Cerca </button>
                     </div>
-=======
+
                 </li>
                 <!-- ricerca per stanze -->
                 <li>
@@ -322,7 +320,6 @@
                 <div id="my_btn">
                     <button @click="onClick" :disabled="setCheckboxes"> Cerca </button>
                 </div>
->>>>>>> 1fc363083e985d1e27ed5204c116354b9c47a4e4
 
                     </li>
                 </ul>
@@ -334,7 +331,7 @@
             <CardHouse v-for="(house, index) in houses" :key="index" :house="house"/>
             </div>
         </div>
-    </div>    
+    </div>
   </template>
 
   <script>
@@ -432,7 +429,7 @@
         ul {
             display: flex;
         }
-        
+
     }
 
 
