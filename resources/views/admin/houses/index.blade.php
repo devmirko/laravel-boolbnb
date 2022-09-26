@@ -11,6 +11,7 @@
                     <th class="d-none d-md-table-cell">Stanze</th>
                     <th class="d-none d-md-table-cell">Posti letto</th>
                     <th class="d-none d-md-table-cell">Bagni</th>
+                    <th class="d-none d-md-table-cell">Indirizzo</th>
                     <th class="actions">Azioni</th>
                 </tr>
             </thead>
@@ -22,6 +23,7 @@
                     <td class="text-white d-none d-md-table-cell">{{ $house->rooms }} </td>
                     <td class="text-white d-none d-md-table-cell">{{ $house->beds }} </td>
                     <td class="text-white d-none d-md-table-cell">{{ $house->bathrooms }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->address }} </td>
                     <td class="actions">
                         <div class="container">
                             <div class="row">
