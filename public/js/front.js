@@ -5341,7 +5341,7 @@ __webpack_require__.r(__webpack_exports__);
       this.checkboxes = false;
       this.search = false;
       this.checkedServices = [];
-      this.guests = 0;
+      this.beds = 0;
       this.rooms = 0;
     },
     getData: function getData() {
@@ -5358,7 +5358,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res.data.success) {
-          _this.houses = res.data.result[0];
+          _this.houses = res.data.result;
           console.log(_this.houses);
         }
       })["catch"](function (error) {
@@ -5461,8 +5461,23 @@ __webpack_require__.r(__webpack_exports__);
   data: function data() {
     return {
       showHouse: [],
-      API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs'
+      API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs',
+      name: '',
+      email: '',
+      message: ''
     };
+  },
+  methods: {
+    submitMessage: function submitMessage($id) {
+      // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
+      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages/', {
+        name: this.name,
+        email: this.email,
+        message: this.message
+      }).then(function (res) {
+        return console.log(res.data);
+      });
+    }
   },
   mounted: function mounted() {
     var tomTomScript = document.createElement('script');
@@ -5787,6 +5802,8 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
+    staticClass: "bg-dark"
+  }, [_c("div", {
     staticClass: "container"
   }, [_c("h1", {
     staticClass: "text-center"
@@ -5875,7 +5892,11 @@ var render = function render() {
     attrs: {
       id: "check"
     }
-  }, [_c("fieldset", [_c("label", {
+  }, [_c("fieldset", {
+    attrs: {
+      disabled: _vm.setCheckboxes
+    }
+  }, [_c("label", {
     staticClass: "check-item"
   }, [_c("input", {
     directives: [{
@@ -5892,7 +5913,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "1") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5909,7 +5930,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Wifi")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -5928,7 +5949,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "2") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5945,7 +5966,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Cucina")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -5964,7 +5985,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "3") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5981,7 +6002,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lavatrice")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6000,7 +6021,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "4") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6017,7 +6038,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Asciugatrice")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6036,7 +6057,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "5") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6053,7 +6074,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Aria Condizionata")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6072,7 +6093,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "6") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6089,7 +6110,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Riscaldamento")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6108,7 +6129,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "7") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6125,7 +6146,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("TV")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6144,7 +6165,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "8") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6161,7 +6182,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Spazio di lavoro dedicato")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6180,7 +6201,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "9") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6197,7 +6218,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Asciugacapelli")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6216,7 +6237,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "10") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6233,7 +6254,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Ferro da stiro")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6252,7 +6273,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "11") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6269,7 +6290,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Piscina")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6288,7 +6309,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "12") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6305,7 +6326,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Idromassaggio")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6324,7 +6345,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "13") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6341,7 +6362,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Parcheggio Gratuito")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6360,7 +6381,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "14") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6377,7 +6398,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Postazione di ricarica per veicoli elettrici")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6396,7 +6417,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "15") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6413,7 +6434,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Culla")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6432,7 +6453,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "16") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6449,7 +6470,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Palestra")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6468,7 +6489,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "17") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6485,7 +6506,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Griglia per barbecue")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6504,7 +6525,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "18") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6521,7 +6542,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Colazione")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6540,7 +6561,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "19") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6557,7 +6578,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Camino")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6576,7 +6597,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "20") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6593,7 +6614,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Permesso Fumatori")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6612,7 +6633,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "21") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6629,7 +6650,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lungo la spiaggia")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6648,7 +6669,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "22") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6665,7 +6686,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lungo la riva")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6684,7 +6705,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "23") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6701,13 +6722,16 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Allarme antincendio")])])])]), _vm._v(" "), _c("div", {
     attrs: {
       id: "my_btn"
     }
   }, [_c("button", {
+    attrs: {
+      disabled: _vm.setCheckboxes
+    },
     on: {
       click: _vm.onClick
     }
@@ -6720,7 +6744,7 @@ var render = function render() {
         house: house
       }
     });
-  }), 1)]);
+  }), 1)])]);
 };
 
 var staticRenderFns = [];
@@ -6904,7 +6928,110 @@ var render = function render() {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _vm._m(2)]);
+  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
+    attrs: {
+      novalidate: ""
+    },
+    on: {
+      submit: function submit($event) {
+        $event.preventDefault();
+        return _vm.submitMessage(_vm.showHouse.id);
+      }
+    }
+  }, [_c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "name"
+    }
+  }, [_vm._v("Name")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.name,
+      expression: "name"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "text",
+      name: "name",
+      id: "name"
+    },
+    domProps: {
+      value: _vm.name
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.name = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "email"
+    }
+  }, [_vm._v("Email")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.email,
+      expression: "email"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      type: "email",
+      name: "email",
+      id: "email"
+    },
+    domProps: {
+      value: _vm.email
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.email = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "mb-3"
+  }, [_c("label", {
+    staticClass: "form-label",
+    attrs: {
+      "for": "message"
+    }
+  }, [_vm._v("Message")]), _vm._v(" "), _c("textarea", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.message,
+      expression: "message"
+    }],
+    staticClass: "form-control",
+    attrs: {
+      name: "message",
+      id: "message",
+      cols: "30",
+      rows: "10"
+    },
+    domProps: {
+      value: _vm.message
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.message = $event.target.value;
+      }
+    }
+  })]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("button", {
+    staticClass: "btn btn-primary",
+    attrs: {
+      type: "submit"
+    }
+  }, [_vm._v("Send")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -6922,34 +7049,20 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", {
-    staticClass: "center"
-  }, [_c("b", [_vm._v("CONTATTACI")])]);
-}, function () {
-  var _vm = this,
-      _c = _vm._self._c;
-
-  return _c("div", {
-    staticClass: "bordo"
-  }, [_c("form", {
+  return _c("div", [_c("input", {
+    staticClass: "form-check-input",
     attrs: {
-      action: ""
+      type: "checkbox",
+      name: "newsletter",
+      id: "newsletter",
+      checked: ""
     }
-  }, [_c("div", {
-    staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Email:\n                ")]), _vm._v(" "), _c("input", {
-    staticClass: "email",
+  }), _vm._v(" "), _c("label", {
+    staticClass: "form-check-label",
     attrs: {
-      type: "text"
+      "for": "newsletter"
     }
-  }), _vm._v(" "), _c("button", [_vm._v("invia")])]), _vm._v(" "), _c("div", {
-    staticClass: "center"
-  }, [_c("div", [_vm._v("\n                    Inserisci Testo:\n                ")]), _vm._v(" "), _c("input", {
-    staticClass: "text",
-    attrs: {
-      type: "text"
-    }
-  }), _vm._v(" "), _c("button", [_vm._v("invia")])])])]);
+  }, [_vm._v("Iscrivimi alla newsletter")])]);
 }];
 render._withStripped = true;
 
@@ -12250,6 +12363,25 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 // module
 exports.push([module.i, "li[data-v-f8dab6de]:hover {\n  cursor: pointer;\n}", ""]);
+
+// exports
+
+
+/***/ }),
+
+/***/ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&":
+/*!*******************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& ***!
+  \*******************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ "./node_modules/css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, ".container[data-v-0312e533] {\n  color: white;\n}\nul[data-v-0312e533] {\n  color: white;\n}\nli[data-v-0312e533] {\n  margin: 2%;\n}\n@media only screen and (min-width: 800px) {\nul[data-v-0312e533] {\n    display: flex;\n}\n}", ""]);
 
 // exports
 
@@ -30105,6 +30237,36 @@ if(false) {}
 
 /***/ }),
 
+/***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&":
+/*!***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& ***!
+  \***********************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+
+var content = __webpack_require__(/*! !../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& */ "./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&");
+
+if(typeof content === 'string') content = [[module.i, content, '']];
+
+var transform;
+var insertInto;
+
+
+
+var options = {"hmr":true}
+
+options.transform = transform
+options.insertInto = undefined;
+
+var update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ "./node_modules/style-loader/lib/addStyles.js")(content, options);
+
+if(content.locals) module.exports = content.locals;
+
+if(false) {}
+
+/***/ }),
+
 /***/ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/PageHome.vue?vue&type=style&index=0&id=13e03f97&lang=scss&scoped=true&":
 /*!*****************************************************************************************************************************************************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/style-loader!./node_modules/css-loader!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src??ref--7-2!./node_modules/sass-loader/dist/cjs.js??ref--7-3!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/pages/PageHome.vue?vue&type=style&index=0&id=13e03f97&lang=scss&scoped=true& ***!
@@ -46345,7 +46507,9 @@ var app = new vue__WEBPACK_IMPORTED_MODULE_0___default.a({
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _AdvancedSearch_vue_vue_type_template_id_0312e533_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=template&id=0312e533&scoped=true& */ "./resources/js/pages/AdvancedSearch.vue?vue&type=template&id=0312e533&scoped=true&");
 /* harmony import */ var _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=script&lang=js& */ "./resources/js/pages/AdvancedSearch.vue?vue&type=script&lang=js&");
-/* empty/unused harmony star reexport *//* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+/* empty/unused harmony star reexport *//* harmony import */ var _AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& */ "./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
 
 
 
@@ -46353,7 +46517,7 @@ __webpack_require__.r(__webpack_exports__);
 
 /* normalize component */
 
-var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_2__["default"])(
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_3__["default"])(
   _AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_1__["default"],
   _AdvancedSearch_vue_vue_type_template_id_0312e533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["render"],
   _AdvancedSearch_vue_vue_type_template_id_0312e533_scoped_true___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
@@ -46382,6 +46546,22 @@ component.options.__file = "resources/js/pages/AdvancedSearch.vue"
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/babel-loader/lib??ref--4-0!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=script&lang=js& */ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AdvancedSearch.vue?vue&type=script&lang=js&");
 /* empty/unused harmony star reexport */ /* harmony default export */ __webpack_exports__["default"] = (_node_modules_babel_loader_lib_index_js_ref_4_0_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_script_lang_js___WEBPACK_IMPORTED_MODULE_0__["default"]); 
+
+/***/ }),
+
+/***/ "./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&":
+/*!*********************************************************************************************************!*\
+  !*** ./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& ***!
+  \*********************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../node_modules/style-loader!../../../node_modules/css-loader!../../../node_modules/vue-loader/lib/loaders/stylePostLoader.js!../../../node_modules/postcss-loader/src??ref--7-2!../../../node_modules/sass-loader/dist/cjs.js??ref--7-3!../../../node_modules/vue-loader/lib??vue-loader-options!./AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true& */ "./node_modules/style-loader/index.js!./node_modules/css-loader/index.js!./node_modules/vue-loader/lib/loaders/stylePostLoader.js!./node_modules/postcss-loader/src/index.js?!./node_modules/sass-loader/dist/cjs.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/pages/AdvancedSearch.vue?vue&type=style&index=0&id=0312e533&lang=scss&scoped=true&");
+/* harmony import */ var _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__);
+/* harmony reexport (unknown) */ for(var __WEBPACK_IMPORT_KEY__ in _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__) if(["default"].indexOf(__WEBPACK_IMPORT_KEY__) < 0) (function(key) { __webpack_require__.d(__webpack_exports__, key, function() { return _node_modules_style_loader_index_js_node_modules_css_loader_index_js_node_modules_vue_loader_lib_loaders_stylePostLoader_js_node_modules_postcss_loader_src_index_js_ref_7_2_node_modules_sass_loader_dist_cjs_js_ref_7_3_node_modules_vue_loader_lib_index_js_vue_loader_options_AdvancedSearch_vue_vue_type_style_index_0_id_0312e533_lang_scss_scoped_true___WEBPACK_IMPORTED_MODULE_0__[key]; }) }(__WEBPACK_IMPORT_KEY__));
+
 
 /***/ }),
 
@@ -46653,7 +46833,7 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(/*! C:\Users\omarb\Boolean\2-Git-Hub\8-ProgettoFinale\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
+module.exports = __webpack_require__(/*! C:\Users\Utente\Desktop\Boolean\Esercizi\php\laravel-boolbnb\resources\js\front.js */"./resources/js/front.js");
 
 
 /***/ })
