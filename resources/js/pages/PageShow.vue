@@ -50,28 +50,40 @@
 
                 <div class="contact">
                     <div class="center"><b>CONTATTACI</b></div>
-                        <div class="bordo">
+                    <div>
                             <div class="center">
                                 <div>Inserisci nome:</div>
                                 <input class="form-control" type="text"  v-model="contact_name" placeholder="inserisci il nome" name="contact_name" id="contact_name"
-                                minlength="1" maxlength="30">
+                                minlength="1" maxlength="30" required>
                             </div>
                             <!-- messaggio di errore -->
+                            <div  id="error_name">
+                             </div>
                             <div class="center">
                                 <div>Inserisci cognome:</div>
                                 <input class="form-control" type="text" v-model="lastname" placeholder="inserisci il cognome" name="lastname" id="lastname"
-                                minlength="1" maxlength="30">
+                                minlength="1" maxlength="30" required>
+                            </div>
+                             <!-- messaggio di errore -->
+                            <div  id="error_lastname">
                             </div>
                             <div class="center">
                                 <div>Inserisci Email:</div>
-                                <input required class="form-control" type="text" placeholder="inserisci la tua email" v-model="email" name="email" id="email"
+                                <input required class="form-control" type="text" placeholder="inserisci la tua email"  v-model="email" name="email" id="email"
                                 minlength="1" maxlength="50">
+                            </div>
+                             <!-- messaggio di errore -->
+                            <div  id="error_email">
                             </div>
                             <div class="center">
                                 <div>Inserisci Testo:</div>
-                                <textarea required class="form-control" placeholder="inserisci la tua richiesta" v-model="request_text"  name="request_text"  id="email"  style="height: 100px"
+                                <textarea required class="form-control"  placeholder="inserisci la tua richiesta" v-model="request_text"  name="request_text"  id="request_text"  style="height: 100px"
                                 minlength="1" maxlength="500"></textarea>
-                                <button @click.prevent="NewMessage(showHouse.id)">invia</button>
+                            </div>
+                            <div  id="error_text">
+                            </div>
+                            <button type="submit" @click.prevent="NewMessage(showHouse.id)" class="btn btn-primary">invia</button>
+                            <div  id="success">
                             </div>
                         </div>
                  </div>
@@ -92,6 +104,7 @@ export default {
             lastname: '',
             request_text: '',
             email: '',
+            successMessage: '',
 
         }
     },
@@ -131,7 +144,39 @@ export default {
     },
     methods: {
         NewMessage($id){
-            if(this.email != '' && this.request_text != '' && this.contact_name != '' && this.lastname != ''){
+                // controllo sul nome
+                const contact_name = document.getElementById('contact_name');
+                if (contact_name.value == "") {
+                document.getElementById("error_name").innerHTML = "inserisci un nome corretto";
+                // window.alert("Inserisci il nome");
+                contact_name.focus();
+                return false;
+                }
+                // controllo sul cognome
+                const lastname = document.getElementById('lastname');
+                if (lastname.value == "") {
+                document.getElementById("error_lastname").innerHTML = "inserisci un cognome corretto";
+                // window.alert("Inserisci il cognome");
+                lastname.focus();
+                return false;
+                }
+                 // controllo sul email
+                const email = document.getElementById('email');
+                if (!email.value.includes('@') || !email.value.includes('.')) {
+                document.getElementById("error_email").innerHTML = "inserisci un email corretta";
+                // window.alert("inserisci una mail corretta");
+                email.focus();
+                return false;
+                }
+                 // controllo sul email
+                const request_text = document.getElementById('request_text');
+                if (request_text.value == "") {
+                document.getElementById("error_text").innerHTML = "inserisci il testo";
+                // window.alert("inserisci una messaggio");
+                request_text.focus();
+                return false;
+                }
+
                 axios.post('/api/messages', {
                 id: $id,
                 contact_name: this.contact_name,
@@ -140,20 +185,26 @@ export default {
                 request_text: this.request_text,
             })
             .then(res => {
+                console.log(res.data)
                 if (res.data.success) {
-                    this.email = '';
-                    this.request_text = '';
-                    this.contact_name = '';
-                    this.lastname = '';
+                    this.resetForm();
+                    this.successMessage = res.data.response;
+                    document.getElementById("success").innerHTML = "messaggio inviato correttamente";
                 }
-            }).catch(function (error) {
-                console.log(error);
-            });
-            } else {
-                alert('compila tutti i campi');
-                return false;
-            }
+
+            })
+            .catch( error => this.errorMessage = 'C\'è stato un errore imprevisto. Riprovare')
+
+
         },
+        resetForm() {
+            this.email = '';
+            this.request_text = '';
+            this.contact_name = '';
+            this.lastname = '';
+        },
+
+
 
     },
 }
