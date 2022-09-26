@@ -10,7 +10,7 @@ class MessaggiRicevutiController extends Controller
 {
     public function index()
     {
-        $messages= Message::All()->where('house_id', auth()->user()->id);;
+        $messages= Message::All()->where('house_id', auth()->user()->id);
 
         return view('admin.messages.index', compact('messages'));
     }
