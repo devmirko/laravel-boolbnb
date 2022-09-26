@@ -114,6 +114,7 @@ export default {
             // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
 
             axios.post('/api/messages/', {
+                id : $id,
                 name : this.name,
                 email : this.email,
                 message : this.message,
