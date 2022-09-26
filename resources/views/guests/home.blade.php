@@ -35,12 +35,12 @@
                         </form>
                     @else
                         <li class="list-unstyled me-4">
-                            <a class="nav-link active btn btn-light mr-3" href="{{ route('login') }}">Login</a>
+                            <a class="nav-link active btn btn-light mr-3 p-1" href="{{ route('login') }}">Login</a>
                         </li>
 
                         @if (Route::has('register'))
                             <li class="list-unstyled me-2">
-                                <a class="nav-link active btn btn-light" href="{{ route('register') }}">Register</a>
+                                <a class="nav-link active btn btn-light p-1" href="{{ route('register') }}">Register</a>
                             </li>
                         @endif
                     @endauth
