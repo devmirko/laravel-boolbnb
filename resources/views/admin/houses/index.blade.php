@@ -24,19 +24,19 @@
                     <td class="text-white d-none d-md-table-cell">{{ $house->beds }} </td>
                     <td class="text-white d-none d-md-table-cell">{{ $house->bathrooms }} </td>
                     <td class="text-white d-none d-md-table-cell">{{ $house->address }} </td>
-                    <td class="actions">
+                    <td class="actions d-flex">
                         <div class="container">
-                            <div class="row">
-                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.show', ['house' => $house]) }}">
+                            <div class="row pulsanti">
+                                <a class="mb-1 col-lg-3" href="{{ route('admin.houses.show', ['house' => $house]) }}">
                                     <button class="btn btn-primary btn-sm">Mostra</button>
                                 </a>
-                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.edit', ['house' => $house]) }}">
+                                <a class="mb-1 col-lg-3" href="{{ route('admin.houses.edit', ['house' => $house]) }}">
                                     <button class="btn btn-warning btn-sm">Modifica</button>
                                 </a>
-                                <a href="{{ route('admin.messages.show', $house->id ) }}" class="col">
+                                <a href="{{ route('admin.messages.show', $house->id ) }}" class="mb-1 col-lg-3">
                                     <button class="btn btn-warning btn-sm btn-block">Messages</button>
                                 </a>
-                                <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+                                <form class="mb-1 col-lg-3" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm"
@@ -62,3 +62,8 @@
 
 @endsection
 
+{{-- <style>
+    .pulsanti{
+        justify-content: space-between;
+    }
+</style> --}}

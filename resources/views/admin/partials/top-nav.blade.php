@@ -6,7 +6,7 @@
         {{-- <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24"> --}}
         <div class="collapse navbar-collapse justify-content-end">
             <li class="list-unstyled me-4">
-                <a class="nav-link text-white" href="{{ route('logout') }}"
+                <a class="nav-link btn btn-light p-1" href="{{ route('logout') }}"
                        onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
                 >
                     Logout
@@ -19,6 +19,11 @@
     </div>
 </nav>
 
+<style>
+    .navbar{
+        background-color: black
+    }
+</style>
 
 
 
