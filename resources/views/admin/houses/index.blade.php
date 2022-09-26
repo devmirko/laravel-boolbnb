@@ -62,8 +62,4 @@
 
 @endsection
 
-{{-- <style>
-    .pulsanti{
-        justify-content: space-between;
-    }
-</style> --}}
+

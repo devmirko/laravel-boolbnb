@@ -2288,7 +2288,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       if (this.email != '' && this.request_text != '' && this.contact_name != '' && this.lastname != '') {
-        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/message', {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages', {
           id: $id,
           contact_name: this.contact_name,
           lastname: this.lastname,

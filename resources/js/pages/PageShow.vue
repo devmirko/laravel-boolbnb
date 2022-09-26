@@ -75,7 +75,7 @@
                         </div>
                         <textarea required class="form-control" placeholder="inserisci la tua richiesta" v-model="request_text"  name="request_text"  id="email"  style="height: 100px"
                         minlength="1" maxlength="500"></textarea>
-                        <button @click.prevent="NewMessage(showHouse.id)">invia</button>
+                            <button @click.prevent="NewMessage(showHouse.id)">invia</button>
                     </div>
             </div>
         </div>
