@@ -28,20 +28,26 @@
                         <em class=" d-block mb-2">{{ $service->name_services }}</em>
                     </div>
                 @endforeach
-                
+
             </div>
         </div>
     </div>
-    <div class="container">
-        <div class="row mx-auto rounded bg-dark bg-gradient col-7 justify-content-evenly text-center">
-            <div class="col-md-4 m-2 mx-auto">
+    <div class="container-buttons">
+        <div class="row button-row mx-auto rounded bg-dark bg-gradient col-7 justify-content-evenly text-center">
+            <div class="col-md-3 my-2 mx-auto centered-button">
                 <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="">
                     <button class="btn btn-warning btn-block">Modifica</button>
                 </a>
             </div>
 
-            <div class="col-md-4 m-2 mx-auto">
-                <form class="" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+            <div class="col-md-3 my-2 mx-auto centered-button">
+                <a href="{{ route('admin.messages.show', $house->id ) }}" class="mb-1 col-lg-3">
+                    <button class="btn btn-info btn-block">Messaggi</button>
+                </a>
+            </div>
+
+            <div class="col-md-3 my-2 mx-auto centered-button">
+                <form class="m-0" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                     @csrf
                     @method('DELETE')
                     <button type="submit" class="btn btn-danger btn-block"
@@ -49,7 +55,7 @@
                 </form>
             </div>
 
-            <div class="col-md-4 m-2 mx-auto">
+            <div class="col-md-3 my-2 mx-auto centered-button">
                 <a href="{{ route('admin.houses.index', ['house' => $house]) }}" class="">
                     <button class="btn btn-primary btn-block">Indietro</button>
                 </a>
@@ -65,3 +71,13 @@
 
 
 @endsection
+
+<style>
+    .centered-button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%
+    }
+
+</style>
