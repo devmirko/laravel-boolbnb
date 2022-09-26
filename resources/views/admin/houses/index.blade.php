@@ -31,6 +31,9 @@
                                 <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="col">
                                     <button class="btn btn-warning btn-sm btn-block">Edit</button>
                                 </a>
+                                <a href="{{ route('admin.messages.show', $house->id ) }}" class="col">
+                                    <button class="btn btn-warning btn-sm btn-block">Messages</button>
+                                </a>
                                 <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                                     @csrf
                                     @method('DELETE')

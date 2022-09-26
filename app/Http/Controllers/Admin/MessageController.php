@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
+
 use App\Models\House;
 use App\Models\Message;
 use Illuminate\Http\Request;
@@ -17,9 +18,9 @@ class MessageController extends Controller
 
 
 
-        $messages = Message::all()->where('house_id', auth()->user()->id);
+        // $messages = Message::all()->where('house_id', auth()->user()->id);
 
-        return view('admin.messages.index', compact('messages'));
+        // return view('admin.messages.index', compact('messages'));
 
     }
 
@@ -36,9 +37,19 @@ class MessageController extends Controller
     }
 
 
-    public function show(Message $message)
+    public function show($id)
     {
-        //
+        //prende un id e restituisce un singolo modello
+        $house = House::find($id);
+        // richiamiamo l'id relativo al utente della casa
+        $user = $house->user;
+        // controllo se l'utente registrato e lo stesso utente che ha inserito la casa
+        if( Auth::id() == $user->id ){
+            $messages = $house -> messages() -> orderBy('created_at') -> get();
+            return view('admin.messages.show', compact('messages'));
+        } else{
+            abort(404);
+        }
     }
 
 

@@ -45,27 +45,40 @@
             <div id="map-div"></div>
         </div>
         <div class="center"><b>CONTATTACI</b></div>
-        <div class="bordo">
-            <form action="">
-                <div class="center">
-                    <div>
-                        Inserisci Email:
-                    </div>
-                    <input class="email" type="text">
-                    <button>invia</button>
-                </div>
-                <div class="center">
-                    <div>
-                        Inserisci Testo:
-                    </div>
-                    <input class="text" type="text">
-                    <button>invia</button>
+            <div class="bordo">
+                    <div class="center">
 
-                </div>
-            </form>
-
+                        <div>
+                            Inserisci nome:
+                        </div>
+                        <input class="form-control" type="text"  v-model="contact_name" placeholder="inserisci il nome" name="contact_name" id="contact_name"
+                        minlength="1" maxlength="30">
+                    </div>
+                    <!-- messaggio di errore -->
+                    <div class="center">
+                        <div>
+                            Inserisci cognome:
+                        </div>
+                        <input class="form-control" type="text" v-model="lastname" placeholder="inserisci il cognome" name="lastname" id="lastname"
+                        minlength="1" maxlength="30">
+                    </div>
+                    <div class="center">
+                        <div>
+                            Inserisci Email:
+                        </div>
+                        <input required class="form-control" type="text" placeholder="inserisci la tua email" v-model="email" name="email" id="email"
+                        minlength="1" maxlength="50">
+                    </div>
+                    <div class="center">
+                        <div>
+                            Inserisci Testo:
+                        </div>
+                        <textarea required class="form-control" placeholder="inserisci la tua richiesta" v-model="request_text"  name="request_text"  id="email"  style="height: 100px"
+                        minlength="1" maxlength="500"></textarea>
+                        <button @click.prevent="NewMessage(showHouse.id)">invia</button>
+                    </div>
+            </div>
         </div>
-    </div>
 </template>
 
 <script>
@@ -76,6 +89,10 @@ export default {
         return {
             showHouse: [],
             API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs',
+            contact_name: '',
+            lastname: '',
+            request_text: '',
+            email: '',
 
         }
     },
@@ -112,7 +129,34 @@ export default {
                     console.log(result)
                 }
             })
-    }
+    },
+    methods: {
+        NewMessage($id){
+            if(this.email != '' && this.request_text != '' && this.contact_name != '' && this.lastname != ''){
+                axios.post('/api/message', {
+                id: $id,
+                contact_name: this.contact_name,
+                lastname: this.lastname,
+                email: this.email,
+                request_text: this.request_text,
+            })
+            .then(res => {
+                if (res.data.success) {
+                    this.email = '';
+                    this.request_text = '';
+                    this.contact_name = '';
+                    this.lastname = '';
+                }
+            }).catch(function (error) {
+                console.log(error);
+            });
+            } else {
+                alert('compila tutti i campi');
+                return false;
+            }
+        },
+
+    },
 }
 </script>
 
@@ -156,7 +200,6 @@ export default {
 }
 
 .bordo {
-    border: 2px solid aqua;
     padding: 10px;
     margin-left: 20%;
     margin-right: 20%;
