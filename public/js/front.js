@@ -5471,6 +5471,7 @@ __webpack_require__.r(__webpack_exports__);
     submitMessage: function submitMessage($id) {
       // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages/', {
+        id: $id,
         name: this.name,
         email: this.email,
         message: this.message
