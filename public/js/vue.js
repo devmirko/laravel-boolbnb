@@ -103,10 +103,16 @@ __webpack_require__.r(__webpack_exports__);
       latitude: null,
       longitude: null,
       nameAddress: [],
-      searchAddess: []
+      searchAddress: []
     };
   },
-  mounted: function mounted() {},
+  mounted: function mounted() {
+    this.latitude = window.latitude;
+    this.longitude = window.longitude;
+    this.searchAddress = window.address; // console.log(window.latitude);
+    // console.log(window.longitude);
+    // console.log(window.address);
+  },
   methods: {
     addressSearch: function addressSearch() {
       tt.services.fuzzySearch({
@@ -121,7 +127,7 @@ __webpack_require__.r(__webpack_exports__);
       // console.log('log3', this.longitude);
     },
     selectAddress: function selectAddress(i) {
-      this.searchAddess = this.nameAddress[i].address.freeformAddress;
+      this.searchAddress = this.nameAddress[i].address.freeformAddress;
       this.latitude = this.nameAddress[i].position.lat;
       this.longitude = this.nameAddress[i].position.lng;
       this.nameAddress = []; // console.log('address', this.nameAddress);
@@ -159,8 +165,8 @@ var render = function render() {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.searchAddess,
-      expression: "searchAddess"
+      value: _vm.searchAddress,
+      expression: "searchAddress"
     }],
     staticClass: "form-control form-create address-form",
     attrs: {
@@ -171,13 +177,13 @@ var render = function render() {
       id: "query"
     },
     domProps: {
-      value: _vm.searchAddess
+      value: _vm.searchAddress
     },
     on: {
       keyup: _vm.addressSearch,
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.searchAddess = $event.target.value;
+        _vm.searchAddress = $event.target.value;
       }
     }
   }), _vm._v(" "), _c("input", {

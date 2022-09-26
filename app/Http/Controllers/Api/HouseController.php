@@ -53,10 +53,7 @@ class HouseController extends Controller
     $lon = $request->get('longitude');
     $rooms_number = $request->get('rooms');
     $bed_number = $request->get('beds');
-<<<<<<< HEAD
-=======
 
->>>>>>> cd1dae44329317692cee9803628601d26c32eff6
 
     // validiamo la richiesta dell'array servizi
     $servicesQuery = $request->validate(["services" => 'nullable|array']);

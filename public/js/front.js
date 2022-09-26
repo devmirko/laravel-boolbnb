@@ -5358,7 +5358,7 @@ __webpack_require__.r(__webpack_exports__);
         }
       }).then(function (res) {
         if (res.data.success) {
-          _this.houses = res.data.result[0];
+          _this.houses = res.data.result;
           console.log(_this.houses);
         }
       })["catch"](function (error) {
@@ -5468,9 +5468,8 @@ __webpack_require__.r(__webpack_exports__);
     };
   },
   methods: {
-    submitMessage: function submitMessage() {
-      console.log('funziona'); //se clicco Send mi stampa 'funziona' nella console
-
+    submitMessage: function submitMessage($id) {
+      // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
       axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages/', {
         name: this.name,
         email: this.email,
@@ -5891,7 +5890,11 @@ var render = function render() {
     attrs: {
       id: "check"
     }
-  }, [_c("fieldset", [_c("label", {
+  }, [_c("fieldset", {
+    attrs: {
+      disabled: _vm.setCheckboxes
+    }
+  }, [_c("label", {
     staticClass: "check-item"
   }, [_c("input", {
     directives: [{
@@ -5908,7 +5911,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "1") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5925,7 +5928,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Wifi")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -5944,7 +5947,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "2") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5961,7 +5964,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Cucina")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -5980,7 +5983,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "3") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -5997,7 +6000,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lavatrice")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6016,7 +6019,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "4") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6033,7 +6036,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Asciugatrice")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6052,7 +6055,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "5") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6069,7 +6072,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Aria Condizionata")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6088,7 +6091,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "6") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6105,7 +6108,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Riscaldamento")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6124,7 +6127,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "7") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6141,7 +6144,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("TV")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6160,7 +6163,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "8") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6177,7 +6180,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Spazio di lavoro dedicato")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6196,7 +6199,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "9") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6213,7 +6216,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Asciugacapelli")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6232,7 +6235,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "10") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6249,7 +6252,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Ferro da stiro")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6268,7 +6271,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "11") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6285,7 +6288,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Piscina")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6304,7 +6307,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "12") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6321,7 +6324,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Idromassaggio")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6340,7 +6343,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "13") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6357,7 +6360,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Parcheggio Gratuito")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6376,7 +6379,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "14") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6393,7 +6396,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Postazione di ricarica per veicoli elettrici")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6412,7 +6415,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "15") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6429,7 +6432,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Culla")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6448,7 +6451,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "16") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6465,7 +6468,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Palestra")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6484,7 +6487,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "17") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6501,7 +6504,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Griglia per barbecue")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6520,7 +6523,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "18") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6537,7 +6540,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Colazione")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6556,7 +6559,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "19") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6573,7 +6576,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Camino")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6592,7 +6595,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "20") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6609,7 +6612,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Permesso Fumatori")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6628,7 +6631,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "21") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6645,7 +6648,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lungo la spiaggia")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6664,7 +6667,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "22") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6681,7 +6684,7 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Lungo la riva")])]), _vm._v(" "), _c("label", {
     staticClass: "check-item"
@@ -6700,7 +6703,7 @@ var render = function render() {
       checked: Array.isArray(_vm.checkedServices) ? _vm._i(_vm.checkedServices, "23") > -1 : _vm.checkedServices
     },
     on: {
-      change: function change($event) {
+      change: [function ($event) {
         var $$a = _vm.checkedServices,
             $$el = $event.target,
             $$c = $$el.checked ? true : false;
@@ -6717,13 +6720,16 @@ var render = function render() {
         } else {
           _vm.checkedServices = $$c;
         }
-      }
+      }, _vm.onChange]
     }
   }), _vm._v(" "), _c("span", [_vm._v("Allarme antincendio")])])])]), _vm._v(" "), _c("div", {
     attrs: {
       id: "my_btn"
     }
   }, [_c("button", {
+    attrs: {
+      disabled: _vm.setCheckboxes
+    },
     on: {
       click: _vm.onClick
     }
@@ -6927,7 +6933,7 @@ var render = function render() {
     on: {
       submit: function submit($event) {
         $event.preventDefault();
-        return _vm.submitMessage.apply(null, arguments);
+        return _vm.submitMessage(_vm.showHouse.id);
       }
     }
   }, [_c("div", {

@@ -68,7 +68,7 @@
 
         <div>
     <h1>Contact us</h1>
-    <form @submit.prevent="submitMessage" novalidate>
+    <form @submit.prevent="submitMessage(showHouse.id)" novalidate>
          <div class="mb-3">
             <label class="form-label" for="name">Name</label>
             <input class="form-control" type="text" name="name" id="name" v-model="name">
@@ -110,8 +110,8 @@ export default {
     },
 
     methods : {
-        submitMessage(){
-            console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
+        submitMessage($id){
+            // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
 
             axios.post('/api/messages/', {
                 name : this.name,

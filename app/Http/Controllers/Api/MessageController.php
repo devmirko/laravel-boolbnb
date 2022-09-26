@@ -28,6 +28,7 @@ class MessageController extends Controller
     {
         // validation
         $form_data = $request->all();
+        // $id = $form_data['id'];
         $validation_rules = [
             'name'          => 'required|string|max:100',
             'email'          => 'required|email|max:256',
@@ -37,6 +38,8 @@ class MessageController extends Controller
 	   // $request->validate($validation_rules);
 
        $validator = Validator::make($request->all(), $validation_rules);
+
+
 
         if ($validator->fails()) {
              return response()->json([
