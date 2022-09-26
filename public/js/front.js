@@ -3687,49 +3687,61 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "contenitore bg-dark text-white"
+    staticClass: "bg-dark"
   }, [_c("div", {
-    staticClass: "center titolo"
-  }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
-    staticClass: "center"
+    staticClass: "container bg-dark bg-gradient pt-3 text-white"
+  }, [_c("div", {
+    staticClass: "text-center"
+  }, [_c("h2", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-start mt-3"
+  }, [_c("div", {
+    staticClass: "image"
   }, [_c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
       alt: "Foto della casa"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "dati mt-5 d-flex justify-content-around"
-  }, [_c("b", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("ul", {
+    staticClass: "mx-5"
+  }, [_c("div", {
+    staticClass: "caratteristiche"
+  }, [_c("h5", [_vm._v("Cosa Troverai:")]), _vm._v(" "), _c("div", {
     staticClass: "col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car"
   }, [_c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Rooms: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("STANZE: ")]), _vm._v(" "), _c("div", {
+    staticClass: "mx-3"
+  }, [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Beds: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.beds))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("LETTI: ")]), _vm._v(" "), _c("div", {
+    staticClass: "mx-3"
+  }, [_vm._v(" " + _vm._s(_vm.showHouse.beds))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("address: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("INDIRIZZO: ")]), _vm._v(" "), _c("div", {
+    staticClass: "mx-3"
+  }, [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("MQ: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.mq))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("METRI QUADRATI: ")]), _vm._v(" "), _c("div", {
+    staticClass: "mx-3"
+  }, [_vm._v(" " + _vm._s(_vm.showHouse.mq) + " Mq")])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("Type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])]), _vm._v(" "), _c("li", {
-    staticClass: "d-flex"
-  }, [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Latitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.latitude))])]), _vm._v(" "), _c("li", {
-    staticClass: "d-flex"
-  }, [_c("b", {
-    staticClass: "fst-italic"
-  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _c("div", [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
+  }, [_vm._v("TIPO STRUTTURA: ")]), _vm._v(" "), _c("div", {
+    staticClass: "mx-3"
+  }, [_vm._v(" " + _vm._s(_vm.showHouse.type))])])])])])]), _vm._v(" "), _c("div", {
+    staticClass: "d-flex justify-content-start align-items-center mt-5 pb-5"
+  }, [_vm._m(0), _vm._v(" "), _c("div", {
+    staticClass: "contact"
+  }, [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
     attrs: {
       novalidate: ""
     },
@@ -3828,11 +3840,11 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary",
+    staticClass: "btn btn-primary mt-3",
     attrs: {
       type: "submit"
     }
-  }, [_vm._v("Send")])])])]);
+  }, [_vm._v("Send")])])])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -3840,8 +3852,8 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row"
-  }, [_c("div", {
+    staticClass: "row mx-5"
+  }, [_c("p", [_vm._v("Visualizza la struttura sulla mappa")]), _vm._v(" "), _c("div", {
     attrs: {
       id: "map-div"
     }
@@ -8363,7 +8375,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  border: 2px solid aqua;\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n  -bottom: 10%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  color: black;\n}\nbody[data-v-1ca8e6b5] {\n  height: 90vh;\n  width: 100vh;\n}\n.row[data-v-1ca8e6b5] {\n  display: flex;\n  width: 100%;\n  height: 500px;\n  justify-content: center;\n  margin-top: 50px;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 50%;\n  height: auto;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n  height: auto;\n}\n.row[data-v-1ca8e6b5] {\n  width: 50%;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}\n.contact[data-v-1ca8e6b5] {\n  width: 40%;\n  height: auto;\n  margin-right: 10%;\n}", ""]);
 
 // exports
 
