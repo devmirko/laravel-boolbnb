@@ -5,7 +5,7 @@
     <div class="row-container row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+                <div class="card-header">{{ __('Registrati') }}</div>
 
                 <div class="card-body">
                     {{-- in caso di errore del database --}}
@@ -98,7 +98,7 @@
                         </div>
                        {{-- conferma password --}}
                         <div class="form-group row mb-3">
-                            <label for="Conferma password" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }} *</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Conferma Password') }} *</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password">
@@ -108,7 +108,7 @@
                         <div class="form-group row mb-3">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary" onclick="validationRegister()">
-                                    {{ __('Register') }}
+                                    {{ __('Registrati') }}
                                 </button>
                             </div>
                         </div>
