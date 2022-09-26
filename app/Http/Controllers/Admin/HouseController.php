@@ -14,7 +14,6 @@ class HouseController extends Controller
 {
     public function index( )
     {
-         //if (Auth::id() != $house->user_id) abort(401);
         $houses = House::All()->where('user_id', auth()->user()->id);
 
         return view('admin.houses.index', compact('houses'));
@@ -75,6 +74,7 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
+        if (Auth::id() != $house->user_id) abort(401);
         $messages = Message::all();
         return view('admin.houses.show', [
             'house' => $house,
