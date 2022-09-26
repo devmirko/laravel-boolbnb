@@ -1,5 +1,7 @@
 require('./bootstrap');
 
+
+
 const form_new_house = document.getElementById("form-new-house");
 if (form_new_house) {
     form_new_house.onsubmit = function () {
