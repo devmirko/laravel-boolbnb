@@ -25,7 +25,7 @@
                     <img src="{{ asset ('storage/logo/BBB ext large Alt.png')}}" alt="" height="24">
                 </a>
                 {{-- <a class="navbar-brand" href="{{ route('home') }}">
-                    
+
                     <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
                     <img src="{{ asset ('storage/logo/BBB ext large.png')}}" alt="" height="24">
                 </a> --}}
@@ -36,7 +36,7 @@
             @yield('content')
         </main>
 
-        <footer style="background-color: black" class="text-white">
+        <footer style="background-color: black" class="text-white footer">
             <div class="container-fluid text-center pt-5">
                 <div class="row d-flex justify-content-between">
                     <div class="col-sx-12 col-sm-4 col-lg-4 mb-4">
@@ -71,3 +71,18 @@
 </body>
 
 </html>
+
+<style>
+.navbar {
+    height: 60px;
+}
+
+.footer {
+    height: 170px;
+}
+
+.container {
+    height: calc(100vh - 278px);
+}
+
+</style>
