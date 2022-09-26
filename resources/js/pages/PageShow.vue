@@ -1,4 +1,3 @@
-
 <template>
     <div class="bg-dark">
         <div class="container bg-dark bg-gradient pt-3 text-white">
