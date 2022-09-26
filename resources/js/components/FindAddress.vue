@@ -3,7 +3,7 @@
     <div class="form-group">
         <label class="form-label" for="address">Indirizzo *</label>
         <input required autocomplete="off" @keyup="addressSearch" type="text"
-            class="form-control form-create address-form" name="address" id="query" v-model="searchAddess" />
+            class="form-control form-create address-form" name="address" id="query" v-model="searchAddress" />
         <input type="text" hidden name="latitude" v-model="latitude"/>
         <input type="text" hidden name="longitude" v-model="longitude"/>
         <div class="form-create address-form2" v-show="nameAddress.length > 0">
@@ -26,10 +26,16 @@ export default {
             latitude: null,
             longitude: null,
             nameAddress: [],
-            searchAddess: []
+            searchAddress: []
         };
     },
     mounted() {
+        this.latitude=window.latitude;
+        this.longitude=window.longitude;
+        this.searchAddress=window.address;
+        // console.log(window.latitude);
+        // console.log(window.longitude);
+        // console.log(window.address);
     },
     methods: {
         addressSearch() {
@@ -46,7 +52,7 @@ export default {
             // console.log('log3', this.longitude);
         },
         selectAddress(i) {
-            this.searchAddess = this.nameAddress[i].address.freeformAddress;
+            this.searchAddress = this.nameAddress[i].address.freeformAddress;
             this.latitude = this.nameAddress[i].position.lat;
             this.longitude = this.nameAddress[i].position.lng;
             this.nameAddress = []
