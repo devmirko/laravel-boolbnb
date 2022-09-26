@@ -70,7 +70,7 @@
                 <div class="col-sx-12 col-sm-4 col-lg-4 mb-4 small">
                     <h6>BBB srl</h6>
                     <span>Sede legale :</span>
-                    <em>Via Gennaro capuozzo 21/12</em>
+                    <em>Via Gennaro 21/12</em>
                     <br>
                     <span>P.Iva :</span>
                     <em>12345678</em>
