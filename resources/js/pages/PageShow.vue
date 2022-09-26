@@ -1,97 +1,84 @@
 <template>
-    <div class="contenitore bg-dark text-white">
-        <div class="center titolo">
-            <b>{{ showHouse.name_house }}</b>
-        </div>
+    <div class="bg-dark">
+        <div class="container bg-dark bg-gradient pt-3 text-white">
+            <div class="text-center">
+                <h2>{{ showHouse.name_house }}</h2>
+            </div>
 
-        <div class="center">
-            <img :src="showHouse.cover_photo" alt="Foto della casa">
-        </div>
-        <div class="dati mt-5 d-flex justify-content-around">
-            <b>CARATTERISTICHE:</b>
-            <ul
-                class="col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car">
-                <li class="d-flex">
-                    <b class="fst-italic">Rooms: </b>
-                    <div> {{ showHouse.rooms }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">Beds: </b>
-                    <div> {{ showHouse.beds }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">address: </b>
-                    <div> {{ showHouse.address }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">MQ: </b>
-                    <div> {{ showHouse.mq }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">Type: </b>
-                    <div> {{ showHouse.type }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">Latitude: </b>
-                    <div> {{ showHouse.latitude }}</div>
-                </li>
-                <li class="d-flex">
-                    <b class="fst-italic">Longitude: </b>
-                    <div> {{ showHouse.longitude }}</div>
-                </li>
-            </ul>
-        </div>
-        <div class="row">
-            <div id="map-div"></div>
-        </div>
-        <!-- <div class="center"><b>CONTATTACI</b></div>
-        <div class="bordo">
-            <form action="">
-                <div class="center">
-                    <div>
-                        Inserisci Email:
-                    </div>
-                    <input class="email" type="text">
-                    <button>invia</button>
+            <div>
+                <div class="image">
+                    <img :src="showHouse.cover_photo" alt="Foto della casa">
                 </div>
-                <div class="center">
-                    <div>
-                        Inserisci Testo:
+            </div>
+
+            <div class="d-flex justify-content-around mt-3">
+                <div class="caratteristiche">
+                    <h5>CARATTERISTICHE:</h5>
+                    <div class="col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car">
+                        <li class="d-flex">
+                            <b class="fst-italic">Rooms: </b>
+                            <div> {{ showHouse.rooms }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">Beds: </b>
+                            <div> {{ showHouse.beds }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">address: </b>
+                            <div> {{ showHouse.address }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">MQ: </b>
+                            <div> {{ showHouse.mq }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">Type: </b>
+                            <div> {{ showHouse.type }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">Latitude: </b>
+                            <div> {{ showHouse.latitude }}</div>
+                        </li>
+                        <li class="d-flex">
+                            <b class="fst-italic">Longitude: </b>
+                            <div> {{ showHouse.longitude }}</div>
+                        </li>
                     </div>
-                    <input class="text" type="text">
-                    <button>invia</button>
-
                 </div>
-            </form>
 
-        </div> -->
+                <div class="row">
+                    <div id="map-div"></div>
+                </div>
+            </div>
 
-        <div>
-    <h1>Contact us</h1>
-    <form @submit.prevent="submitMessage(showHouse.id)" novalidate>
-         <div class="mb-3">
-            <label class="form-label" for="name">Name</label>
-            <input class="form-control" type="text" name="name" id="name" v-model="name">
+
+            <div class="center">
+                <h1>Contact us</h1>
+                <form @submit.prevent="submitMessage(showHouse.id)" novalidate>
+                    <div class="mb-3">
+                        <label class="form-label" for="name">Name</label>
+                        <input class="form-control" type="text" name="name" id="name" v-model="name">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="email">Email</label>
+                        <input class="form-control" type="email" name="email" id="email" v-model="email">
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label" for="message">Message</label>
+                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" v-model="message"></textarea>
+                    </div>
+
+                    <div>
+                        <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter" checked>
+                        <label class="form-check-label" for="newsletter">Iscrivimi alla newsletter</label>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary">Send</button>
+                </form>
+            </div>
         </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="email">Email</label>
-            <input class="form-control" type="email" name="email" id="email" v-model="email">
-        </div>
-
-        <div class="mb-3">
-            <label class="form-label" for="message">Message</label>
-            <textarea class="form-control" name="message" id="message" cols="30" rows="10" v-model="message"></textarea>
-        </div>
-
-        <div>
-            <input class="form-check-input" type="checkbox" name="newsletter" id="newsletter" checked>
-            <label class="form-check-label" for="newsletter">Iscrivimi alla newsletter</label>
-        </div>
-
-        <button type="submit" class="btn btn-primary">Send</button>
-    </form>
-  </div>
     </div>
 </template>
 
@@ -161,72 +148,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.image {
-    width: 40%;
 
-    img {
+    .row {
+        display: flex;
         width: 100%;
-    }
-}
-
-.dati {
-    width: 100%;
-}
-
-.center {
-    width: 100%;
-    text-align: center;
-}
-
-.car {
-    list-style-type: none;
-}
-
-.titolo {
-    font-size: xx-large;
-}
-
-.percent30 {
-    width: 20%;
-}
-
-.email {
-    width: 80%;
-}
-
-.text {
-    width: 80%;
-    height: 80px;
-}
-
-.bordo {
-    border: 2px solid aqua;
-    padding: 10px;
-    margin-left: 20%;
-    margin-right: 20%;
-    -bottom: 10%;
-}
-
-.contenitore {
-    color: black
-}
-
-
-body {
-    height: 90vh;
-    width: 100vh;
-}
-
-.row {
-    display: flex;
-    width: 100%;
-    height: 500px;
-    justify-content: center;
-    margin-top: 50px;
-
-    #map-div {
         height: 500px;
-        width: 500px;
+        justify-content: center;
+        margin-top: 50px;
+
+        #map-div {
+            height: 500px;
+            width: 500px;
+        }
     }
-}
 </style>
