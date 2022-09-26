@@ -11,6 +11,7 @@
                     <th>Rooms</th>
                     <th>Beds</th>
                     <th>Bathrooms</th>
+                    <th>Address</th>
                     <th class="actions">Actions</th>
                 </tr>
             </thead>
@@ -22,6 +23,7 @@
                     <td class="text-white">{{ $house->rooms }} </td>
                     <td class="text-white">{{ $house->beds }} </td>
                     <td class="text-white">{{ $house->bathrooms }} </td>
+                    <td class="text-white">{{ $house->address }} </td>
                     <td class="actions">
                         <div class="container">
                             <div class="row">

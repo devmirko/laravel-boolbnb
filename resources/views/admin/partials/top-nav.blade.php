@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light" style="background-color: black">
+<nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light">
     <div class="container-fluid">
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset ('storage/logo/BBB ext large Alt.png')}}" alt="" height="24">
