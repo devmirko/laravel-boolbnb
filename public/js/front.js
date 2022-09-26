@@ -5480,23 +5480,11 @@ __webpack_require__.r(__webpack_exports__);
     return {
       showHouse: [],
       API_KEY: '20u8gZALO9mr83SwluzAwlAqG0wNedfs',
-      name: '',
-      email: '',
-      message: ''
+      contact_name: '',
+      lastname: '',
+      request_text: '',
+      email: ''
     };
-  },
-  methods: {
-    submitMessage: function submitMessage($id) {
-      // console.log('funziona');    //se clicco Send mi stampa 'funziona' nella console
-      axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/messages/', {
-        id: $id,
-        name: this.name,
-        email: this.email,
-        message: this.message
-      }).then(function (res) {
-        return console.log(res.data);
-      });
-    }
   },
   mounted: function mounted() {
     var tomTomScript = document.createElement('script');
@@ -5533,6 +5521,33 @@ __webpack_require__.r(__webpack_exports__);
         console.log(result);
       }
     });
+  },
+  methods: {
+    NewMessage: function NewMessage($id) {
+      var _this2 = this;
+
+      if (this.email != '' && this.request_text != '' && this.contact_name != '' && this.lastname != '') {
+        axios__WEBPACK_IMPORTED_MODULE_0___default.a.post('/api/message', {
+          id: $id,
+          contact_name: this.contact_name,
+          lastname: this.lastname,
+          email: this.email,
+          request_text: this.request_text
+        }).then(function (res) {
+          if (res.data.success) {
+            _this2.email = '';
+            _this2.request_text = '';
+            _this2.contact_name = '';
+            _this2.lastname = '';
+          }
+        })["catch"](function (error) {
+          console.log(error);
+        });
+      } else {
+        alert('compila tutti i campi');
+        return false;
+      }
+    }
   }
 });
 
@@ -6926,107 +6941,107 @@ var render = function render() {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "bg-dark"
+    staticClass: "contenitore bg-dark text-white"
   }, [_c("div", {
-    staticClass: "container bg-dark bg-gradient pt-3 text-white"
-  }, [_c("div", {
-    staticClass: "text-center"
-  }, [_c("h2", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-start mt-3"
-  }, [_c("div", {
-    staticClass: "image"
+    staticClass: "center titolo"
+  }, [_c("b", [_vm._v(_vm._s(_vm.showHouse.name_house))])]), _vm._v(" "), _c("div", {
+    staticClass: "center"
   }, [_c("img", {
     attrs: {
       src: _vm.showHouse.cover_photo,
       alt: "Foto della casa"
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "mx-5"
-  }, [_c("div", {
-    staticClass: "caratteristiche"
-  }, [_c("h5", [_vm._v("Cosa Troverai:")]), _vm._v(" "), _c("div", {
+    staticClass: "dati mt-5 d-flex justify-content-around"
+  }, [_c("b", [_vm._v("CARATTERISTICHE:")]), _vm._v(" "), _c("ul", {
     staticClass: "col-12, col-sm-12, col-md-6, col-lg-6, d-flex, flex-column, justify-content-center, gap-2, order-2, car"
   }, [_c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("STANZE: ")]), _vm._v(" "), _c("div", {
-    staticClass: "mx-3"
-  }, [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("Rooms: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.rooms))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("LETTI: ")]), _vm._v(" "), _c("div", {
-    staticClass: "mx-3"
-  }, [_vm._v(" " + _vm._s(_vm.showHouse.beds))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("Beds: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.beds))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("INDIRIZZO: ")]), _vm._v(" "), _c("div", {
-    staticClass: "mx-3"
-  }, [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("address: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.address))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("METRI QUADRATI: ")]), _vm._v(" "), _c("div", {
-    staticClass: "mx-3"
-  }, [_vm._v(" " + _vm._s(_vm.showHouse.mq) + " Mq")])]), _vm._v(" "), _c("li", {
+  }, [_vm._v("MQ: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.mq))])]), _vm._v(" "), _c("li", {
     staticClass: "d-flex"
   }, [_c("b", {
     staticClass: "fst-italic"
-  }, [_vm._v("TIPO STRUTTURA: ")]), _vm._v(" "), _c("div", {
-    staticClass: "mx-3"
-  }, [_vm._v(" " + _vm._s(_vm.showHouse.type))])])])])])]), _vm._v(" "), _c("div", {
-    staticClass: "d-flex justify-content-start align-items-center mt-5 pb-5"
-  }, [_vm._m(0), _vm._v(" "), _c("div", {
-    staticClass: "contact"
-  }, [_c("h1", [_vm._v("Contact us")]), _vm._v(" "), _c("form", {
-    attrs: {
-      novalidate: ""
-    },
-    on: {
-      submit: function submit($event) {
-        $event.preventDefault();
-        return _vm.submitMessage(_vm.showHouse.id);
-      }
-    }
+  }, [_vm._v("Type: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.type))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Latitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.latitude))])]), _vm._v(" "), _c("li", {
+    staticClass: "d-flex"
+  }, [_c("b", {
+    staticClass: "fst-italic"
+  }, [_vm._v("Longitude: ")]), _vm._v(" "), _c("div", [_vm._v(" " + _vm._s(_vm.showHouse.longitude))])])])]), _vm._v(" "), _vm._m(0), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("div", {
+    staticClass: "bordo"
   }, [_c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "name"
-    }
-  }, [_vm._v("Name")]), _vm._v(" "), _c("input", {
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                        Inserisci nome:\n                    ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.name,
-      expression: "name"
+      value: _vm.contact_name,
+      expression: "contact_name"
     }],
     staticClass: "form-control",
     attrs: {
       type: "text",
-      name: "name",
-      id: "name"
+      placeholder: "inserisci il nome",
+      name: "contact_name",
+      id: "contact_name",
+      minlength: "1",
+      maxlength: "30"
     },
     domProps: {
-      value: _vm.name
+      value: _vm.contact_name
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.name = $event.target.value;
+        _vm.contact_name = $event.target.value;
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "form-label",
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                        Inserisci cognome:\n                    ")]), _vm._v(" "), _c("input", {
+    directives: [{
+      name: "model",
+      rawName: "v-model",
+      value: _vm.lastname,
+      expression: "lastname"
+    }],
+    staticClass: "form-control",
     attrs: {
-      "for": "email"
+      type: "text",
+      placeholder: "inserisci il cognome",
+      name: "lastname",
+      id: "lastname",
+      minlength: "1",
+      maxlength: "30"
+    },
+    domProps: {
+      value: _vm.lastname
+    },
+    on: {
+      input: function input($event) {
+        if ($event.target.composing) return;
+        _vm.lastname = $event.target.value;
+      }
     }
-  }, [_vm._v("Email")]), _vm._v(" "), _c("input", {
+  })]), _vm._v(" "), _c("div", {
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                        Inserisci Email:\n                    ")]), _vm._v(" "), _c("input", {
     directives: [{
       name: "model",
       rawName: "v-model",
@@ -7035,9 +7050,13 @@ var render = function render() {
     }],
     staticClass: "form-control",
     attrs: {
-      type: "email",
+      required: "",
+      type: "text",
+      placeholder: "inserisci la tua email",
       name: "email",
-      id: "email"
+      id: "email",
+      minlength: "1",
+      maxlength: "50"
     },
     domProps: {
       value: _vm.email
@@ -7049,41 +7068,43 @@ var render = function render() {
       }
     }
   })]), _vm._v(" "), _c("div", {
-    staticClass: "mb-3"
-  }, [_c("label", {
-    staticClass: "form-label",
-    attrs: {
-      "for": "message"
-    }
-  }, [_vm._v("Message")]), _vm._v(" "), _c("textarea", {
+    staticClass: "center"
+  }, [_c("div", [_vm._v("\n                        Inserisci Testo:\n                    ")]), _vm._v(" "), _c("textarea", {
     directives: [{
       name: "model",
       rawName: "v-model",
-      value: _vm.message,
-      expression: "message"
+      value: _vm.request_text,
+      expression: "request_text"
     }],
     staticClass: "form-control",
+    staticStyle: {
+      height: "100px"
+    },
     attrs: {
-      name: "message",
-      id: "message",
-      cols: "30",
-      rows: "10"
+      required: "",
+      placeholder: "inserisci la tua richiesta",
+      name: "request_text",
+      id: "email",
+      minlength: "1",
+      maxlength: "500"
     },
     domProps: {
-      value: _vm.message
+      value: _vm.request_text
     },
     on: {
       input: function input($event) {
         if ($event.target.composing) return;
-        _vm.message = $event.target.value;
+        _vm.request_text = $event.target.value;
       }
     }
-  })]), _vm._v(" "), _vm._m(1), _vm._v(" "), _c("button", {
-    staticClass: "btn btn-primary mt-3",
-    attrs: {
-      type: "submit"
+  }), _vm._v(" "), _c("button", {
+    on: {
+      click: function click($event) {
+        $event.preventDefault();
+        return _vm.NewMessage(_vm.showHouse.id);
+      }
     }
-  }, [_vm._v("Send")])])])])])]);
+  }, [_vm._v("invia")])])])]);
 };
 
 var staticRenderFns = [function () {
@@ -7091,8 +7112,8 @@ var staticRenderFns = [function () {
       _c = _vm._self._c;
 
   return _c("div", {
-    staticClass: "row mx-5"
-  }, [_c("p", [_vm._v("Visualizza la struttura sulla mappa")]), _vm._v(" "), _c("div", {
+    staticClass: "row"
+  }, [_c("div", {
     attrs: {
       id: "map-div"
     }
@@ -7101,20 +7122,9 @@ var staticRenderFns = [function () {
   var _vm = this,
       _c = _vm._self._c;
 
-  return _c("div", [_c("input", {
-    staticClass: "form-check-input",
-    attrs: {
-      type: "checkbox",
-      name: "newsletter",
-      id: "newsletter",
-      checked: ""
-    }
-  }), _vm._v(" "), _c("label", {
-    staticClass: "form-check-label",
-    attrs: {
-      "for": "newsletter"
-    }
-  }, [_vm._v("Iscrivimi alla newsletter")])]);
+  return _c("div", {
+    staticClass: "center"
+  }, [_c("b", [_vm._v("CONTATTACI")])]);
 }];
 render._withStripped = true;
 
@@ -12491,7 +12501,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 50%;\n  height: auto;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n  height: auto;\n}\n.row[data-v-1ca8e6b5] {\n  width: 50%;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}\n.contact[data-v-1ca8e6b5] {\n  width: 40%;\n  height: auto;\n  margin-right: 10%;\n}", ""]);
+exports.push([module.i, ".image[data-v-1ca8e6b5] {\n  width: 40%;\n}\n.image img[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.dati[data-v-1ca8e6b5] {\n  width: 100%;\n}\n.center[data-v-1ca8e6b5] {\n  width: 100%;\n  text-align: center;\n}\n.car[data-v-1ca8e6b5] {\n  list-style-type: none;\n}\n.titolo[data-v-1ca8e6b5] {\n  font-size: xx-large;\n}\n.percent30[data-v-1ca8e6b5] {\n  width: 20%;\n}\n.email[data-v-1ca8e6b5] {\n  width: 80%;\n}\n.text[data-v-1ca8e6b5] {\n  width: 80%;\n  height: 80px;\n}\n.bordo[data-v-1ca8e6b5] {\n  padding: 10px;\n  margin-left: 20%;\n  margin-right: 20%;\n  -bottom: 10%;\n}\n.contenitore[data-v-1ca8e6b5] {\n  color: black;\n}\nbody[data-v-1ca8e6b5] {\n  height: 90vh;\n  width: 100vh;\n}\n.row[data-v-1ca8e6b5] {\n  display: flex;\n  width: 100%;\n  height: 500px;\n  justify-content: center;\n  margin-top: 50px;\n}\n.row #map-div[data-v-1ca8e6b5] {\n  height: 500px;\n  width: 500px;\n}", ""]);
 
 // exports
 
