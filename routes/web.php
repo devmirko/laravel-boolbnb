@@ -27,7 +27,7 @@ Route::middleware('auth')
     ->group(function () {
         Route::get('/', 'AdminController@dashboard')->name('dashboard');
         Route::resource('houses', 'HouseController');
-        Route::resource('messages', 'MessageController');
+        Route::resource('messages', 'MessaggiRicevutiController');
     });
 
      Route::get("{any?}", function () {

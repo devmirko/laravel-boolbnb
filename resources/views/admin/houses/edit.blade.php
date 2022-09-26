@@ -79,6 +79,18 @@
             @enderror
         </div>
 
+        {{-- Passaggio dati old da blade a vue --}}
+
+        <span hidden>{{$house->latitude}}</span>
+        <span hidden>{{$house->longitude}}</span>
+        <span hidden>{{$house->address}}</span>
+        <script>
+            window.latitude = @json($house->latitude);
+            window.longitude = @json($house->longitude);
+            window.address = @json($house->address);
+
+        </script>
+        
         {{-- Indirizzo con autocompletamento --}}
         <div class="mb3" id="back">
             <find-address></find-address>
@@ -102,13 +114,37 @@
         {{-- immagini --}}
         <div class="mb-3">
             <label class="form-label" for="cover_photo">Immagine di copertina *</label>
-            <input class="form-control @error('cover_photo') is-invalid @enderror" type="file" name="cover_photo"
-                id="cover_photo" value="{{ old('cover_photo, $house->cover_photo')}}"accept="image/*">
-            @error('cover_photo')
-                <div class="invalid-feedback">
-                    {{ $message }}
+            <div class="container" id='previous_image'>
+                <div class="row">
+                    <div class="col-jg-2 col-md-4 col-sm-12 text-center" >
+                        <img class='img-fluid mb-3' src="{{ asset ('storage/' . $house['cover_photo'] )}}" alt="Immagine di copertina">
+                        {{-- <br>
+                        <button class='mb-3 btn btn-primary mx-auto' onclick="changeCover()">Cambia immagine</button> --}}
+                    </div>
                 </div>
-            @enderror
+            </div>
+            <div class="" id="change_image">
+
+                {{-- debug  --}}
+                {{-- <span>{{$house->cover_photo}}</span>
+                <script>
+                    window.cover_photo = @json($house->cover_photo);
+                </script> --}}
+
+                <input class="form-control @error('cover_photo') is-invalid @enderror" 
+                    type="file" name="cover_photo"
+                    id="cover_photo" 
+                    value="{{$house->cover_photo}}" 
+                    accept="image/*">
+                    <script>
+                        window.cover_photo = @json($house->cover_photo);
+                    </script>
+                @error('cover_photo')
+                    <div class="invalid-feedback">
+                        {{ $message }}
+                    </div>
+                @enderror
+            </div>
         </div>
 
         {{-- visible --}}
@@ -149,13 +185,14 @@
                     <div class="form-check col-4">
                         {{-- <input type="hidden" name="services[]" value="0" /> --}}
                         <input
+                        
                             class="form-check-input"
                             type="checkbox"
                             name="services[]"
                             value="{{ $service->id }}"
-                            id="service{{ $service->id }}">
-                            @if(in_array($service->id, old('services', $house->services->pluck('id')->all()) ?: [])) checked @endif
-                            {{-- @if(in_array($service->id, old('services') ?: [])) checked @endif --}}
+                            id="service{{ $service->id }}"
+                            @if(in_array($service->id, old('services', $house->services->pluck('id')->all()) ?: [])) checked @endif>
+
                         <label class="form-check-label"
                             for="service{{ $service->id }}">{{ $service->name_services }}</label>
                     </div>

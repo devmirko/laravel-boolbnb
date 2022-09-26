@@ -34,17 +34,15 @@ class HouseController extends Controller
         $user_id = Auth::user()->id;
 
         $request->validate([
-            'name_house' => 'required|string|max:100',
-            'rooms' => 'required|numeric|integer|between:1,10|',
-            'beds' => 'required|numeric|integer|between:1,10|',
+            'name_house' => 'required|string|max:50',
+            'rooms' => 'required|numeric|integer|between:1,30|',
+            'beds' => 'required|numeric|integer|between:1,15|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
-            'mq' => 'required|numeric|integer|max:150',
-            // 'services'          => 'nullable|array',
-            // 'services.*'        => 'integer|exists:services,id',
+            'mq' => 'required|numeric|integer|max:500',
             // 'latitude' => 'numeric|integer',
             // 'longitude' => 'numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100',
+            'type' => 'required|string|max:30',
             'cover_photo' => 'required|file|image|max:5000',
             'services' => 'required|array|exists:services,id|min:1',
         ]);
@@ -77,7 +75,11 @@ class HouseController extends Controller
 
     public function show(House $house)
     {
-        return view('admin.houses.show', compact('house'));
+        $messages = Message::all();
+        return view('admin.houses.show', [
+            'house' => $house,
+            'messages' => $messages,
+        ]);
     }
 
     public function edit(House $house)
@@ -91,34 +93,39 @@ class HouseController extends Controller
 
     public function update(Request $request, House $house)
     {
+        if (Auth::id() != $house->user_id) abort(401);
+
         $services = Service::all();
 
         $request->validate([
-            'name_house' => 'required|string|max:100',
-            'rooms' => 'required|numeric|integer|between:1,10|',
-            'beds' => 'required|numeric|integer|between:1,10|',
+            'name_house' => 'required|string|max:50',
+            'rooms' => 'required|numeric|integer|between:1,30|',
+            'beds' => 'required|numeric|integer|between:1,15|',
             'bathrooms' => 'required|numeric|integer|between:1,10|',
-            'mq' => 'required|numeric|integer|max:150',
+            'mq' => 'required|numeric|integer|max:500',
             // 'latitude' => 'required|numeric|integer',
             // 'longitude' => 'required|numeric|integer',
             'address' => 'required|string|max:100',
-            'type' => 'required|string|max:100',
-            'cover_photo' => 'required|file|image|max:5000',
+            'type' => 'required|string|max:30',
+            'cover_photo' => 'file|image|max:5000',
             'services' => 'required|exists:services,id',
 
         ]);
 
         $data = $request->all();
 
-        if ($house->cover_photo) {
-            Storage::delete($house->cover_photo);
+        if (key_exists('cover_photo', $data)) {
+            // eliminare il file precedente se esiste
+            if ($house->cover_photo) {
+                Storage::delete($house->cover_photo);
+            }
+
+            // caricare il nuovo file
+            $img_path = Storage::put('uploads', $data['cover_photo']);
+
+            // aggiornare l'array $data con il percorso del file appena creato
+            $data['cover_photo'] = $img_path;
         }
-
-        // caricare il nuovo file
-        $img_path = Storage::put('uploads', $data['cover_photo']);
-
-       // aggiornare l'array $data con il percorso del file appena creato
-       $data['cover_photo'] = $img_path;
 
         $house = House::find($house->id);
         $house->update($data);
@@ -130,7 +137,7 @@ class HouseController extends Controller
 
         return redirect()->route('admin.houses.index')
 
-            ->with('success', 'House created successfully.');
+            ->with('success', 'Struttura aggiornata correttamente.');
     }
 
     public function destroy(House $house)

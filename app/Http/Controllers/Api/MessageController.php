@@ -1,0 +1,77 @@
+<?php
+
+namespace App\Http\Controllers\Api;
+
+use App\Models\House;
+use App\Models\Message;
+use App\Mail\LeadToLead;
+use App\Mail\LeadToAdmin;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
+
+class MessageController extends Controller
+{
+    public function index()
+    {
+        //
+    }
+
+    public function create()
+    {
+        //
+    }
+
+
+    public function store(Request $request)
+    {
+        // validation
+        $form_data = $request->all();
+        // $id = $form_data['id'];
+        $validation_rules = [
+            'name'          => 'required|string|max:100',
+            'email'          => 'required|email|max:256',
+            'message'       => 'required|string|max:8000',
+        ];
+
+	   // $request->validate($validation_rules);
+
+       $validator = Validator::make($request->all(), $validation_rules);
+
+
+
+        if ($validator->fails()) {
+             return response()->json([
+                'success'   => false,
+                'response'  => $validator->errors(),
+            ]);
+        }
+
+        // salvare nel database
+        $message = Message::create($form_data);
+
+    }
+    public function show(Message $message)
+    {
+        //
+    }
+
+
+    public function edit(Message $message)
+    {
+        //
+    }
+
+
+    public function update(Request $request, Message $message)
+    {
+        //
+    }
+
+
+    public function destroy(Message $message)
+    {
+        //
+    }
+}

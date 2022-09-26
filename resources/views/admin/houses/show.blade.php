@@ -7,6 +7,9 @@
     <p>Numero di bagni: {{$house->bathrooms}}</p>
     <p>Indirizzo: {{$house->address}}</p>
     <p>Tipo di Struttura: {{$house->type}}</p>
+    @foreach ($messages as $messaggio)
+        <p>Messaggi: {{$messaggio->message }}</p>
+    @endforeach
     <img src="{{ asset ('storage/' . $house['cover_photo'] )}}" alt="">
 
     @foreach ($house->services as $service)
