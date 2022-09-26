@@ -2,7 +2,7 @@
 
 @section('mainContent')
     <h1>Inserisci una nuova struttura</h1>
-    <form action="{{ route('admin.houses.store') }}" method="post" novalidate enctype="multipart/form-data" id="form-new-house">
+    <form class="mb-2" action="{{ route('admin.houses.store') }}" method="post" novalidate enctype="multipart/form-data" id="form-new-house">
     
         @csrf
 
@@ -13,7 +13,7 @@
                 id="name_house" value="{{ old('name_house')}}" required
                 placeholder="inserisci il nome"
                 minlength="1"
-                maxlength="15">
+                maxlength="50">
             @error('name_house')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -28,7 +28,7 @@
             @enderror" type="number" name="rooms" id="rooms"
                 value="{{ old('rooms')}}" required
                 min="1"
-                max="10">
+                max="30">
             @error('rooms')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -43,7 +43,7 @@
             @enderror" type="number" name="beds" id="beds"
                 value="{{ old('beds')}}" required
                 min="1"
-                max="10">
+                max="15">
             @error('beds')
                 <div class="invalid-feedback">
                     {{ $message }}
@@ -170,9 +170,12 @@
 
         </fieldset>
 
-        <button type="submit" class="btn btn-primary">Save
+        <button type="submit" class="btn btn-success">Salva
         </button>
     </form>
+    <a href="{{ route('admin.houses.index') }}" class=" my-2">
+        <button class="btn btn-primary btn-block">Indietro</button>
+    </a>
 
     <script src="{{ asset('js/vue.js') }}" defer></script>
 

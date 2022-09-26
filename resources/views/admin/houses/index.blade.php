@@ -6,12 +6,12 @@
         <table class="table table-striped text-white">
             <thead>
                 <tr>
-                    <th>id</th>
-                    <th>Name</th>
-                    <th>Rooms</th>
-                    <th>Beds</th>
-                    <th>Bathrooms</th>
-                    <th class="actions">Actions</th>
+                    <th>ID</th>
+                    <th>Nome struttura</th>
+                    <th class="d-none d-md-table-cell">Stanze</th>
+                    <th class="d-none d-md-table-cell">Posti letto</th>
+                    <th class="d-none d-md-table-cell">Bagni</th>
+                    <th class="actions">Azioni</th>
                 </tr>
             </thead>
             <tbody>
@@ -19,23 +19,23 @@
                 <tr data-id="{{ $house->id }}">
                     <td class="text-white">{{ $house->id }} </td>
                     <td class="text-white">{{ $house->name_house }}</td>
-                    <td class="text-white">{{ $house->rooms }} </td>
-                    <td class="text-white">{{ $house->beds }} </td>
-                    <td class="text-white">{{ $house->bathrooms }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->rooms }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->beds }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->bathrooms }} </td>
                     <td class="actions">
                         <div class="container">
                             <div class="row">
-                                <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="col">
-                                    <button class="btn btn-primary btn-sm btn-block">View</button>
+                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.show', ['house' => $house]) }}">
+                                    <button class="btn btn-primary btn-sm">Mostra</button>
                                 </a>
-                                <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="col">
-                                    <button class="btn btn-warning btn-sm btn-block">Edit</button>
+                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.edit', ['house' => $house]) }}">
+                                    <button class="btn btn-warning btn-sm">Modifica</button>
                                 </a>
-                                <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+                                <form class="col-xs-12 mb-1 col-lg-4" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm btn-block"
-                                    onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')">Delete</button>
+                                    <button type="submit" class="btn btn-danger btn-sm"
+                                    onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')">ELIMINA</button>
                                 </form>
                             </div>
                         </div>
@@ -43,17 +43,16 @@
                 </tr>
             @endforeach
         @else
-                <div class="row">
-                    <h1 class="mt-3 text-center text-white">Non ci sono strutture registrate</h1>
-                    <br>
-                    <a class="text-center text-white" href="{{ route('admin.houses.create') }}">
-                        <button class="mb-3 btn btn-primary">Inserisci struttura</button>
-                    </a>
-                </div>
-        @endif
-
+            <div class="row">
+                <h1 class="mt-3 text-center text-white">Non ci sono strutture registrate</h1>
+                <br>
+            </div>
+        @endif                
     </tbody>
 </table>
+<a class="text-center text-white m-3" href="{{ route('admin.houses.create') }}">
+    <button class="mb-3 btn btn-success">Inserisci una nuova struttura</button>
+</a>
     </div>
 
 @endsection
