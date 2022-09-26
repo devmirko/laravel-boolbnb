@@ -33,23 +33,23 @@
         </div>
     </div>
     <div class="container">
-        <div class="row mx-auto rounded bg-secondary">
-            <div class="col-lg-3 m-2">
+        <div class="row mx-auto rounded bg-secondary col-7 justify-content-evenly text-center">
+            <div class="col-md-4 m-2 mx-auto">
                 <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="">
-                    <button class="btn btn-warning btn-sm btn-block">Modifica i dati</button>
+                    <button class="btn btn-warning btn-block">Modifica</button>
                 </a>
             </div>
 
-            <div class="col-lg-3 m-2">
-                <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+            <div class="col-md-4 m-2 mx-auto">
+                <form class="" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                     @csrf
                     @method('DELETE')
-                    <button type="submit" class="btn btn-danger btn-sm btn-block"
+                    <button type="submit" class="btn btn-danger btn-block"
                     onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')">ELIMINA</button>
                 </form>
             </div>
 
-            <div class="col-lg-3 m-2">
+            <div class="col-md-4 m-2 mx-auto">
                 <a href="{{ route('admin.houses.index', ['house' => $house]) }}" class="">
                     <button class="btn btn-primary btn-block">Indietro</button>
                 </a>
