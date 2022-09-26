@@ -9,7 +9,7 @@
             <div class="col-lg-4 col-md-6 col-xs-12 my-3">
                 <img class="img-fluid rounded" src="{{ asset ('storage/' . $house['cover_photo'] )}}" alt="">
             </div>
-            <div class="col-lg-8 col-md-6 col-xs-12">
+            <div class="col-lg-8 col-md-6 col-xs-12  my-3">
                 <p><b> Indirizzo:</b> {{$house->address}}</p>
                 <p><b>Tipo di Struttura:</b> {{$house->type}}</p>
                 <p><b>Numero di stanze:</b> {{ $house->rooms }}</p>
@@ -33,7 +33,7 @@
         </div>
     </div>
     <div class="container">
-        <div class="row mx-auto rounded bg-secondary col-7 justify-content-evenly text-center">
+        <div class="row mx-auto rounded bg-dark bg-gradient col-7 justify-content-evenly text-center">
             <div class="col-md-4 m-2 mx-auto">
                 <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="">
                     <button class="btn btn-warning btn-block">Modifica</button>

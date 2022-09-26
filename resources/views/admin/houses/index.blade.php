@@ -8,9 +8,9 @@
                 <tr>
                     <th>ID</th>
                     <th>Nome struttura</th>
-                    <th>Stanze</th>
-                    <th>Posti letto</th>
-                    <th>Bagni</th>
+                    <th class="d-none d-md-table-cell">Stanze</th>
+                    <th class="d-none d-md-table-cell">Posti letto</th>
+                    <th class="d-none d-md-table-cell">Bagni</th>
                     <th class="actions">Azioni</th>
                 </tr>
             </thead>
@@ -19,22 +19,22 @@
                 <tr data-id="{{ $house->id }}">
                     <td class="text-white">{{ $house->id }} </td>
                     <td class="text-white">{{ $house->name_house }}</td>
-                    <td class="text-white">{{ $house->rooms }} </td>
-                    <td class="text-white">{{ $house->beds }} </td>
-                    <td class="text-white">{{ $house->bathrooms }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->rooms }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->beds }} </td>
+                    <td class="text-white d-none d-md-table-cell">{{ $house->bathrooms }} </td>
                     <td class="actions">
                         <div class="container">
                             <div class="row">
-                                <a href="{{ route('admin.houses.show', ['house' => $house]) }}" class="col">
-                                    <button class="btn btn-primary btn-sm m-1">Mostra</button>
+                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.show', ['house' => $house]) }}">
+                                    <button class="btn btn-primary btn-sm">Mostra</button>
                                 </a>
-                                <a href="{{ route('admin.houses.edit', ['house' => $house]) }}" class="col">
-                                    <button class="btn btn-warning btn-sm m-1">Modifica</button>
+                                <a class="col-xs-12 mb-1 col-lg-4" href="{{ route('admin.houses.edit', ['house' => $house]) }}">
+                                    <button class="btn btn-warning btn-sm">Modifica</button>
                                 </a>
-                                <form class="col" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
+                                <form class="col-xs-12 mb-1 col-lg-4" action="{{ route('admin.houses.destroy', ['house' => $house]) }}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm m-1"
+                                    <button type="submit" class="btn btn-danger btn-sm"
                                     onclick="return confirm('Sei sicuro di voler eliminare {{$house->name_house}}?')">ELIMINA</button>
                                 </form>
                             </div>
