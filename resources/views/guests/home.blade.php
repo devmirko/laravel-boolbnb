@@ -11,10 +11,12 @@
 
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light" style="background-color: black">
+        <nav class="navbar navbar-expand-lg navbar-expand-sm navbar-light" style="background-color: #993923;">
             <div class="container-fluid">
-                <a class="navbar-brand bg-white" href="{{ route('home') }}">
-                    <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24">
+                <a class="navbar-brand ms-3" href="{{ route('home') }}">
+                    {{-- <img src="https://cdn.discordapp.com/attachments/1013789688995258529/1018927773735207003/Tavola_disegno_13x.png" alt="" width="100%" height="24"> --}}
+                    <img src="{{ asset ('storage/logo/BBB logo large NEG.png')}}" alt="" height="50">
+
                 </a>
 
                 @if (Route::has('login'))
