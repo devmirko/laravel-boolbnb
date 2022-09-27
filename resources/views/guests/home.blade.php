@@ -17,7 +17,7 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-expand navbar-dark bg-dark">
+    <nav class="navbar navbar-height navbar-expand navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('home') }}">
                 <img src="{{ asset('storage/logo/BBB ext large Alt.png') }}" alt="BBB logo" height="24">
@@ -106,3 +106,14 @@
 </body>
 
 </html>
+
+<style>
+    .navbar-height{
+        height: 60px;
+    }
+
+    footer {
+        height: 170px;
+    }
+
+</style>

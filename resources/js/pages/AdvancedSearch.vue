@@ -164,9 +164,10 @@
                             <span>Allarme antincendio</span>
                         </label>
                     </fieldset>
-                </div>
-                <div id="my_btn">
-                    <button @click="onClick" :disabled="setCheckboxes"> Cerca </button>
+                    <div id="my_btn">
+                        <button @click="onClick" :disabled="setCheckboxes"> Cerca </button>
+                    </div>
+
                 </div>
 
                     </li>
@@ -286,6 +287,15 @@
         margin-bottom: 100px;
     }
 
+    #check {
+        background-color: white;
+        padding: 20px;
+        border-radius: 7px;
+    }
+
+    .my_select {
+        color: white;
+    }
 
 
 

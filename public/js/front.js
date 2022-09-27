@@ -6809,7 +6809,7 @@ var render = function render() {
         }
       }, _vm.onChange]
     }
-  }), _vm._v(" "), _c("span", [_vm._v("Allarme antincendio")])])])]), _vm._v(" "), _c("div", {
+  }), _vm._v(" "), _c("span", [_vm._v("Allarme antincendio")])])]), _vm._v(" "), _c("div", {
     attrs: {
       id: "my_btn"
     }
@@ -6820,7 +6820,7 @@ var render = function render() {
     on: {
       click: _vm.onClick
     }
-  }, [_vm._v(" Cerca ")])])])]), _vm._v(" "), _c("div", {
+  }, [_vm._v(" Cerca ")])])])])]), _vm._v(" "), _c("div", {
     staticClass: "d-flex row justify-content-center"
   }, _vm._l(_vm.houses, function (house, index) {
     return _c("CardHouse", {
@@ -12474,7 +12474,7 @@ exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loa
 
 
 // module
-exports.push([module.i, ".container[data-v-0312e533] {\n  color: white;\n}\nul[data-v-0312e533] {\n  color: white;\n}\nli[data-v-0312e533] {\n  margin: 2%;\n  list-style: none;\n}\n.list-group-item[data-v-0312e533] {\n  color: black;\n  margin-bottom: 100px;\n}", ""]);
+exports.push([module.i, ".container[data-v-0312e533] {\n  color: white;\n}\nul[data-v-0312e533] {\n  color: white;\n}\nli[data-v-0312e533] {\n  margin: 2%;\n  list-style: none;\n}\n.list-group-item[data-v-0312e533] {\n  color: black;\n  margin-bottom: 100px;\n}\n#check[data-v-0312e533] {\n  background-color: white;\n  padding: 20px;\n  border-radius: 7px;\n}\n.my_select[data-v-0312e533] {\n  color: white;\n}", ""]);
 
 // exports
 
